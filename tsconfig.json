@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "jsx": "react",
+        "module": "commonjs",
+        "noEmitOnError": true,
+        "noFallthroughCasesInSwitch": false,
+        "noImplicitAny": true,
+        "noImplicitUseStrict": true,
+        "noUnusedLocals": true,
+        "removeComments": false,
+        "sourceMap": true,
+        "target": "es5",
+        "lib": [
+            "es5",
+            "es6",
+            "dom"
+        ],
+        "typeRoots": [
+            "./node_modules/@types"
+        ]
+    },
+    "exclude": [
+        "dist/app.js",
+        "dist/vendor.js",
+        "__tests__/**/*.*"
+    ]
+}
