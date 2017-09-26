@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "robinbentley.sass-indented",
+        "glen-84.sass-lint",
+        "Tyriar.sort-lines",
+        "eg2.tslint",
+        "pmneo.tsimporter",
+        "msjsdiag.debugger-for-chrome"
+    ]
+}

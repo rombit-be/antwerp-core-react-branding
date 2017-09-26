@@ -15,6 +15,10 @@ This project has different main folders.
 ### Setup
 Install Webpack Dev Server: `yarn global add webpack-dev-server`
 
+## Development flow
+The development can easily be done via the Webpack Dev Server. This server spins up an ExpressJS server
+with hot reloading included. Just run `yarn start` and go to http://localhost:8080/;
+
 ## References
 - Antwerp Core React branding Demo site: https://a-ui.github.io/core_branding_scss/
 - Github repository: https://github.com/a-ui/core_branding_scss

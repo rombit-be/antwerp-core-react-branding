@@ -7,13 +7,15 @@
 var path = require("path");
 var webpack = require("webpack");
 var package = require(path.join(__dirname, "/package.json"));
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+var isProduction = (JSON.stringify(process.env.NODE_ENV || "development") === "production");
 
 var config = {
     context: path.join(__dirname),
     entry: {
         vendor: [
             "webpack/hot/dev-server",
-            "webpack-hot-middleware/client",
             "react",
             "react-dom",
         ],
@@ -27,6 +29,13 @@ var config = {
         hotUpdateMainFilename: "[hash].hot-update.json",
         path: __dirname + "/dist/",
         publicPath: "/dist/",
+    },
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js'],
+        modules: [
+            path.join(__dirname, "./src/base"),
+            'node_modules',
+        ]
     },
     devtool: "source-map",
     module: {
@@ -43,16 +52,6 @@ var config = {
                 loader: 'tslint-loader',
                 exclude: /(node_modules)/,
             },
-            // All files with a ".ts" or ".tsx" extension will be handled by "ts-loader".
-            // Note that babel-loader is configured to run after ts-loader
-            {
-                test: /\.(eot|svg|ttf|woff|woff2)$/,
-                loader: 'file-loader?name=../fonts/[name].[ext]'
-            },
-            {
-                test: /\.(png|jpg|svg)/,
-                loader: "file-loader?name=../images/[name].[ext]"
-            },
             {
                 test: /\.ts(x?)$/,
                 use: ["ts-loader"],
@@ -60,22 +59,38 @@ var config = {
             },
             // Styling should be last so we can easily replace them for production.
             {
-                test: /\.css$/,
-                loader: [
-                    { loader: "style-loader" },
-                    { loader: "css-loader", options: { sourceMap: true } }
-                ]
+                test: /\.(scss|sass|css)$/i,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        { loader: 'css-loader', options: { minimize: isProduction } },
+                        'resolve-url-loader',
+                        { loader: 'sass-loader', options: { sourceMap: true } }
+                    ]
+                })
             },
             {
-                test: /\.scss$/,
-                loader: [
-                    { loader: "style-loader" },
-                    { loader: "css-loader", options: { sourceMap: true } },
-                    { loader: "sass-loader", options: { sourceMap: true } }
-                ]
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                loader: 'file-loader'
+            },
+            {
+                test: /\.(png|jpg|svg)/,
+                loader: "file-loader"
             },
         ],
     },
+    plugins: [
+        new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+        new ExtractTextPlugin("style.css"),
+        // Define the environment variables
+        new webpack.DefinePlugin({
+            "Config": {
+                "production": isProduction,
+                "version": JSON.stringify(package.version),
+            },
+        }),
+    ],
 };
 
 module.exports = config;

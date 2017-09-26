@@ -1,0 +1,15 @@
+@import '../../base/src/styles/quarks';
+
+.stylesection {
+    border-bottom: 1px solid $color-primary;
+    margin: $spacer / 2;
+    padding: $spacer / 2;
+
+    h2 {
+        margin-bottom: $spacer;
+    }
+
+    .stylesection-body {
+        margin-bottom: $spacer * 2;
+    }
+}

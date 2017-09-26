@@ -27,5 +27,7 @@
     "editor.tabCompletion": true,
     "files.autoSave": "onFocusChange",
     "tsimporter.doubleQuotes": true,
-    "tslint.autoFixOnSave": true
+    "tslint.autoFixOnSave": true,
+    "sasslint.enable": true,
+    "sasslint.configFile": ".sass-lint.yml"
 }
