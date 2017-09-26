@@ -42,20 +42,20 @@ var config = {
         rules: [
             // All output ".js" files will have any sourcemaps re-processed by "source-map-loader".
             {
-                test: /\.js$/,
-                loader: "source-map-loader",
                 enforce: "pre",
+                loader: "source-map-loader",
+                test: /\.js$/,
             },
             {
                 enforce: 'pre',
-                test: /\.tsx?$/,
+                exclude: [/(node_modules)/, /(\.spec\.tsx?)/],
                 loader: 'tslint-loader',
-                exclude: /(node_modules)/,
+                test: /\.tsx?$/,
             },
             {
+                exclude: /__tests__/,
                 test: /\.ts(x?)$/,
                 use: ["ts-loader"],
-                exclude: /__tests__/
             },
             // Styling should be last so we can easily replace them for production.
             {

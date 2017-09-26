@@ -1,15 +1,30 @@
 @import '../../base/src/styles/quarks';
 
 .stylesection {
-    border-bottom: 1px solid $color-primary;
+    border-bottom: 1px solid $brand-primary;
     margin: $spacer / 2;
     padding: $spacer / 2;
 
     h2 {
-        margin-bottom: $spacer;
+        margin-bottom: $spacer !important;
+    }
+
+    h3 {
+        margin-top: $spacer;
     }
 
     .stylesection-body {
-        margin-bottom: $spacer * 2;
+        margin-bottom: $spacer;
+    }
+
+    pre {
+        text-align: left !important;
+        font-size: 0.9rem;
+    }
+
+    .demo-example {
+        border-left: 1px solid $brand-secondary;
+        margin: $spacer / 2;
+        padding: $spacer / 2;
     }
 }

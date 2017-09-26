@@ -6,3 +6,4 @@ rules:
     - 4
     -
       max-depth: 8
+  no-important: 0

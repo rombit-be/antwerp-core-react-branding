@@ -26,8 +26,9 @@
     "editor.minimap.enabled": true,
     "editor.tabCompletion": true,
     "files.autoSave": "onFocusChange",
+    "sasslint.configFile": ".sass-lint.yml",
+    "sasslint.enable": true,
     "tsimporter.doubleQuotes": true,
     "tslint.autoFixOnSave": true,
-    "sasslint.enable": true,
-    "sasslint.configFile": ".sass-lint.yml"
+    "tslint.configFile": "tsconfig.json"
 }

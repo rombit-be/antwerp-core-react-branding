@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --content-base src/test",
-    "test": "jest"
+    "test": "jest --config jest.config.json"
   },
   "repository": {
     "type": "git",
@@ -25,15 +25,18 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/rombit/antwerp-core-react-branding#readme",
   "dependencies": {
+    "classnames": "^2.2.5",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "susy": "^3.0.1",
     "typescript": "^2.5.2"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.3",
     "@types/enzyme": "^2.8.8",
     "@types/jest": "^21.1.0",
     "@types/react-dom": "^15.5.4",
+    "@types/react-test-renderer": "^15.5.4",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
@@ -41,6 +44,7 @@
     "jest": "^21.1.0",
     "jest-cli": "^21.1.0",
     "node-sass": "^4.5.3",
+    "react-test-renderer": "^15.6.2",
     "resolve-url-loader": "^2.1.0",
     "sass-lint": "^1.11.1",
     "sass-loader": "^6.0.6",

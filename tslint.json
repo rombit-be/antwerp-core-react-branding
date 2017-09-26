@@ -3,10 +3,10 @@
     "rulesDirectory": "node_modules/tslint-microsoft-contrib",
     "rule": {
         "interface-over-type-literal": false,
-        "max-line-length": {
-            "options": [
-                140
-            ]
-        }
+        "ordered-imports": "any",
+        "max-line-length": [
+            true,
+            140
+        ]
     }
 }

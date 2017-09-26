@@ -1,7 +1,6 @@
 {
     "compilerOptions": {
         "allowJs": true,
-        "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true,
         "jsx": "react",
         "module": "commonjs",
@@ -24,7 +23,6 @@
     },
     "exclude": [
         "dist/app.js",
-        "dist/vendor.js",
-        "__tests__/**/*.*"
+        "dist/vendor.js"
     ]
 }

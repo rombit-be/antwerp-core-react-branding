@@ -1,7 +1,12 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import * as A from "../lib";
+import BackgroundComponents from "./components/background";
+import LayoutComponents from "./components/layout";
+import SpacingComponents from "./components/spacing";
+import TextComponents from "./components/text";
 import "./index.scss";
+import BadgeComponents from "./components/badge";
+import ButtonComponents from "./components/button";
 
 const mountId = "mount";
 
@@ -11,6 +16,11 @@ ReactDOM.render((
         <header>
             <h1>Overview of the different stylings</h1>
         </header>
-        <A.Paragraph type="u-text-bold">bla</A.Paragraph>
+        <TextComponents />
+        <BackgroundComponents />
+        <LayoutComponents />
+        <SpacingComponents />
+        <BadgeComponents />
+        <ButtonComponents />
     </article>
 ), document.getElementById(mountId));
