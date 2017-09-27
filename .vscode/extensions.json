@@ -5,6 +5,7 @@
         "Tyriar.sort-lines",
         "eg2.tslint",
         "pmneo.tsimporter",
-        "msjsdiag.debugger-for-chrome"
+        "msjsdiag.debugger-for-chrome",
+        "rbbit.typescript-hero"
     ]
 }

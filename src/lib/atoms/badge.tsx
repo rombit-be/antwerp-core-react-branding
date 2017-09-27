@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { Levels } from "../common/levels";
 
 export type BadgeProperties = {

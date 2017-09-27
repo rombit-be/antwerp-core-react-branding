@@ -1,5 +1,6 @@
 import * as classNames from "classnames";
 import * as React from "react";
+
 import { StyleProperties } from "../common/properties";
 
 // Define the types and properties

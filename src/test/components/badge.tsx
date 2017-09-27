@@ -1,8 +1,9 @@
 import * as React from "react";
+
 import * as A from "../../lib";
 import StyleSection from "../common/styleSection";
-import mapEnum from "../util/mapEnum";
 import lookupEnumValue from "../util/lookupEnumValue";
+import mapEnum from "../util/mapEnum";
 
 /**
  * React Component name
@@ -11,7 +12,7 @@ export default class BadgeComponents extends React.Component<{}, {}> {
 
     private sectionProps: any = {
         example: `<A.Badge type={A.Levels.Success} value={10} />`,
-        title: "Badges"
+        title: "Badges",
     };
 
     public render(): any {

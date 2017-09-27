@@ -1,6 +1,7 @@
-import * as React from "react";
-import { Levels } from "../common/levels";
 import * as classNames from "classnames";
+import * as React from "react";
+
+import { Levels } from "../common/levels";
 import { StyleProperties } from "../common/properties";
 
 export enum ButtonSize {
@@ -42,7 +43,7 @@ export class Button extends React.Component<Properties, {}> {
                 className={this.className()}
                 style={this.props.style}
             >
-                {this.props.text}
+                {this.props.text} {this.props.children}
             </button>
         );
     }
@@ -52,9 +53,9 @@ export class Button extends React.Component<Properties, {}> {
             this.props.type && this.props.type !== ButtonType.Default ? `a-button-${this.props.type}` : "a-button",
             this.props.level ? `a-button--${this.props.level}` : "",
             this.props.size ? `a-button--${this.props.size}` : "",
-            { "disabled": this.props.disabled },
+            { disabled: this.props.disabled },
             this.props.className,
-        )
+        );
     }
 
     private onClick(e: React.MouseEvent<HTMLButtonElement>): void {

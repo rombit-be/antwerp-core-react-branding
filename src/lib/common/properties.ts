@@ -3,4 +3,4 @@
  */
 export type StyleProperties = {
     style?: any;
-}
+};

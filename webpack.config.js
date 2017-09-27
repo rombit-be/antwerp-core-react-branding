@@ -51,6 +51,7 @@ var config = {
                 exclude: [/(node_modules)/, /(\.spec\.tsx?)/],
                 loader: 'tslint-loader',
                 test: /\.tsx?$/,
+                options: { configFile: "tslint.json" }
             },
             {
                 exclude: /__tests__/,

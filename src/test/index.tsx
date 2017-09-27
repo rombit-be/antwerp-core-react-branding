@@ -1,12 +1,14 @@
+import "./index.scss";
+
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+
 import BackgroundComponents from "./components/background";
+import BadgeComponents from "./components/badge";
+import ButtonComponents from "./components/button";
 import LayoutComponents from "./components/layout";
 import SpacingComponents from "./components/spacing";
 import TextComponents from "./components/text";
-import "./index.scss";
-import BadgeComponents from "./components/badge";
-import ButtonComponents from "./components/button";
 
 const mountId = "mount";
 

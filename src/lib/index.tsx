@@ -3,7 +3,9 @@ import "./index.scss";
 
 // Enums
 export * from "./common/levels";
+export * from "./common/locations";
 export * from "./common/mainColors";
+export * from "./common/sizes";
 
 // Text objects
 export * from "./text/paragraph";
@@ -11,6 +13,15 @@ export * from "./text/paragraph";
 // Atoms
 export * from "./atoms/badge";
 export * from "./atoms/button";
+export * from "./atoms/iconbutton";
+
+// Atoms / form
+export * from "./atoms/form/form";
+export * from "./atoms/form/fieldset";
+export * from "./atoms/form/input";
+export * from "./atoms/form/typedInputs";
+export * from "./atoms/form/checkboxes";
+export * from "./atoms/form/radiobuttons";
 
 // Utilities
 export * from "./utilities/background";

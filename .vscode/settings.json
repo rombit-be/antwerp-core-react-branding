@@ -26,9 +26,10 @@
     "editor.minimap.enabled": true,
     "editor.tabCompletion": true,
     "files.autoSave": "onFocusChange",
-    "sasslint.configFile": ".sass-lint.yml",
+    "sasslint.configFile": "./sass-lint.yml",
     "sasslint.enable": true,
     "tsimporter.doubleQuotes": true,
     "tslint.autoFixOnSave": true,
-    "tslint.configFile": "tsconfig.json"
+    "typescriptHero.resolver.organizeOnSave": true,
+    "typescriptHero.resolver.stringQuoteStyle": "\""
 }

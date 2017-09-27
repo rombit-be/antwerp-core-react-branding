@@ -4,11 +4,11 @@ export default function lookupEnumValue(e: any, value: any): any {
             return e[value];
         } else {
             let lookupValue: any;
-            Object.keys(e).forEach(x => {
+            Object.keys(e).forEach((x) => {
                 if (!lookupValue && e[x] === value) {
                     lookupValue = x;
                 }
-            })
+            });
             return lookupValue;
         }
     }
