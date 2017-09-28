@@ -25,6 +25,7 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/rombit/antwerp-core-react-branding#readme",
   "dependencies": {
+    "autoprefixer": "^7.1.4",
     "classnames": "^2.2.5",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -44,6 +45,7 @@
     "jest": "^21.1.0",
     "jest-cli": "^21.1.0",
     "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.6",
     "react-test-renderer": "^15.6.2",
     "resolve-url-loader": "^2.1.0",
     "sass-lint": "^1.11.1",

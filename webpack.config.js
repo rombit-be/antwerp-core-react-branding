@@ -6,6 +6,7 @@
 // Requirements
 var path = require("path");
 var webpack = require("webpack");
+var autoprefixer = require("autoprefixer");
 var package = require(path.join(__dirname, "/package.json"));
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
@@ -65,8 +66,15 @@ var config = {
                     fallback: 'style-loader',
                     use: [
                         { loader: 'css-loader', options: { minimize: isProduction } },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                plugins: function () { return [autoprefixer] },
+                                sourceMap: !isProduction,
+                            },
+                        },
                         'resolve-url-loader',
-                        { loader: 'sass-loader', options: { sourceMap: true } }
+                        { loader: 'sass-loader', options: { sourceMap: !isProduction } },
                     ]
                 })
             },
