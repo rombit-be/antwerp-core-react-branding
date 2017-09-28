@@ -53,7 +53,7 @@ export class Checkboxes extends React.Component<Properties, {}> {
 
     private className(): string {
         return classNames(
-            "a-input" + this.props.inline ? "--inline" : "",
+            "a-input" + (this.props.inline ? "--inline" : ""),
             { "is-required": this.props.required },
         );
     }

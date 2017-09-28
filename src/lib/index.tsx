@@ -16,12 +16,13 @@ export * from "./atoms/button";
 export * from "./atoms/iconbutton";
 
 // Atoms / form
-export * from "./atoms/form/form";
-export * from "./atoms/form/fieldset";
-export * from "./atoms/form/input";
-export * from "./atoms/form/typedInputs";
 export * from "./atoms/form/checkboxes";
+export * from "./atoms/form/fieldset";
+export * from "./atoms/form/form";
+export * from "./atoms/form/input";
 export * from "./atoms/form/radiobuttons";
+export * from "./atoms/form/select";
+export * from "./atoms/form/typedInputs";
 
 // Utilities
 export * from "./utilities/background";

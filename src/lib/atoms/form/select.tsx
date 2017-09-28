@@ -1,6 +1,7 @@
 import * as classNames from "classnames";
 import * as React from "react";
 
+import Icon from "../../utilities/icon";
 import { inputElementId } from "./id";
 import { InputProperties } from "./inputProperties";
 import { Label } from "./label";
@@ -19,9 +20,12 @@ export class Select extends React.Component<Properties, {}> {
         return (
             <div className={this.className()}>
                 <Label {...this.props} />
-                <select id={this.id()} {...this.props as any}>
-                    {this.renderOptions()}
-                </select>
+                <div className="a-input__wrapper">
+                    <select id={this.id()} {...this.props as any}>
+                        {this.renderOptions()}
+                    </select>
+                    <Icon name="angle-down" span />
+                </div>
                 {this.renderDescription()}
             </div>
         );
@@ -31,9 +35,10 @@ export class Select extends React.Component<Properties, {}> {
         return this.props.options
             .map((x, i) => (
                 <option
-                    selected={this.isSelected(i)}
                     disabled={x.disabled}
                     id={this.optionId(i)}
+                    key={i}
+                    selected={this.isSelected(i)}
                     value={x.value}
                 >
                     {x.label}
@@ -54,7 +59,8 @@ export class Select extends React.Component<Properties, {}> {
 
     private className(): string {
         return classNames(
-            "a-input" + this.props.inline ? "--inline" : "",
+            "a-input" + (this.props.inline ? "--inline" : ""),
+            "has-icon-right",
             { "is-required": this.props.required },
         );
     }

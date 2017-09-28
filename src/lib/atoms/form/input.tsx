@@ -69,7 +69,7 @@ export class Input extends React.Component<Properties, {}> {
     private className(): string {
         const meta: FieldMetaProperties = this.props.meta || {};
         return classNames(
-            "a-input" + this.props.inline ? "--inline" : "",
+            "a-input" + (this.props.inline ? "--inline" : ""),
             { "is-required": this.props.required },
             this.props.iconLocation ? `has-icon-${this.props.iconLocation}` : "",
             { "has-success": !meta.pristine && meta.valid },

@@ -10,11 +10,15 @@ type Properties = FieldsetProperties;
 export class Fieldset extends React.Component<Properties, {}> {
 
     public render(): any {
+        const props: any = { ...this.props };
+        delete props.legend;
+
         return (
             <fieldset
-                {...this.props}
+                {...props}
             >
                 {this.renderLegend()}
+                {this.props.children}
             </fieldset>
         );
     }

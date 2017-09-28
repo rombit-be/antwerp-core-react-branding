@@ -24,11 +24,11 @@ export class Label extends React.Component<Properties, {}> {
 
     private className(): string {
         return classNames(
-            "a-input__label" + this.props.inline ? "--inline" : "",
+            "a-input__label" + (this.props.inline ? "--inline" : ""),
         );
     }
 
     private for(): string {
-        return this.props.for ||  inputElementId(this.props as any);
+        return this.props.for || inputElementId(this.props as any);
     }
 }
