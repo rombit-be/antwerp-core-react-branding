@@ -51,13 +51,13 @@ export default class ButtonComponents extends React.Component<{}, {}> {
     }
 
     private renderbySize(): JSX.Element[] {
-        return mapEnum(A.ButtonSize)
+        return mapEnum(A.Sizes)
             .map((x, i) => {
                 if (!x) { x = "default"; }
                 return (
                     <div key={i}>
-                        <pre>type: {lookupEnumValue(A.ButtonSize, x)}</pre>
-                        <A.Button size={x} text={`Some button ${lookupEnumValue(A.ButtonSize, x)}`} />
+                        <pre>type: {lookupEnumValue(A.Sizes, x)}</pre>
+                        <A.Button size={x} text={`Some button ${lookupEnumValue(A.Sizes, x)}`} />
                     </div>
                 );
             });

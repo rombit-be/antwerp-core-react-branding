@@ -1,27 +1,59 @@
 import * as classNames from "classnames";
 import * as React from "react";
 
+import { FormLabel } from "./formlabel";
 import { InputProperties } from "./inputProperties";
-import { Label } from "./label";
 
-export type CheckboxOption = { label: string | JSX.Element, name: string, disabled?: boolean };
+export type CheckboxOption = { label: string | JSX.Element, value: string, disabled?: boolean };
 export type CheckboxesProperties = { options: CheckboxOption[] } & InputProperties<string[]>;
 
 type Properties = CheckboxesProperties;
+type LocalState = { values: string[], isDirty: boolean };
 
 /**
  * Atoms: Checkboxgroup element
  */
-export class Checkboxes extends React.Component<Properties, {}> {
+export class Checkboxes extends React.Component<Properties, LocalState> {
+
+    public constructor(props: Properties) {
+        super(props);
+        this.state = {
+            isDirty: false,
+            values: props.value || [],
+        };
+    }
 
     public render(): any {
         return (
             <div className={this.className()}>
-                <Label {...this.props} />
+                <FormLabel {...this.props} />
                 {this.renderCheckBoxes()}
                 {this.renderDescription()}
             </div>
         );
+    }
+
+    public componentWillReceiveProps(nextProps: Properties): void {
+        if (this.state.isDirty) {
+            if (this.state.values.length > 0) {
+                const remove: string[] = [];
+                this.state.values.forEach((x) => {
+                    // The value doesn't exist anymore, remove it
+                    if (nextProps.value.indexOf(x) === -1) {
+                        // Mark to remove
+                        remove.push(x);
+                    }
+                });
+
+                // Remove all values marked to be removed
+                if (remove.length > 0) {
+                    const values: string[] = this.state.values.filter((x) => remove.indexOf(x) === -1);
+                    this.setState({ values });
+                }
+            }
+        } else {
+            this.setState({ values: nextProps.value });
+        }
     }
 
     private renderCheckBoxes(): JSX.Element[] {
@@ -33,11 +65,36 @@ export class Checkboxes extends React.Component<Properties, {}> {
                         disabled={x.disabled}
                         id={this.id(i)}
                         name={this.props.name}
+                        onChange={(e) => this.onChange(e)}
                         type="checkbox"
+                        value={x.value}
                     />
-                    <Label for={this.id(i)} label={x.label} />
+                    <FormLabel for={this.id(i)} label={x.label} />
                 </div >
             ));
+    }
+
+    private onChange(event: React.ChangeEvent<HTMLInputElement>): void {
+        const value = event.target.value;
+        const values = this.state.values;
+
+        // Handle the internal state
+        if (event.target.checked && values.indexOf(value) === -1) {
+            values.push(value);
+            this.setState({
+                isDirty: true,
+                values,
+            });
+        } else {
+            this.setState({
+                values: values.filter((x) => x !== value),
+            });
+        }
+
+        // Bubble the onchange event
+        if (this.props.onChange) {
+            this.props.onChange(event);
+        }
     }
 
     private renderDescription(): JSX.Element {
@@ -59,10 +116,10 @@ export class Checkboxes extends React.Component<Properties, {}> {
     }
 
     private isChecked(i: number): boolean {
-        return (this.props.value || []).indexOf(this.props.options[i].name) > -1;
+        return (this.state.values).indexOf(this.props.options[i].value) > -1;
     }
 
     private id(i: number): string {
-        return `${this.props.required ? "required-" : ""}-checkbox-${this.props.name}-${i}`;
+        return `${this.props.required ? "required-" : ""}checkbox-${this.props.name}-${i}`;
     }
 }

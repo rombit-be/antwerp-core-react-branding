@@ -21,13 +21,16 @@ export default class FormComponents extends React.Component<{}, {}> {
                     <A.DateTimeInput name="datetime" label="Date/Time input" />
                 </A.Fieldset>
                 <A.Fieldset legend="Complex types">
-                    <A.Select options={this.selectionOptions()} name="select" label="A dropdown" />
+                    <A.Select options={this.options()} name="select" label="A dropdown" />
+                    <A.Checkboxes options={this.options()} name="checkboxes" label="A checkbox group" />
+                    <A.Radiobuttons options={this.options()} name="radiobuttons" label="A radio group" />
+                    <A.TextArea label="Textarea" name="textarea" />
                 </A.Fieldset>
             </StyleSection >
         );
     }
 
-    private selectionOptions(): SelectOption[] {
+    private options(): SelectOption[] {
         return [0, 1, 2, 3, 4]
             .map((x) => x + 1)
             .map((x) => ({ label: `Option ${x}`, value: x.toString() }));

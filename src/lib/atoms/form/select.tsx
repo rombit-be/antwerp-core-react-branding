@@ -2,9 +2,9 @@ import * as classNames from "classnames";
 import * as React from "react";
 
 import Icon from "../../utilities/icon";
+import { FormLabel } from "./formlabel";
 import { inputElementId } from "./id";
 import { InputProperties } from "./inputProperties";
-import { Label } from "./label";
 
 export type SelectOption = { label: string | JSX.Element, value: string, disabled?: boolean };
 export type SelectProperties = { options: SelectOption[] } & InputProperties<string>;
@@ -17,11 +17,16 @@ type Properties = SelectProperties;
 export class Select extends React.Component<Properties, {}> {
 
     public render(): any {
+        // Clean the select props
+        const props: any = { ...this.props };
+        delete props.options;
+        delete props.value;
+
         return (
             <div className={this.className()}>
-                <Label {...this.props} />
+                <FormLabel {...this.props} />
                 <div className="a-input__wrapper">
-                    <select id={this.id()} {...this.props as any}>
+                    <select id={this.id()} {...props}>
                         {this.renderOptions()}
                     </select>
                     <Icon name="angle-down" span />
@@ -38,8 +43,6 @@ export class Select extends React.Component<Properties, {}> {
                     disabled={x.disabled}
                     id={this.optionId(i)}
                     key={i}
-                    selected={this.isSelected(i)}
-                    value={x.value}
                 >
                     {x.label}
                 </option>
@@ -63,10 +66,6 @@ export class Select extends React.Component<Properties, {}> {
             "has-icon-right",
             { "is-required": this.props.required },
         );
-    }
-
-    private isSelected(i: number): boolean {
-        return this.props.options[i].value === this.props.value;
     }
 
     private optionId(i: number): string {

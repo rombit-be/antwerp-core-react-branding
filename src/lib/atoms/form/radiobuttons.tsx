@@ -1,41 +1,78 @@
 import * as classNames from "classnames";
 import * as React from "react";
 
+import { FormLabel } from "./formlabel";
 import { InputProperties } from "./inputProperties";
-import { Label } from "./label";
 
-export type RadiobuttonOption = { label: string | JSX.Element, name: string, disabled?: boolean };
+export type RadiobuttonOption = { label: string | JSX.Element, value: string, disabled?: boolean };
 export type RadiobuttonProperties = { options: RadiobuttonOption[] } & InputProperties<string>;
 
 type Properties = RadiobuttonProperties;
+type LocalState = { value: string, isDirty: boolean };
 
 /**
  * Atoms: Radiobutton group element
  */
-export class Radiobuttons extends React.Component<Properties, {}> {
+export class Radiobuttons extends React.Component<Properties, LocalState> {
+
+    public constructor(props: Properties) {
+        super(props);
+        this.state = {
+            isDirty: false,
+            value: props.value,
+        };
+    }
 
     public render(): any {
         return (
             <div className={this.className()}>
-                <Label {...this.props} />
-                {this.renderCheckBoxes()}
+                <FormLabel {...this.props} />
+                {this.renderRadiobuttons()}
                 {this.renderDescription()}
             </div>
         );
     }
 
-    private renderCheckBoxes(): JSX.Element[] {
+    public componentWillReceiveProps(nextProps: Properties): void {
+        if (this.state.isDirty) {
+            if (nextProps.options.map((x) => x.value).indexOf(this.state.value) === -1) {
+                this.setState({ isDirty: false, value: "" });
+            }
+
+            if (this.state.value !== nextProps.value) {
+                this.setState({ value: nextProps.value });
+            }
+        } else {
+            this.setState({ value: nextProps.value });
+        }
+    }
+
+    private onChange(event: React.ChangeEvent<HTMLInputElement>): void {
+        // Handle the internal state
+        this.setState({
+            value: event.target.value,
+        });
+
+        // Bubble the onchange event
+        if (this.props.onChange) {
+            this.props.onChange(event);
+        }
+    }
+
+    private renderRadiobuttons(): JSX.Element[] {
         return this.props.options
             .map((x, i) => (
-                <div className="a-input__checkbox" key={this.id(i)}>
+                <div className="a-input__radio" key={this.id(i)}>
                     <input
                         checked={this.isChecked(i)}
                         disabled={x.disabled}
                         id={this.id(i)}
                         name={this.props.name}
+                        onChange={(e) => this.onChange(e)}
                         type="radio"
+                        value={x.value}
                     />
-                    <Label for={this.id(i)} label={x.label} />
+                    <FormLabel for={this.id(i)} label={x.label} />
                 </div >
             ));
     }
@@ -59,10 +96,10 @@ export class Radiobuttons extends React.Component<Properties, {}> {
     }
 
     private isChecked(i: number): boolean {
-        return this.props.options[i].name === this.props.value;
+        return this.props.options[i].value === this.state.value;
     }
 
     private id(i: number): string {
-        return `${this.props.required ? "required-" : ""}-checkbox-${this.props.name}-${i}`;
+        return `${this.props.required ? "required-" : ""}radiobutton-${this.props.name}-${i}`;
     }
 }

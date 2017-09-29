@@ -47,6 +47,7 @@ export type InputProperties<T> = {
     onDragStart?: (e: React.SyntheticEvent<HTMLInputElement>) => void;
     onDrop?: (e: React.SyntheticEvent<HTMLInputElement>) => void;
     onFocus?: (e: React.SyntheticEvent<HTMLInputElement>) => void;
+    onIconClick?: (e: React.SyntheticEvent<HTMLElement>) => void;
     placeholder?: string;
     required?: boolean;
     value?: T;

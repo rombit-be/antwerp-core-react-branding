@@ -3,9 +3,9 @@ import * as React from "react";
 
 import { Location } from "../../common/locations";
 import Icon from "../../utilities/icon";
+import { FormLabel } from "./formlabel";
 import { inputElementId } from "./id";
 import { FieldMetaProperties, InputTypes, TypedInputProperties } from "./inputProperties";
-import { Label } from "./label";
 
 type Properties = TypedInputProperties;
 
@@ -17,7 +17,7 @@ export class Input extends React.Component<Properties, {}> {
     public render(): any {
         return (
             <div className={this.className()}>
-                <Label {...this.props} />
+                <FormLabel {...this.props} />
                 <div className="a-input__wrapper">
                     {this.renderAddon(Location.Left)}
                     {this.renderIcon(Location.Left)}
@@ -34,11 +34,7 @@ export class Input extends React.Component<Properties, {}> {
         if (this.props.type === InputTypes.TextArea) {
             const props = { ...this.props };
             delete props.value;
-            return (
-                <textarea id={this.id()} {...props as any}>
-                    {this.props.value}
-                </textarea>
-            );
+            return (<textarea id={this.id()} {...props as any} value={this.props.value} />);
         }
         return (<input id={this.id()} {...this.props} />);
     }
@@ -51,7 +47,12 @@ export class Input extends React.Component<Properties, {}> {
 
     private renderIcon(location: Location): JSX.Element {
         if (this.props.icon && this.props.iconLocation === location) {
-            return (<Icon name={this.props.icon} span />);
+            return (<Icon
+                className={this.props.onIconClick ? "is-clickable" : ""}
+                name={this.props.icon}
+                onClick={(e) => this.props.onIconClick(e)}
+                span
+            />);
         }
     }
 

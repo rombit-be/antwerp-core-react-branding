@@ -27,6 +27,7 @@
   "dependencies": {
     "autoprefixer": "^7.1.4",
     "classnames": "^2.2.5",
+    "moment": "^2.18.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "susy": "^3.0.1",

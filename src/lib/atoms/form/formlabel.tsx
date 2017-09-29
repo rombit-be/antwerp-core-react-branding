@@ -9,7 +9,7 @@ type Properties = { for?: string } & Partial<InputProperties<any>>;
 /**
  * Atoms: Label component
  */
-export class Label extends React.Component<Properties, {}> {
+export class FormLabel extends React.Component<Properties, {}> {
 
     public render(): any {
         if (this.props.label) {
