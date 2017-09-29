@@ -31,12 +31,16 @@ export class Input extends React.Component<Properties, {}> {
     }
 
     private renderInput(): JSX.Element {
+        const props = { ...this.props };
+
+        delete props.iconLocation;
+        delete props.onIconClick;
+
         if (this.props.type === InputTypes.TextArea) {
-            const props = { ...this.props };
-            delete props.value;
-            return (<textarea id={this.id()} {...props as any} value={this.props.value} />);
+
+            return (<textarea id={this.id()} {...props as any} value={props.value} />);
         }
-        return (<input id={this.id()} {...this.props} />);
+        return (<input id={this.id()} {...props} />);
     }
 
     private renderAddon(location: Location): JSX.Element {

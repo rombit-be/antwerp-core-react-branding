@@ -6,6 +6,7 @@ import { InputProperties, InputTypes } from "./inputProperties";
 type Properties = InputProperties<any>;
 
 export const ColorInput = (props: Properties) => (<Input type={InputTypes.Color} {...props} />);
+export const DateInput = (props: Properties) => (<Input type={InputTypes.Date} {...props} />);
 export const DateTimeInput = (props: Properties) => (<Input type={InputTypes.Datetime} {...props} />);
 export const DatetimeLocal = (props: Properties) => (<Input type={InputTypes.DatetimeLocal} {...props} />);
 export const EmailInput = (props: Properties) => (<Input type={InputTypes.Email} {...props} />);

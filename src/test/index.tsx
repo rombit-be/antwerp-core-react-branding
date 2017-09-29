@@ -22,7 +22,7 @@ ReactDOM.render((
         <header>
             <h1>Overview of the different stylings</h1>
         </header>
-        <A.DatePicker visible={true} position={{ top: 0, left: 0 }} />
+        <A.DatePickerInput name="datewithdatepicker" />
         <AccordeonComponents />
         <LabelComponents />
         <FormComponents />

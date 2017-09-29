@@ -31,6 +31,7 @@ export * from "./molecules/accordeonItem";
 export * from "./molecules/alert";
 export * from "./molecules/buttonGroup";
 export * from "./molecules/datepicker/datepicker";
+export * from "./molecules/datepicker/datepickerInput";
 
 // Utilities
 export * from "./utilities/background";
