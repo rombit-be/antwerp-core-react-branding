@@ -43,7 +43,7 @@ export class DatePicker extends React.Component<Properties, LocalState> {
     }
 
     public render(): any {
-        const style: any = Object.assign({ position: "fixed", zIndex: 9999 }, this.props.position || {});
+        const style: any = Object.assign({ position: "absolute", zIndex: 9999 }, this.props.position || {});
 
         return (
             <div role="datepicker" style={style} className={this.className()}>

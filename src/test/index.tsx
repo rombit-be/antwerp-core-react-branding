@@ -22,7 +22,8 @@ ReactDOM.render((
         <header>
             <h1>Overview of the different stylings</h1>
         </header>
-        <A.DatePickerInput name="datewithdatepicker" />
+        {/* tslint:disable-next-line:no-console */}
+        <A.DatePickerInput name="datewithdatepicker" onChange={(e) => console.log(e)} />
         <AccordeonComponents />
         <LabelComponents />
         <FormComponents />

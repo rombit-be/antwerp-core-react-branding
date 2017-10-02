@@ -37,6 +37,7 @@
     "@types/classnames": "^2.2.3",
     "@types/enzyme": "^2.8.9",
     "@types/jest": "^21.1.1",
+    "@types/moment": "^2.13.0",
     "@types/react-dom": "^15.5.5",
     "@types/react-test-renderer": "^15.5.4",
     "css-loader": "^0.28.7",

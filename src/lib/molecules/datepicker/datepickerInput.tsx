@@ -1,3 +1,4 @@
+import * as moment from "moment";
 import * as React from "react";
 
 import { InputProperties } from "../../atoms/form/inputProperties";
@@ -15,7 +16,7 @@ type LocalState = { datePickerVisible: boolean, dateFormat?: string, value?: str
  */
 export class DatePickerInput extends React.Component<Properties, LocalState> {
 
-    private static defaultDateFormat = "MM-DD-YYYY";
+    private static defaultDateFormat = "DD-MM-YYYY";
 
     public constructor(props: Properties) {
         super(props);
@@ -33,24 +34,62 @@ export class DatePickerInput extends React.Component<Properties, LocalState> {
                     icon="calendar"
                     iconLocation={Location.Right}
                     onIconClick={(e) => this.showDatePicker(e)}
+                    value={this.state.value || ""}
+                    placeholder={this.state.dateFormat}
                     {...this.props}
                 />
-                <DatePicker visible={this.state.datePickerVisible} position={this.state.position} />
+                <DatePicker
+                    visible={this.state.datePickerVisible}
+                    onSelect={(e) => this.onSelect(e)}
+                    value={this.convertStringToDate(this.state.value)}
+                    position={this.state.position}
+                />
             </div>
         );
     }
 
     private showDatePicker(e: React.SyntheticEvent<HTMLElement>) {
-        // tslint:disable-next-line:no-console
+        const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
         const position: any = {
-            left: (e.currentTarget.offsetLeft + e.currentTarget.clientWidth) - 336,
-            top: e.currentTarget.offsetTop + e.currentTarget.clientHeight,
+            left: (left + width) - 336,
+            top: top + height,
         };
 
         this.setState({
             datePickerVisible: true,
             position,
         });
+    }
 
+    private onSelect(date: Date): void {
+        this.setState({
+            datePickerVisible: false,
+            value: this.convertDateToString(date),
+        });
+    }
+
+    private convertDateToString(date: Date): string {
+        try {
+            return moment(date).format(this.state.dateFormat);
+        } catch (e) {
+            // tslint:disable-next-line:no-console
+            console.warn(`Cannot convert date to string: ${e.message}`, date);
+            return "";
+        }
+    }
+
+    private convertStringToDate(value: string): Date {
+        try {
+            if (value) {
+                const date = moment(value, this.state.dateFormat).toDate();
+                // tslint:disable-next-line:no-console
+                return date;
+            }
+            return undefined;
+        } catch (e) {
+            // tslint:disable-next-line:no-console
+            console.warn(`Cannot convert string to date: ${e.message}`, value);
+            return new Date();
+        }
     }
 }
