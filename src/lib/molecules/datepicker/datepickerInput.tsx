@@ -28,15 +28,22 @@ export class DatePickerInput extends React.Component<Properties, LocalState> {
     }
 
     public render() {
+        // Prepare the props
+        const props = { ...this.props };
+        delete props.onChange;
+        delete props.value;
+
         return (
             <div>
                 <TextInput
                     icon="calendar"
                     iconLocation={Location.Right}
+                    onChange={(e) => this.onChange(e)}
                     onIconClick={(e) => this.showDatePicker(e)}
-                    value={this.state.value || ""}
                     placeholder={this.state.dateFormat}
-                    {...this.props}
+                    triggerChangeOnNextProps={true}
+                    value={this.state.value || ""}
+                    {...props}
                 />
                 <DatePicker
                     visible={this.state.datePickerVisible}
@@ -61,11 +68,21 @@ export class DatePickerInput extends React.Component<Properties, LocalState> {
         });
     }
 
+    private onChange(e: React.SyntheticEvent<HTMLInputElement>) {
+        this.setState({ value: e.currentTarget.value });
+        if (this.props.onChange) {
+            this.props.onChange(e);
+        }
+    }
+
     private onSelect(date: Date): void {
         this.setState({
             datePickerVisible: false,
             value: this.convertDateToString(date),
         });
+        if (this.props.onChange) {
+            //
+        }
     }
 
     private convertDateToString(date: Date): string {

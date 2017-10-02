@@ -23,7 +23,7 @@ ReactDOM.render((
             <h1>Overview of the different stylings</h1>
         </header>
         {/* tslint:disable-next-line:no-console */}
-        <A.DatePickerInput name="datewithdatepicker" onChange={(e) => console.log(e)} />
+        <A.DatePickerInput name="datewithdatepicker" onChange={(e) => console.log("jaaaa", e)} />
         <AccordeonComponents />
         <LabelComponents />
         <FormComponents />

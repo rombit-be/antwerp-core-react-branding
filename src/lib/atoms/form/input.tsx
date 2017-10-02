@@ -14,6 +14,8 @@ type Properties = TypedInputProperties;
  */
 export class Input extends React.Component<Properties, {}> {
 
+    private element: HTMLInputElement | HTMLTextAreaElement;
+
     public render(): any {
         return (
             <div className={this.className()}>
@@ -30,6 +32,29 @@ export class Input extends React.Component<Properties, {}> {
         );
     }
 
+    public componentWillReceiveProps(nextProps: Properties) {
+        if (this.props.value !== "" && this.props.value !== nextProps.value && this.props.triggerChangeOnNextProps) {
+            if (this.props.onChange) {
+                setTimeout(() => this.props.onChange(this.createSyntheticEvent() as any), 0);
+            }
+        }
+    }
+
+    public createSyntheticEvent(): Partial<React.SyntheticEvent<HTMLInputElement | HTMLTextAreaElement>> {
+        if (this.element) {
+            return ({
+                bubbles: true,
+                currentTarget: this.element,
+                defaultPrevented: true,
+                eventPhase: undefined,
+                isTrusted: true,
+                nativeEvent: undefined,
+                target: this.element,
+            });
+        }
+        return undefined;
+    }
+
     private renderInput(): JSX.Element {
         const props = { ...this.props };
 
@@ -38,9 +63,19 @@ export class Input extends React.Component<Properties, {}> {
 
         if (this.props.type === InputTypes.TextArea) {
 
-            return (<textarea id={this.id()} {...props as any} value={props.value} />);
+            return (<textarea
+                id={this.id()}
+                {...props as any}
+                ref={(e) => this.element = e}
+                value={props.value}
+            />);
         }
-        return (<input id={this.id()} {...props} />);
+        return (
+            <input
+                id={this.id()}
+                ref={(e) => this.element = e}
+                {...props}
+            />);
     }
 
     private renderAddon(location: Location): JSX.Element {
