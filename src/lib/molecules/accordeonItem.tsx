@@ -10,12 +10,10 @@ export type AccordeonItemProperties = {
     onClick?: (index: number) => void,
 };
 
-type Properties = AccordeonItemProperties;
-
 /**
  * Molecules: Accordeon item
  */
-export class AccordeonItem extends React.Component<Properties, {}> {
+export class AccordeonItem extends React.Component<AccordeonItemProperties, {}> {
 
     public render(): any {
         return (

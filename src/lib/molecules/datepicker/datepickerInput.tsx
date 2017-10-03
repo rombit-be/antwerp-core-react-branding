@@ -6,19 +6,17 @@ import { TextInput } from "../../atoms/form/typedInputs";
 import { Location } from "../../common/locations";
 import { DatePicker } from "./datepicker";
 
-export type DatePickerInputProperties = InputProperties<string>;
-
-type Properties = { dateFormat?: string } & DatePickerInputProperties;
-type LocalState = { datePickerVisible: boolean, dateFormat?: string, value?: string, position?: any };
+export type DatePickerInputProperties = { dateFormat?: string } & InputProperties<string>;
+export type DatePickerInputState = { datePickerVisible: boolean, dateFormat?: string, value?: string, position?: any };
 
 /**
  * Molecules: DatePicker element with input
  */
-export class DatePickerInput extends React.Component<Properties, LocalState> {
+export class DatePickerInput extends React.Component<DatePickerInputProperties, DatePickerInputState> {
 
     private static defaultDateFormat = "DD-MM-YYYY";
 
-    public constructor(props: Properties) {
+    public constructor(props: DatePickerInputProperties) {
         super(props);
         this.state = {
             dateFormat: this.props.dateFormat || DatePickerInput.defaultDateFormat,

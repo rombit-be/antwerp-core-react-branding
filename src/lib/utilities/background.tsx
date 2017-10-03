@@ -1,5 +1,6 @@
 import * as classNames from "classnames";
 import * as React from "react";
+
 import { StyleProperties } from "../common/properties";
 
 // Define the types and properties
@@ -20,12 +21,10 @@ export type BackgroundProperties = {
     className?: string;
 } & StyleProperties;
 
-type Properties = BackgroundProperties;
-
 /**
  * Utilities: Background block
  */
-export class Background extends React.Component<Properties, {}> {
+export class Background extends React.Component<BackgroundProperties, {}> {
 
     public render(): any {
         // Compile the classnames

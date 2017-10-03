@@ -9,12 +9,10 @@ import { InputProperties } from "./inputProperties";
 export type SelectOption = { label: string | JSX.Element, value: string, disabled?: boolean };
 export type SelectProperties = { options: SelectOption[] } & InputProperties<string>;
 
-type Properties = SelectProperties;
-
 /**
  * Atoms: Radiobutton group element
  */
-export class Select extends React.Component<Properties, {}> {
+export class Select extends React.Component<SelectProperties, {}> {
 
     public render(): any {
         // Clean the select props

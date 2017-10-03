@@ -2,12 +2,10 @@ import * as React from "react";
 
 export type FieldsetProperties = { legend?: string } & React.FieldsetHTMLAttributes<HTMLFieldSetElement>;
 
-type Properties = FieldsetProperties;
-
 /**
  * Atoms: Form component
  */
-export class Fieldset extends React.Component<Properties, {}> {
+export class Fieldset extends React.Component<FieldsetProperties, {}> {
 
     public render(): any {
         const props: any = { ...this.props };

@@ -5,12 +5,10 @@ import { BadgeProperties } from "./badge";
 
 export type LabelProperties = BadgeProperties;
 
-type Properties = LabelProperties;
-
 /**
  * Atoms: badge component
  */
-export class Label extends React.Component<Properties, {}> {
+export class Label extends React.Component<LabelProperties, {}> {
 
     public render(): any {
         return (

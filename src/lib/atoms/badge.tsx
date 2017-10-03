@@ -7,12 +7,10 @@ export type BadgeProperties = {
     value: number | string;
 };
 
-type Properties = BadgeProperties;
-
 /**
  * Atoms: badge component
  */
-export class Badge extends React.Component<Properties, {}> {
+export class Badge extends React.Component<BadgeProperties, {}> {
 
     public render(): any {
         return (

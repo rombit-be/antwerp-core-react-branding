@@ -1,5 +1,6 @@
 import * as classNames from "classnames";
 import * as React from "react";
+
 import { StyleProperties } from "../common/properties";
 
 // Define the types and properties
@@ -29,12 +30,10 @@ export type ParagraphProperties = {
     className?: string;
 } & StyleProperties;
 
-type Properties = ParagraphProperties;
-
 /**
  * Text: Paragraph component
  */
-export class Paragraph extends React.Component<Properties, {}> {
+export class Paragraph extends React.Component<ParagraphProperties, {}> {
 
     public render(): any {
         const className = classNames(this.props.type, this.props.className);

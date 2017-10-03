@@ -3,12 +3,12 @@ import "./overlay.scss";
 import * as classNames from "classnames";
 import * as React from "react";
 
-type Properties = { visible?: boolean, dark?: boolean, light?: boolean };
+export type OverlayProperties = { visible?: boolean, dark?: boolean, light?: boolean };
 
 /**
  * React Component Overlay
  */
-export class Overlay extends React.Component<Properties, {}> {
+export class Overlay extends React.Component<OverlayProperties, {}> {
 
     public render(): any {
         this.handleBodyClass();

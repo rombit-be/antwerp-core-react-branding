@@ -5,17 +5,15 @@ import { FormLabel } from "./formlabel";
 import { InputProperties } from "./inputProperties";
 
 export type RadiobuttonOption = { label: string | JSX.Element, value: string, disabled?: boolean };
-export type RadiobuttonProperties = { options: RadiobuttonOption[] } & InputProperties<string>;
-
-type Properties = RadiobuttonProperties;
-type LocalState = { value: string, isDirty: boolean };
+export type RadiobuttonsProperties = { options: RadiobuttonOption[] } & InputProperties<string>;
+export type RadiobuttonsState = { value: string, isDirty: boolean };
 
 /**
  * Atoms: Radiobutton group element
  */
-export class Radiobuttons extends React.Component<Properties, LocalState> {
+export class Radiobuttons extends React.Component<RadiobuttonsProperties, RadiobuttonsState> {
 
-    public constructor(props: Properties) {
+    public constructor(props: RadiobuttonsProperties) {
         super(props);
         this.state = {
             isDirty: false,
@@ -33,7 +31,7 @@ export class Radiobuttons extends React.Component<Properties, LocalState> {
         );
     }
 
-    public componentWillReceiveProps(nextProps: Properties): void {
+    public componentWillReceiveProps(nextProps: RadiobuttonsProperties): void {
         if (this.state.isDirty) {
             if (nextProps.options.map((x) => x.value).indexOf(this.state.value) === -1) {
                 this.setState({ isDirty: false, value: "" });

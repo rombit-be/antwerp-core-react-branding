@@ -1,13 +1,14 @@
-import * as React from "react";
 import "./styleSection.scss";
 
+import * as React from "react";
+
 // tslint:disable-next-line:interface-over-type-literal
-type Properties = { title: string, example?: string };
+export type StyleSectionProperties = { title: string, example?: string };
 
 /**
  * React Component StyleSection
  */
-export default class StyleSection extends React.Component<Properties, {}> {
+export default class StyleSection extends React.Component<StyleSectionProperties, {}> {
 
     public render(): any {
         return (

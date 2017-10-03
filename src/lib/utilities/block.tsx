@@ -17,12 +17,10 @@ export type LayoutProperties = {
     className?: string;
 } & StyleProperties;
 
-type Properties = LayoutProperties;
-
 /**
  * Utilities: Layouts component, renamed as block
  */
-export class Layout extends React.Component<Properties, {}> {
+export class Layout extends React.Component<LayoutProperties, {}> {
 
     public render(): any {
         // Compile the classnames

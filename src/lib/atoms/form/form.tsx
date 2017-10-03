@@ -2,12 +2,10 @@ import * as React from "react";
 
 export type FormProperties = React.FormHTMLAttributes<HTMLFormElement>;
 
-type Properties = FormProperties;
-
 /**
  * Atoms: Form component
  */
-export class Form extends React.Component<Properties, {}> {
+export class Form extends React.Component<FormProperties, {}> {
 
     // To be used if this form object can't be used i.c. Redux-Form
     public static className: string = "a-form";

@@ -7,12 +7,10 @@ import { FormLabel } from "./formlabel";
 import { inputElementId } from "./id";
 import { FieldMetaProperties, InputTypes, TypedInputProperties } from "./inputProperties";
 
-type Properties = TypedInputProperties;
-
 /**
  * Atoms: Base Input element
  */
-export class Input extends React.Component<Properties, {}> {
+export class Input extends React.Component<TypedInputProperties, {}> {
 
     private element: HTMLInputElement | HTMLTextAreaElement;
 
@@ -32,7 +30,7 @@ export class Input extends React.Component<Properties, {}> {
         );
     }
 
-    public componentWillReceiveProps(nextProps: Properties) {
+    public componentWillReceiveProps(nextProps: TypedInputProperties) {
         if (this.props.value !== "" && this.props.value !== nextProps.value && this.props.triggerChangeOnNextProps) {
             if (this.props.onChange) {
                 setTimeout(() => this.props.onChange(this.createSyntheticEvent() as any), 0);

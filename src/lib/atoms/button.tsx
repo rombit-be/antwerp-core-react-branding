@@ -23,12 +23,10 @@ export type ButtonProperties = {
     onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 } & StyleProperties;
 
-type Properties = ButtonProperties;
-
 /**
  * Atoms: button component
  */
-export class Button extends React.Component<Properties, {}> {
+export class Button extends React.Component<ButtonProperties, {}> {
 
     public render(): any {
         return (

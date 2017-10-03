@@ -4,12 +4,12 @@ import * as React from "react";
 import { inputElementId } from "./id";
 import { InputProperties } from "./inputProperties";
 
-type Properties = { for?: string } & Partial<InputProperties<any>>;
+export type FormLabelProperties = { for?: string } & Partial<InputProperties<any>>;
 
 /**
  * Atoms: Label component
  */
-export class FormLabel extends React.Component<Properties, {}> {
+export class FormLabel extends React.Component<FormLabelProperties, {}> {
 
     public render(): any {
         if (this.props.label) {

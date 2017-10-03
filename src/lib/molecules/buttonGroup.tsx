@@ -5,12 +5,10 @@ import { AccordeonItem } from "./accordeonItem";
 
 export type ButtonGroupProperties = {};
 
-type Properties = ButtonGroupProperties;
-
 /**
  * Molecules: Accordeon item
  */
-export class ButtonGroup extends React.Component<Properties, {}> {
+export class ButtonGroup extends React.Component<ButtonGroupProperties, {}> {
 
     public render(): any {
         return (

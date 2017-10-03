@@ -1,5 +1,6 @@
 import * as classNames from "classnames";
 import * as React from "react";
+
 import { StyleProperties } from "../common/properties";
 
 // Define the types and properties
@@ -32,12 +33,10 @@ export type SpacingProperties = {
     className?: string;
 } & StyleProperties;
 
-type Properties = SpacingProperties;
-
 /**
  * Utilities: Layouts component, renamed as block
  */
-export class Spacing extends React.Component<Properties, {}> {
+export class Spacing extends React.Component<SpacingProperties, {}> {
 
     public render(): any {
         // Compile the classnames

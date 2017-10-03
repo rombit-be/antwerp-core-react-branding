@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-        "allowJs": true,
         "experimentalDecorators": true,
         "jsx": "react",
         "module": "commonjs",
@@ -11,6 +10,8 @@
         "noUnusedLocals": true,
         "removeComments": false,
         "sourceMap": true,
+        "declaration": true,
+        "declarationDir": "./dist",
         "target": "es5",
         "lib": [
             "es5",

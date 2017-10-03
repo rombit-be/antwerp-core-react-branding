@@ -3,16 +3,14 @@ import * as React from "react";
 import { AccordeonItem } from "./accordeonItem";
 
 export type AccordeonProperties = { activeIndex?: number };
-
-type Properties = AccordeonProperties;
-type LocalState = { activeIndex: number };
+export type AccordeonState = { activeIndex: number };
 
 /**
  * Molecules: Accordeon item
  */
-export class Accordeon extends React.Component<Properties, LocalState> {
+export class Accordeon extends React.Component<AccordeonProperties, AccordeonState> {
 
-    public constructor(props: Properties) {
+    public constructor(props: AccordeonProperties) {
         super(props);
         this.state = { activeIndex: props.activeIndex === undefined ? 0 : props.activeIndex };
     }
@@ -25,7 +23,7 @@ export class Accordeon extends React.Component<Properties, LocalState> {
         );
     }
 
-    public componentWillReceiveProps(nextProps: Properties) {
+    public componentWillReceiveProps(nextProps: AccordeonProperties) {
         if (nextProps.activeIndex) {
             this.setState({ activeIndex: nextProps.activeIndex });
         }

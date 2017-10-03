@@ -13,6 +13,8 @@ export type DatePickerProperties = {
     value?: Date,
     visible?: boolean,
 };
+export type DatePickerState = { viewDate: Date, visible?: boolean } & DatePickerProperties;
+
 export type DatePickerLocale = {
     months: DatePickerMonth[],
     weekdays: DatePickerWeekDay[],
@@ -21,18 +23,15 @@ export type DatePickerLocale = {
 export type DatePickerMonth = string;
 export type DatePickerWeekDay = string;
 
-type Properties = DatePickerProperties;
-type LocalState = { viewDate: Date, visible?: boolean } & DatePickerProperties;
-
 /**
  * Molecules: DatePicker
  */
-export class DatePicker extends React.Component<Properties, LocalState> {
+export class DatePicker extends React.Component<DatePickerProperties, DatePickerState> {
 
     private static weeks: number = 5;
     private static days: number = 7;
 
-    public constructor(props: Properties) {
+    public constructor(props: DatePickerProperties) {
         super(props);
         this.state = {
             locale: props.locale || this.defaultLocale(),
@@ -90,7 +89,7 @@ export class DatePicker extends React.Component<Properties, LocalState> {
         );
     }
 
-    public componentWillReceiveProps(nextProps: Properties): void {
+    public componentWillReceiveProps(nextProps: DatePickerProperties): void {
         this.setState({ visible: nextProps.visible });
     }
 

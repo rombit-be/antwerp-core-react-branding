@@ -6,12 +6,10 @@ import { Button, ButtonProperties } from "./button";
 
 export type IconButtonProperties = { location: Location, icon: string } & ButtonProperties;
 
-type Properties = IconButtonProperties;
-
 /**
  * React Component IconButton
  */
-export class IconButton extends React.Component<Properties, {}> {
+export class IconButton extends React.Component<IconButtonProperties, {}> {
 
     public render(): any {
         return (

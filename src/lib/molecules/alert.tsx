@@ -19,15 +19,14 @@ export type AlertProperties = {
     onCancel?: () => void;
 };
 
-type Properties = AlertProperties;
-type LocalState = { visible?: boolean };
+export type AlertState = { visible?: boolean };
 
 /**
  * Molecule: Alert
  */
-export class Alert extends React.Component<Properties, LocalState> {
+export class Alert extends React.Component<AlertProperties, AlertState> {
 
-    public constructor(props: Properties) {
+    public constructor(props: AlertProperties) {
         super(props);
         this.state = { visible: props.visible === undefined ? false : props.visible };
     }
@@ -63,7 +62,7 @@ export class Alert extends React.Component<Properties, LocalState> {
         );
     }
 
-    public componentWillReceiveProps(nextProps: Properties): void {
+    public componentWillReceiveProps(nextProps: AlertProperties): void {
         this.setState({ visible: nextProps.visible });
     }
 

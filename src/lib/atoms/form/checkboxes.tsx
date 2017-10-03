@@ -7,15 +7,14 @@ import { InputProperties } from "./inputProperties";
 export type CheckboxOption = { label: string | JSX.Element, value: string, disabled?: boolean };
 export type CheckboxesProperties = { options: CheckboxOption[] } & InputProperties<string[]>;
 
-type Properties = CheckboxesProperties;
-type LocalState = { values: string[], isDirty: boolean };
+export type CheckboxesState = { values: string[], isDirty: boolean };
 
 /**
  * Atoms: Checkboxgroup element
  */
-export class Checkboxes extends React.Component<Properties, LocalState> {
+export class Checkboxes extends React.Component<CheckboxesProperties, CheckboxesState> {
 
-    public constructor(props: Properties) {
+    public constructor(props: CheckboxesProperties) {
         super(props);
         this.state = {
             isDirty: false,
@@ -33,7 +32,7 @@ export class Checkboxes extends React.Component<Properties, LocalState> {
         );
     }
 
-    public componentWillReceiveProps(nextProps: Properties): void {
+    public componentWillReceiveProps(nextProps: CheckboxesProperties): void {
         if (this.state.isDirty) {
             if (this.state.values.length > 0) {
                 const remove: string[] = [];
