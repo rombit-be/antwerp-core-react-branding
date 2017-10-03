@@ -12,7 +12,7 @@ export type LogoProperties = { absolute: boolean } & StyleProperties;
  * Utilities: A-stad logo
  * TODO: SVG's are not visualized with webpack-dev-server
  */
-export default class Logo extends React.Component<LogoProperties, {}> {
+export class Logo extends React.Component<LogoProperties, {}> {
 
     public render(): any {
         const style: any = Object.assign(this.props.style || {}, this.getAbsoluteStyle());
