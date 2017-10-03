@@ -14,11 +14,11 @@ config.entry = {
 
 config.target = "web";
 
-config.externals = {
-    react: "react",
-    reactDom: "react-dom",
-    moment: "moment",
-};
+// config.externals = {
+//     react: "react",
+//     reactDom: "react-dom",
+//     moment: "moment",
+// };
 
 config.output = {
     filename: "index.js",
