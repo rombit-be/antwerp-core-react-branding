@@ -2,13 +2,15 @@
   "name": "antwerp-core-react-branding",
   "description": "> React port of the Antwerpen.be Core Branding",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/typings/lib/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "test"
   },
   "scripts": {
     "start": "webpack-dev-server --content-base src/test",
+    "build": "NODE_ENV=production webpack --config webpack.prod.js",
     "test": "jest --config jest.config.json"
   },
   "repository": {
@@ -25,15 +27,15 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/rombit/antwerp-core-react-branding#readme",
   "dependencies": {
-    "autoprefixer": "^7.1.4",
     "classnames": "^2.2.5",
     "moment": "^2.18.1",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "susy": "^3.0.1",
-    "typescript": "^2.5.2"
+    "react-dom": "^16.0.0"
   },
   "devDependencies": {
+    "typescript": "^2.5.2",
+    "susy": "^3.0.1",
+    "autoprefixer": "^7.1.4",
     "@types/classnames": "^2.2.3",
     "@types/enzyme": "^2.8.9",
     "@types/jest": "^21.1.1",
@@ -41,6 +43,7 @@
     "@types/react-dom": "^15.5.5",
     "@types/react-test-renderer": "^15.5.4",
     "css-loader": "^0.28.7",
+    "dts-bundle": "^0.7.3",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "image-loader": "^0.0.1",

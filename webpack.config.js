@@ -55,7 +55,7 @@ var config = {
                 options: { configFile: "tslint.json" }
             },
             {
-                exclude: /__tests__/,
+                exclude: [/__tests__/],
                 test: /\.ts(x?)$/,
                 use: ["ts-loader"],
             },
