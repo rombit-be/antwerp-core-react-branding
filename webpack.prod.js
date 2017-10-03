@@ -23,6 +23,8 @@ config.target = "web";
 config.output = {
     filename: "index.js",
     path: __dirname + "/dist/",
+    library: libraryName,
+    libraryTarget: "umd",
 };
 
 config.module.rules[2].exclude.push(/(test)/);
