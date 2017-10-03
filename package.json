@@ -6,7 +6,7 @@
   "types": "./dist/typings/lib/index.d.ts",
   "directories": {
     "lib": "lib",
-    "test": "test"
+    "test": "jest"
   },
   "scripts": {
     "start": "webpack-dev-server --content-base src/test",
@@ -23,7 +23,7 @@
     "core",
     "branding"
   ],
-  "author": "Gie Spaepen <giespaepen@outlook.com>",
+  "author": "Gie Spaepen <gie.spaepen@rombit.be>",
   "license": "ISC",
   "homepage": "https://bitbucket.org/rombit/antwerp-core-react-branding#readme",
   "dependencies": {

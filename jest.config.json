@@ -8,7 +8,8 @@
     "collectCoverage": true,
     "collectCoverageFrom": [
         "**/*.{ts,tsx}",
-        "!**/node_modules/**"
+        "!**/node_modules/**",
+        "!dist/**"
     ],
     "coverageDirectory": "coverage",
     "coveragePathIgnorePatterns": [
