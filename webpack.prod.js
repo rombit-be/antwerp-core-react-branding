@@ -31,7 +31,7 @@ config.module.rules[2].exclude.push(/(test)/);
 // Slice the hot module replacement
 config.plugins = config.plugins.slice(2);
 
-config.plugins.push(new webpack.optimize.UglifyJsPlugin({ minimize: true }));
+// config.plugins.push(new webpack.optimize.UglifyJsPlugin({ minimize: true }));
 
 // Doesn't work as intended
 // config.plugins.push(new DtsBundlePlugin());
