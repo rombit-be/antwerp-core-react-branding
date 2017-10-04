@@ -17,6 +17,7 @@ export * from "./atoms/iconbutton";
 export * from "./atoms/label";
 
 // Atoms / form
+export * from "./atoms/copyright";
 export * from "./atoms/form/checkboxes";
 export * from "./atoms/form/fieldset";
 export * from "./atoms/form/form";
@@ -32,6 +33,9 @@ export * from "./molecules/alert";
 export * from "./molecules/buttonGroup";
 export * from "./molecules/datepicker/datepicker";
 export * from "./molecules/datepicker/datepickerInput";
+export * from "./molecules/stepper";
+export * from "./molecules/tabNavigation";
+export * from "./atoms/definitionList";
 
 // Utilities
 export * from "./utilities/background";
