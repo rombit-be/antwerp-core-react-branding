@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccordeonItem Renders default 1`] = `
+<div
+  className="m-accordion__tab is-open"
+>
+  <div
+    className="m-accordion__header"
+    onClick={[Function]}
+  >
+    test
+  </div>
+  <div
+    className="m-accordion__content"
+  >
+    <div
+      className="u-margin"
+      style={undefined}
+    />
+  </div>
+</div>
+`;
+
+exports[`AccordeonItem Renders default, collapsed 1`] = `
+<div
+  className="m-accordion__tab is"
+>
+  <div
+    className="m-accordion__header"
+    onClick={[Function]}
+  >
+    test
+  </div>
+  <div
+    className="m-accordion__content"
+  >
+    <div
+      className="u-margin"
+      style={undefined}
+    />
+  </div>
+</div>
+`;
+
+exports[`AccordeonItem Renders default, collapsed and onclick 1`] = `
+<div
+  className="m-accordion__tab is"
+>
+  <div
+    className="m-accordion__header"
+    onClick={[Function]}
+  >
+    test
+  </div>
+  <div
+    className="m-accordion__content"
+  >
+    <div
+      className="u-margin"
+      style={undefined}
+    />
+  </div>
+</div>
+`;

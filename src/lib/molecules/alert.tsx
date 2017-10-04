@@ -47,13 +47,20 @@ export class Alert extends React.Component<AlertProperties, AlertState> {
                     <p className="u-margin-bottom">{this.props.message}</p>
                     <div className="m-alert__actions">
                         <Button
+                            className="m-alert__cancel"
                             level={this.props.level}
-                            size={Sizes.Small}
                             onClick={() => this.onCancel()}
-                            type={ButtonType.Outline}>
+                            size={Sizes.Small}
+                            type={ButtonType.Outline}
+                        >
                             {this.props.cancelText || "Cancel"}
                         </Button>
-                        <Button level={this.props.level} size={Sizes.Small} onClick={() => this.onOk()}>
+                        <Button
+                            className={"m-alert__ok"}
+                            level={this.props.level}
+                            onClick={() => this.onOk()}
+                            size={Sizes.Small}
+                        >
                             {this.props.okText || "OK"}
                         </Button>
                     </div>

@@ -24,7 +24,8 @@
     },
     "testPathIgnorePatterns": [
         "/node_modules/",
-        "/__fixtures__/"
+        "/__fixtures__/",
+        "/dist/"
     ],
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx)$",
     "moduleFileExtensions": [

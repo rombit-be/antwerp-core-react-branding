@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonGroup 1`] = `
+<div
+  className="m-button-group"
+>
+  <button
+    className="a-button"
+    onClick={[Function]}
+    style={undefined}
+    type="button"
+  >
+     
+    bla
+  </button>
+  <button
+    className="a-button"
+    onClick={[Function]}
+    style={undefined}
+    type="button"
+  >
+     
+    bli
+  </button>
+</div>
+`;
+
+exports[`ButtonGroup with wrong children 1`] = `
+<div
+  className="m-button-group"
+>
+  <button
+    className="a-button"
+    onClick={[Function]}
+    style={undefined}
+    type="button"
+  >
+     
+    bla
+  </button>
+</div>
+`;
+
+exports[`ButtonGroup without children 1`] = `
+<div
+  className="m-button-group"
+/>
+`;
