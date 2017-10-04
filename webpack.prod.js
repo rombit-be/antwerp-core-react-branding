@@ -1,6 +1,7 @@
 // Import the dev settings
 var webpack = require("webpack");
 var config = require("./webpack.config.js");
+var CopyWebpackPlugin = require("copy-webpack-plugin");
 
 var isProduction = true;
 var libraryName = "Antwerp-Core-React-Branding";
@@ -33,7 +34,14 @@ config.module.rules[2].exclude.push(/(test)/);
 // Slice the hot module replacement
 config.plugins = config.plugins.slice(2);
 
-// config.plugins.push(new webpack.optimize.UglifyJsPlugin({ minimize: true }));
+// Minify the code
+config.plugins.push(new webpack.optimize.UglifyJsPlugin({ minimize: true }));
+
+// Copy the styles
+config.plugins.push(new CopyWebpackPlugin([{
+    from: "./src/base/src/styles",
+    to: "./styles",
+}]));
 
 // Doesn't work as intended
 // config.plugins.push(new DtsBundlePlugin());
