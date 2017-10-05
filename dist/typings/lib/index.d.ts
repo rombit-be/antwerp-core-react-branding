@@ -5,6 +5,7 @@ export * from "./common/locations";
 export * from "./common/mainColors";
 export * from "./common/sizes";
 export * from "./text/paragraph";
+export * from "./text/titles";
 export * from "./atoms/badge";
 export * from "./atoms/button";
 export * from "./atoms/iconbutton";

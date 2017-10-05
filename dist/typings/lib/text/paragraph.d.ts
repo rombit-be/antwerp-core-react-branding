@@ -22,7 +22,7 @@ export declare enum ParagraphStyle {
     XLight = "u-text-xlight",
 }
 export declare type ParagraphProperties = {
-    type: ParagraphStyle;
+    type?: ParagraphStyle;
     className?: string;
 } & StyleProperties;
 /**
