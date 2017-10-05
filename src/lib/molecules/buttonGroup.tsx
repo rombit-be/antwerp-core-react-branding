@@ -27,7 +27,7 @@ export class ButtonGroup extends React.Component<ButtonGroupProperties, {}> {
             // Send out a warning
             if (allowedChildren.length < (this.props.children as any[]).length) {
                 // tslint:disable-next-line:no-console
-                console.warn(`ButtonGroup: Only children of type ${Button.name} are allowed.`);
+                console.warn(`${ButtonGroup.name}: Only children of type ${Button.name} are allowed.`);
             }
 
             return allowedChildren;

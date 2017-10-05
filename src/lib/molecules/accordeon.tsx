@@ -38,7 +38,7 @@ export class Accordeon extends React.Component<AccordeonProperties, AccordeonSta
             // Send out a warning
             if (allowedChildren.length < (this.props.children as any[]).length) {
                 // tslint:disable-next-line:no-console
-                console.warn(`Accordeon: Only children of type ${AccordeonItem.name} are allowed.`);
+                console.warn(`${Accordeon.name}: Only children of type ${AccordeonItem.name} are allowed.`);
             }
 
             return allowedChildren.map((x: AccordeonItem, i) => (
