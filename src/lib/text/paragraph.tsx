@@ -2,6 +2,7 @@ import * as classNames from "classnames";
 import * as React from "react";
 
 import { StyleProperties } from "../common/properties";
+import { Spacing, SpacingStyle } from "../utilities/spacing";
 
 // Define the types and properties
 export enum ParagraphStyle {
@@ -28,6 +29,7 @@ export enum ParagraphStyle {
 export type ParagraphProperties = {
     type?: ParagraphStyle;
     className?: string;
+    spacing?: boolean;
 } & StyleProperties;
 
 /**
@@ -36,7 +38,19 @@ export type ParagraphProperties = {
 export class Paragraph extends React.Component<ParagraphProperties, {}> {
 
     public render(): any {
+        if (this.props.spacing) {
+            return (
+                <Spacing type={SpacingStyle.MarginBottomXs}>
+                    {this.renderParagraph()}
+                </Spacing>
+            );
+        }
+        return this.renderParagraph();
+    }
+
+    private renderParagraph(): JSX.Element {
         const className = classNames(this.props.type, this.props.className);
+
         return (
             <p className={className} style={this.props.style}>
                 {this.props.children}

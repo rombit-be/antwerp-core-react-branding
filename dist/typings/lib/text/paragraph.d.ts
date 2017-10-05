@@ -24,10 +24,12 @@ export declare enum ParagraphStyle {
 export declare type ParagraphProperties = {
     type?: ParagraphStyle;
     className?: string;
+    spacing?: boolean;
 } & StyleProperties;
 /**
  * Text: Paragraph component
  */
 export declare class Paragraph extends React.Component<ParagraphProperties, {}> {
     render(): any;
+    private renderParagraph();
 }
