@@ -9,6 +9,7 @@ export * from "./common/sizes";
 
 // Text objects
 export * from "./text/paragraph";
+export * from "./text/titles";
 
 // Atoms
 export * from "./atoms/badge";

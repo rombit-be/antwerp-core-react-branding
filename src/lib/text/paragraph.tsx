@@ -26,7 +26,7 @@ export enum ParagraphStyle {
 }
 
 export type ParagraphProperties = {
-    type: ParagraphStyle;
+    type?: ParagraphStyle;
     className?: string;
 } & StyleProperties;
 
