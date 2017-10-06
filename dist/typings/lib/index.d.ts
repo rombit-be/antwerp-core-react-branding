@@ -18,6 +18,8 @@ export * from "./atoms/form/input";
 export * from "./atoms/form/radiobuttons";
 export * from "./atoms/form/select";
 export * from "./atoms/form/typedInputs";
+export * from "./atoms/form/typedInputFields";
+export * from "./atoms/form/reduxFormAdapter";
 export * from "./molecules/accordeon";
 export * from "./molecules/accordeonItem";
 export * from "./molecules/alert";
