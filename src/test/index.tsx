@@ -3,6 +3,8 @@ import "./index.scss";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
+import ReduxFormAdapter from "../lib/atoms/form/reduxFormAdapter";
+import { DatePickerInput } from "../lib/molecules/datepicker/datepickerInput";
 import AccordeonComponents from "./components/accordeon";
 import BackgroundComponents from "./components/background";
 import BadgeComponents from "./components/badge";
@@ -23,6 +25,10 @@ ReactDOM.render((
         <header>
             <h1>Overview of the different stylings</h1>
         </header>
+        <ReduxFormAdapter input={{ value: "12-03-1981", name: "name" }} type="text">
+            {/*tslint:disable-next-line:no-console*/}
+            <DatePickerInput name="datewithdatepicker" onChange={(e) => console.log("Selected date", e)} />
+        </ReduxFormAdapter>
         <DatepickerComponent />
         <TabNavigationComponent />
         <AccordeonComponents />

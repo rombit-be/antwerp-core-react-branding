@@ -58,6 +58,7 @@ export class Input extends React.Component<TypedInputProperties, {}> {
 
         delete props.iconLocation;
         delete props.onIconClick;
+        delete props.triggerChangeOnNextProps;
 
         if (this.props.type === InputTypes.TextArea) {
 
