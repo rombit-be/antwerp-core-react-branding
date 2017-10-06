@@ -16,6 +16,7 @@ export * from "./atoms/badge";
 export * from "./atoms/button";
 export * from "./atoms/iconbutton";
 export * from "./atoms/label";
+export * from "./atoms/spinner";
 
 // Atoms / form
 export * from "./atoms/copyright";
@@ -24,10 +25,10 @@ export * from "./atoms/form/fieldset";
 export * from "./atoms/form/form";
 export * from "./atoms/form/input";
 export * from "./atoms/form/radiobuttons";
-export * from "./atoms/form/select";
-export * from "./atoms/form/typedInputs";
-export * from "./atoms/form/typedInputFields";
 export * from "./atoms/form/reduxFormAdapter";
+export * from "./atoms/form/select";
+export * from "./atoms/form/typedInputFields";
+export * from "./atoms/form/typedInputs";
 
 // Molecules
 export * from "./molecules/accordeon";
