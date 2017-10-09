@@ -24,6 +24,7 @@ export * from "./atoms/form/checkboxes";
 export * from "./atoms/form/fieldset";
 export * from "./atoms/form/form";
 export * from "./atoms/form/input";
+export * from "./atoms/form/inputProperties";
 export * from "./atoms/form/radiobuttons";
 export * from "./atoms/form/reduxFormAdapter";
 export * from "./atoms/form/select";
