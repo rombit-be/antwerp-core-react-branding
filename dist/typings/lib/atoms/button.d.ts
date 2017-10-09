@@ -14,10 +14,12 @@ export declare type ButtonProperties = {
     disabled?: boolean;
     level?: Levels;
     negative?: boolean;
+    onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
+    reset?: boolean;
     size?: Sizes;
+    submit?: boolean;
     text?: string | JSX.Element;
     type?: ButtonType;
-    onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 } & StyleProperties;
 /**
  * Atoms: button component
@@ -25,5 +27,6 @@ export declare type ButtonProperties = {
 export declare class Button extends React.Component<ButtonProperties, {}> {
     render(): any;
     private className();
+    private buttonType();
     private onClick(e);
 }

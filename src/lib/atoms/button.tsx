@@ -17,10 +17,12 @@ export type ButtonProperties = {
     disabled?: boolean;
     level?: Levels;
     negative?: boolean;
+    onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
+    reset?: boolean;
     size?: Sizes;
+    submit?: boolean;
     text?: string | JSX.Element;
     type?: ButtonType;
-    onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 } & StyleProperties;
 
 /**
@@ -34,7 +36,7 @@ export class Button extends React.Component<ButtonProperties, {}> {
                 onClick={(e) => this.onClick(e)}
                 className={this.className()}
                 style={this.props.style}
-                type="button"
+                type={this.buttonType()}
             >
                 {this.props.text} {this.props.children}
             </button>
@@ -49,6 +51,16 @@ export class Button extends React.Component<ButtonProperties, {}> {
             { disabled: this.props.disabled },
             this.props.className,
         );
+    }
+
+    private buttonType(): string {
+        if (this.props.submit) {
+            return "submit";
+        }
+        if (this.props.reset) {
+            return "reset";
+        }
+        return "button";
     }
 
     private onClick(e: React.MouseEvent<HTMLButtonElement>): void {
