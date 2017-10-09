@@ -46,15 +46,18 @@ export class Alert extends React.Component<AlertProperties, AlertState> {
                     <h5 className="u-margin-bottom-xs">{this.props.title}</h5>
                     <p className="u-margin-bottom">{this.props.message}</p>
                     <div className="m-alert__actions">
-                        <Button
-                            className="m-alert__cancel"
-                            level={this.props.level}
-                            onClick={() => this.onCancel()}
-                            size={Sizes.Small}
-                            type={ButtonType.Outline}
-                        >
-                            {this.props.cancelText || "Cancel"}
-                        </Button>
+                        {
+                            this.props.onCancel ?
+                                <Button
+                                    className="m-alert__cancel"
+                                    level={this.props.level}
+                                    onClick={() => this.onCancel()}
+                                    size={Sizes.Small}
+                                    type={ButtonType.Outline}
+                                >
+                                    {this.props.cancelText || "Cancel"}
+                                </Button> : null
+                        }
                         <Button
                             className={"m-alert__ok"}
                             level={this.props.level}
@@ -89,7 +92,7 @@ export class Alert extends React.Component<AlertProperties, AlertState> {
 
     private onCancel(): void {
         this.hideOverlay();
-        if (this.props.onOk) {
+        if (this.props.onCancel) {
             this.props.onCancel();
         }
     }
