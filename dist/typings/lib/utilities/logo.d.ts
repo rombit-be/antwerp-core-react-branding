@@ -2,7 +2,7 @@
 import * as React from "react";
 import { StyleProperties } from "../common/properties";
 export declare type LogoProperties = {
-    absolute: boolean;
+    absolute?: boolean;
 } & StyleProperties;
 /**
  * Utilities: A-stad logo

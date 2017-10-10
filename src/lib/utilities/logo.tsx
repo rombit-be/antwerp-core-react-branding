@@ -6,7 +6,7 @@ declare function require(path: string): string;
 // tslint:disable-next-line:no-var-requires
 const logo: any = require("../../base/src/images/a-logo.svg");
 
-export type LogoProperties = { absolute: boolean } & StyleProperties;
+export type LogoProperties = { absolute?: boolean } & StyleProperties;
 
 /**
  * Utilities: A-stad logo

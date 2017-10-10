@@ -35,20 +35,24 @@ export class Alert extends React.Component<AlertProperties, AlertState> {
         return (
             <Overlay dark visible={this.state.visible}>
                 <div className={this.className()}>
-                    <Button
-                        className="m-alert__close has-icon"
-                        level={this.props.level}
-                        onClick={() => this.onCancel()}
-                        type={ButtonType.Transparent}
-                    >
-                        <i className="fa fa-close"></i>
-                    </Button>
+                    {
+                        this.props.onCancel ?
+                            (<Button
+                                className="m-alert__close has-icon"
+                                level={this.props.level}
+                                onClick={() => this.onCancel()}
+                                type={ButtonType.Transparent}
+                            >
+                                <i className="fa fa-close"></i>
+                            </Button>) : null
+
+                    }
                     <h5 className="u-margin-bottom-xs">{this.props.title}</h5>
                     <p className="u-margin-bottom">{this.props.message}</p>
                     <div className="m-alert__actions">
                         {
                             this.props.onCancel ?
-                                <Button
+                                (<Button
                                     className="m-alert__cancel"
                                     level={this.props.level}
                                     onClick={() => this.onCancel()}
@@ -56,7 +60,7 @@ export class Alert extends React.Component<AlertProperties, AlertState> {
                                     type={ButtonType.Outline}
                                 >
                                     {this.props.cancelText || "Cancel"}
-                                </Button> : null
+                                </Button>) : null
                         }
                         <Button
                             className={"m-alert__ok"}
