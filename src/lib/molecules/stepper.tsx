@@ -9,7 +9,7 @@ export type StepperProperties = {
 /**
  * Molecules: Stepper
  */
-export default class Stepper extends React.Component<StepperProperties, {}> {
+export class Stepper extends React.Component<StepperProperties, {}> {
 
     public render(): any {
         return (

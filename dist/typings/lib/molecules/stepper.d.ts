@@ -7,7 +7,7 @@ export declare type StepperProperties = {
 /**
  * Molecules: Stepper
  */
-export default class Stepper extends React.Component<StepperProperties, {}> {
+export declare class Stepper extends React.Component<StepperProperties, {}> {
     render(): any;
     private renderSteps();
     private renderStep(step, i);
