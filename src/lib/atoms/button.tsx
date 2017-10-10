@@ -38,7 +38,7 @@ export class Button extends React.Component<ButtonProperties, {}> {
                 style={this.props.style}
                 type={this.buttonType()}
             >
-                {this.props.text} {this.props.children}
+                {this.props.text || this.props.children}
             </button>
         );
     }
