@@ -15,7 +15,7 @@ export class IconButton extends React.Component<IconButtonProperties, {}> {
         return (
             <Button {...this.getButtonProperties() }>
                 <Icon name={this.props.icon} />
-                {this.props.text} {this.props.children}
+                {this.props.children || this.props.text}
             </Button>
         );
     }
