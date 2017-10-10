@@ -1,12 +1,19 @@
+@import '../../base/src/styles/_quarks.scss';
+
 $alert-max-width: 650px;
 $alert-min-width: 250px;
 
 .a-overlay {
     .m-alert {
+        @include to($alert-max-width+20) {
+            max-width: 90vw;
+        }
+
         margin-left: auto;
         margin-right: auto;
         margin-top: 30vh;
         max-width: $alert-max-width;
         min-width: $alert-min-width;
+        
     }
 }

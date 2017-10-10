@@ -78,6 +78,9 @@ export class Alert extends React.Component<AlertProperties, AlertState> {
 
     public componentWillReceiveProps(nextProps: AlertProperties): void {
         this.setState({ visible: nextProps.visible });
+        if (!nextProps.visible) {
+            this.hideOverlay();
+        }
     }
 
     private className(): string {
