@@ -4,6 +4,8 @@ import { Input } from "./input";
 import { InputTypes } from "./inputProperties";
 import { ReduxFormAdapterProperties } from "./reduxFormAdapter";
 import ReduxFormAdapter from "./reduxFormAdapter";
+import ReduxSelectFormAdapter from "./reduxSelectFormAdapter";
+import { Select } from "./select";
 
 type Properties = ReduxFormAdapterProperties;
 
@@ -33,3 +35,5 @@ export const UrlInputField = (props: Properties) =>
     (<ReduxFormAdapter {...props}><Input type={InputTypes.Url} {...props as any} /></ReduxFormAdapter>);
 export const WeekInputField = (props: Properties) =>
     (<ReduxFormAdapter {...props}><Input type={InputTypes.Week} {...props as any} /></ReduxFormAdapter>);
+export const SelectField = (props: ReduxFormAdapterProperties) =>
+    (<ReduxSelectFormAdapter {...props}><Select {...props as any} /></ReduxSelectFormAdapter>);
