@@ -68,7 +68,7 @@ export class Checkboxes extends React.Component<CheckboxesProperties, Checkboxes
                         type="checkbox"
                         value={x.value}
                     />
-                    <FormLabel for={this.id(i)} label={x.label} />
+                    <FormLabel noClass for={this.id(i)} label={x.label} />
                 </div >
             ));
     }

@@ -70,7 +70,7 @@ export class Radiobuttons extends React.Component<RadiobuttonsProperties, Radiob
                         type="radio"
                         value={x.value}
                     />
-                    <FormLabel for={this.id(i)} label={x.label} />
+                    <FormLabel noClass for={this.id(i)} label={x.label} />
                 </div >
             ));
     }

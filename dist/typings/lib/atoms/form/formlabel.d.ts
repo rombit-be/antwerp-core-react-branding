@@ -3,6 +3,7 @@ import * as React from "react";
 import { InputProperties } from "./inputProperties";
 export declare type FormLabelProperties = {
     for?: string;
+    noClass?: boolean;
 } & Partial<InputProperties<any>>;
 /**
  * Atoms: Label component

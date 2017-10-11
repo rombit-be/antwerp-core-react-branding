@@ -4,7 +4,10 @@ import * as React from "react";
 import { inputElementId } from "./id";
 import { InputProperties } from "./inputProperties";
 
-export type FormLabelProperties = { for?: string } & Partial<InputProperties<any>>;
+export type FormLabelProperties = {
+    for?: string,
+    noClass?: boolean,
+} & Partial<InputProperties<any>>;
 
 /**
  * Atoms: Label component
@@ -24,7 +27,7 @@ export class FormLabel extends React.Component<FormLabelProperties, {}> {
 
     private className(): string {
         return classNames(
-            "a-input__label" + (this.props.inline ? "--inline" : ""),
+            this.props.noClass ? "" : "a-input__label" + (this.props.inline ? "--inline" : ""),
         );
     }
 
