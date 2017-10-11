@@ -34,6 +34,7 @@ export declare type InputProperties<T> = {
     addonLocation?: Location;
     checked?: boolean;
     description?: string | JSX.Element;
+    disabled?: boolean;
     icon?: string;
     iconLocation?: Location;
     inline?: boolean;
