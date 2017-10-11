@@ -88,7 +88,8 @@ export class Radiobuttons extends React.Component<RadiobuttonsProperties, Radiob
 
     private className(): string {
         return classNames(
-            "a-input" + this.props.inline ? "--inline" : "",
+            "a-input",
+            { "a-input--inline": this.props.inline },
             { "is-required": this.props.required },
         );
     }
