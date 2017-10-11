@@ -13,3 +13,4 @@ export declare const TextInputField: (props: ReduxFormAdapterProperties) => JSX.
 export declare const TimeInputField: (props: ReduxFormAdapterProperties) => JSX.Element;
 export declare const UrlInputField: (props: ReduxFormAdapterProperties) => JSX.Element;
 export declare const WeekInputField: (props: ReduxFormAdapterProperties) => JSX.Element;
+export declare const SelectField: (props: ReduxFormAdapterProperties) => JSX.Element;
