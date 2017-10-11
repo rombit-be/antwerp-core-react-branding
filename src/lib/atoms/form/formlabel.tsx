@@ -27,7 +27,8 @@ export class FormLabel extends React.Component<FormLabelProperties, {}> {
 
     private className(): string {
         return classNames(
-            this.props.noClass ? "" : "a-input__label" + (this.props.inline ? "--inline" : ""),
+            this.props.noClass ? "" : "a-input__label",
+            this.props.inline && !this.props.noClass ? "a-input__label--inline" : "",
         );
     }
 
