@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { AccordeonItem } from "./accordeonItem";
+import { AccordeonItem, AccordeonItemProperties } from "./accordeonItem";
 
 export type AccordeonProperties = { activeIndex?: number };
 export type AccordeonState = { activeIndex: number };
@@ -32,8 +32,9 @@ export class Accordeon extends React.Component<AccordeonProperties, AccordeonSta
     private renderItems(): any[] {
         if (this.props.children) {
             // Filter out the allowed children
-            const allowedChildren: AccordeonItem[] = (this.props.children as any[])
-                .filter((x) => (x.type as any).name === AccordeonItem.name);
+            const allowedChildren: any[] =
+                (React.Children.toArray(this.props.children) as Array<React.ReactElement<AccordeonItemProperties>>)
+                    .filter((x: any) => (x.type as any).name === AccordeonItem.name);
 
             // Send out a warning
             if (allowedChildren.length < (this.props.children as any[]).length) {
