@@ -15,17 +15,24 @@ export default class AccordeonComponents extends React.Component<{}, {}> {
         return (
             <StyleSection {...this.sectionProps}>
                 <A.Accordeon>
-                    <A.AccordeonItem header="First">
-                        <p>{loremIpsum(5)}</p>
-                    </A.AccordeonItem>
-                    <A.AccordeonItem header="Furthermore">
-                        <p>{loremIpsum(6)}</p>
-                    </A.AccordeonItem>
-                    <A.AccordeonItem header="Finally">
-                        <p>{loremIpsum(8)}</p>
+                    {this.renderItems()}
+                    <A.AccordeonItem header="Final">
+                        <p>Final</p>
                     </A.AccordeonItem>
                 </A.Accordeon>
             </StyleSection >
         );
+    }
+
+    private renderItems(): JSX.Element[] {
+        return [0, 1, 2, 3].map((x) => (
+            <A.AccordeonItem
+                header={`Header ${x + 1}`}
+                key={`accordeon-${x}`}
+                className={`dummy-${x}`}
+            >
+                <p>{loremIpsum(5)}</p>
+            </A.AccordeonItem>
+        ));
     }
 }

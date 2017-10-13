@@ -2,6 +2,7 @@
 import * as React from "react";
 export declare type AccordeonProperties = {
     activeIndex?: number;
+    allClosed?: boolean;
 };
 export declare type AccordeonState = {
     activeIndex: number;

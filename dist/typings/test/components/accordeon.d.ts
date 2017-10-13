@@ -6,4 +6,5 @@ import * as React from "react";
 export default class AccordeonComponents extends React.Component<{}, {}> {
     private sectionProps;
     render(): any;
+    private renderItems();
 }

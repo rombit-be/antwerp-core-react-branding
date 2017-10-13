@@ -2,7 +2,10 @@ import * as React from "react";
 
 import { AccordeonItem, AccordeonItemProperties } from "./accordeonItem";
 
-export type AccordeonProperties = { activeIndex?: number };
+export type AccordeonProperties = {
+    activeIndex?: number,
+    allClosed?: boolean,
+};
 export type AccordeonState = { activeIndex: number };
 
 /**
@@ -12,7 +15,7 @@ export class Accordeon extends React.Component<AccordeonProperties, AccordeonSta
 
     public constructor(props: AccordeonProperties) {
         super(props);
-        this.state = { activeIndex: props.activeIndex === undefined ? 0 : props.activeIndex };
+        this.state = { activeIndex: props.allClosed ? -1 : props.activeIndex === undefined ? 0 : props.activeIndex };
     }
 
     public render(): any {
@@ -59,6 +62,8 @@ export class Accordeon extends React.Component<AccordeonProperties, AccordeonSta
     }
 
     private onClick(index: number): void {
-        this.setState({ activeIndex: index });
+        this.setState({
+            activeIndex: this.state.activeIndex === index ? -1 : index,
+        });
     }
 }

@@ -33,7 +33,7 @@ export class AccordeonItem extends React.Component<AccordeonItemProperties, {}> 
     private className(): string {
         return classNames(
             { "m-accordion__tab is-open": !this.props.collapsed },
-            { "m-accordion__tab is": this.props.collapsed },
+            { "m-accordion__tab": this.props.collapsed },
             this.props.className,
         );
     }
