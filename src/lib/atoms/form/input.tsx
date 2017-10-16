@@ -59,6 +59,7 @@ export class Input extends React.Component<TypedInputProperties, {}> {
         delete props.iconLocation;
         delete props.onIconClick;
         delete props.triggerChangeOnNextProps;
+        delete props.meta;
 
         if (this.props.type === InputTypes.TextArea) {
 
@@ -66,7 +67,6 @@ export class Input extends React.Component<TypedInputProperties, {}> {
                 id={this.id()}
                 {...props as any}
                 ref={(e) => this.element = e}
-                value={props.value}
             />);
         }
         return (
