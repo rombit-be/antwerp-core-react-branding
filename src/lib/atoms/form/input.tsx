@@ -111,8 +111,8 @@ export class Input extends React.Component<TypedInputProperties, {}> {
             "a-input" + (this.props.inline ? "--inline" : ""),
             { "is-required": this.props.required },
             this.props.iconLocation ? `has-icon-${this.props.iconLocation}` : "",
-            { "has-success": !meta.pristine && meta.valid },
-            { "has-error": meta.error },
+            { "has-success": meta.touched && meta.valid },
+            { "has-error": meta.touched && meta.error },
             { "has-addon": this.props.addon ? true : false },
         );
     }

@@ -28,6 +28,7 @@ export type FieldMetaProperties = {
     error?: boolean;
     invalid?: boolean;
     pristine?: boolean;
+    touched?: boolean;
     valid?: boolean;
 };
 

@@ -27,6 +27,7 @@ export declare type FieldMetaProperties = {
     error?: boolean;
     invalid?: boolean;
     pristine?: boolean;
+    touched?: boolean;
     valid?: boolean;
 };
 export declare type InputProperties<T> = {
