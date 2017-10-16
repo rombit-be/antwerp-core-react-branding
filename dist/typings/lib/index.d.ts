@@ -31,6 +31,7 @@ export * from "./molecules/datepicker/datepickerInput";
 export * from "./molecules/stepper";
 export * from "./molecules/tabNavigation";
 export * from "./atoms/definitionList";
+export * from "./organisms/footer";
 export * from "./utilities/background";
 export * from "./utilities/block";
 export * from "./utilities/logo";

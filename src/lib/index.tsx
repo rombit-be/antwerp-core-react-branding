@@ -42,6 +42,9 @@ export * from "./molecules/stepper";
 export * from "./molecules/tabNavigation";
 export * from "./atoms/definitionList";
 
+// Organisms
+export * from "./organisms/footer";
+
 // Utilities
 export * from "./utilities/background";
 export * from "./utilities/block";
