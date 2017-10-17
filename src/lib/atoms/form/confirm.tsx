@@ -27,13 +27,6 @@ export class Confirm extends React.Component<ConfirmProperties, {}> {
         }];
     }
 
-    // private parseValueToBoolean(value: any): boolean {
-    //     if (value && (value === true || value === "true")) {
-    //         return true;
-    //     }
-    //     return false;
-    // }
-
     private parseValueToString(value: any): string {
         if (value && (value === true || value === "true")) {
             return "true";

@@ -28,8 +28,8 @@ export type DatePickerWeekDay = string;
  */
 export class DatePicker extends React.Component<DatePickerProperties, DatePickerState> {
 
-    private static weeks: number = 5;
     private static days: number = 7;
+    private static weeks: number = 5;
 
     public constructor(props: DatePickerProperties) {
         super(props);
@@ -45,7 +45,10 @@ export class DatePicker extends React.Component<DatePickerProperties, DatePicker
         const style: any = Object.assign({ position: "absolute", zIndex: 9999 }, this.props.position || {});
 
         return (
-            <div role="datepicker" style={style} className={this.className()}>
+            <div
+                role="datepicker"
+                style={style} className={this.className()}
+            >
                 <div className="m-datepicker__nav">
                     <IconButton
                         icon="angle-left"
@@ -54,8 +57,8 @@ export class DatePicker extends React.Component<DatePickerProperties, DatePicker
                     />
                     <Button
                         className="m-datepicker__title a-button"
-                        text={this.title()}
                         onClick={() => this.setCurrentMonth()}
+                        text={this.title()}
                     />
                     <IconButton
                         icon="angle-right"

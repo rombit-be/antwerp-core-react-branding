@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import * as React from "react";
 /**
- * React Component name
+ * React Component FormComponents
  */
 export default class FormComponents extends React.Component<{}, {}> {
     private sectionProps;

@@ -24,8 +24,8 @@ export declare type DatePickerWeekDay = string;
  * Molecules: DatePicker
  */
 export declare class DatePicker extends React.Component<DatePickerProperties, DatePickerState> {
-    private static weeks;
     private static days;
+    private static weeks;
     constructor(props: DatePickerProperties);
     render(): any;
     componentWillReceiveProps(nextProps: DatePickerProperties): void;

@@ -5,7 +5,7 @@ import { SelectOption } from "../../lib/atoms/form/select";
 import StyleSection from "../common/styleSection";
 
 /**
- * React Component name
+ * React Component FormComponents
  */
 export default class FormComponents extends React.Component<{}, {}> {
 
