@@ -1,13 +1,14 @@
 import * as React from "react";
 
-import { SelectProperties } from "./select";
+import { CheckboxesProperties } from "../..";
 
-export type ReduxSelectFormAdapterProperties = { input?: Partial<SelectProperties> } & Partial<SelectProperties>;
+// tslint:disable-next-line:max-line-length
+export type ReduxCheckboxesAdapterProperties = { input?: Partial<CheckboxesProperties> } & Partial<CheckboxesProperties>;
 
 /**
- * React Component ReduxFormAdapter
+ * React Component ReduxCheckboxesAdapter
  */
-export default class ReduxSelectFormAdapter extends React.Component<ReduxSelectFormAdapterProperties, {}> {
+export class ReduxCheckboxesAdapter extends React.Component<ReduxCheckboxesAdapterProperties, {}> {
 
     public render(): any {
         return this.renderAdaptedChild();
@@ -23,7 +24,7 @@ export default class ReduxSelectFormAdapter extends React.Component<ReduxSelectF
             return React.cloneElement((React.Children.toArray(this.props.children)[0] as any), props);
         }
         // tslint:disable-next-line:no-console
-        console.warn(`${ReduxSelectFormAdapter.name}: only one child should be provided`);
+        console.warn(`${ReduxCheckboxesAdapter.name}: only one child should be provided`);
         return null;
     }
 }

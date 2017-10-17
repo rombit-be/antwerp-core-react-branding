@@ -1,7 +1,9 @@
 import * as React from "react";
 
+import { Checkboxes } from "../..";
 import { Input } from "./input";
 import { InputTypes } from "./inputProperties";
+import { ReduxCheckboxesAdapter, ReduxCheckboxesAdapterProperties } from "./reduxCheckboxesAdapter";
 import { ReduxFormAdapterProperties } from "./reduxFormAdapter";
 import ReduxFormAdapter from "./reduxFormAdapter";
 import ReduxSelectFormAdapter from "./reduxSelectFormAdapter";
@@ -37,3 +39,5 @@ export const WeekInputField = (props: Properties) =>
     (<ReduxFormAdapter {...props}><Input type={InputTypes.Week} {...props as any} /></ReduxFormAdapter>);
 export const SelectField = (props: ReduxFormAdapterProperties) =>
     (<ReduxSelectFormAdapter {...props}><Select {...props as any} /></ReduxSelectFormAdapter>);
+export const CheckboxField = (props: ReduxCheckboxesAdapterProperties) =>
+    (<ReduxCheckboxesAdapter {...props}><Checkboxes {...props as any} /></ReduxCheckboxesAdapter>);

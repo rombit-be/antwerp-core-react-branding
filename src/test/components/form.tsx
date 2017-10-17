@@ -15,6 +15,7 @@ export default class FormComponents extends React.Component<{}, {}> {
         return (
             <StyleSection {...this.sectionProps}>
                 <A.Fieldset legend="Input elements">
+                    <A.Confirm name="confirm" label="Confirm me" />
                     <A.TextInput name="text" label="Text input" />
                     <A.NumberInput name="number" label="Number input" />
                     <A.EmailInput name="email" label="Email input" />

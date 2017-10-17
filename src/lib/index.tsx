@@ -14,13 +14,14 @@ export * from "./text/titles";
 // Atoms
 export * from "./atoms/badge";
 export * from "./atoms/button";
+export * from "./atoms/copyright";
 export * from "./atoms/iconbutton";
 export * from "./atoms/label";
 export * from "./atoms/spinner";
 
 // Atoms / form
-export * from "./atoms/copyright";
 export * from "./atoms/form/checkboxes";
+export * from "./atoms/form/confirm";
 export * from "./atoms/form/fieldset";
 export * from "./atoms/form/form";
 export * from "./atoms/form/input";
@@ -47,7 +48,7 @@ export * from "./organisms/footer";
 
 // Utilities
 export * from "./utilities/background";
-export * from "./utilities/block";
+export * from "./utilities/layout";
 export * from "./utilities/logo";
 export * from "./utilities/spacing";
 export * from "./utilities/overlay";
