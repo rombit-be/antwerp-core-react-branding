@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import { Checkboxes } from "../..";
+import { Confirm } from "./confirm";
 import { Input } from "./input";
 import { InputTypes } from "./inputProperties";
 import { ReduxCheckboxesAdapter, ReduxCheckboxesAdapterProperties } from "./reduxCheckboxesAdapter";
@@ -41,3 +42,5 @@ export const SelectField = (props: ReduxFormAdapterProperties) =>
     (<ReduxSelectFormAdapter {...props}><Select {...props as any} /></ReduxSelectFormAdapter>);
 export const CheckboxField = (props: ReduxCheckboxesAdapterProperties) =>
     (<ReduxCheckboxesAdapter {...props}><Checkboxes {...props as any} /></ReduxCheckboxesAdapter>);
+export const ConfirmField = (props: Properties) =>
+    (<ReduxFormAdapter {...props}><Confirm type={InputTypes.Color} {...props as any} /></ReduxFormAdapter>);

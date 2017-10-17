@@ -16,3 +16,4 @@ export declare const UrlInputField: (props: ReduxFormAdapterProperties) => JSX.E
 export declare const WeekInputField: (props: ReduxFormAdapterProperties) => JSX.Element;
 export declare const SelectField: (props: ReduxFormAdapterProperties) => JSX.Element;
 export declare const CheckboxField: (props: ReduxCheckboxesAdapterProperties) => JSX.Element;
+export declare const ConfirmField: (props: ReduxFormAdapterProperties) => JSX.Element;
