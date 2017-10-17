@@ -41,7 +41,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
         delete props.value;
 
         return (
-            <div>
+            <div style={{ position: "relative" }}>
                 <TextInput
                     icon="calendar"
                     iconLocation={Location.Right}
@@ -60,7 +60,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
                     value={this.convertStringToDate(this.state.value)}
                     visible={this.state.datePickerVisible}
                 />
-            </div >
+            </div>
         );
     }
 
@@ -69,10 +69,11 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
     }
 
     private showDatePicker(e: React.SyntheticEvent<HTMLElement>) {
-        const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+        const { height } = (e.target as any).getBoundingClientRect();
+
         const position: any = {
-            left: (left + width) - 336,
-            top: top + height + window.scrollY,
+            right: 0,
+            top: height,
         };
 
         this.setState({
