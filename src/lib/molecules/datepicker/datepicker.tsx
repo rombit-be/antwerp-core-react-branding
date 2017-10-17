@@ -228,7 +228,8 @@ export class DatePicker extends React.Component<DatePickerProperties, DatePicker
         );
     }
 
-    private calculateViewDate(date: Date = new Date()): Date {
+    private calculateViewDate(date?: Date): Date {
+        date = date ? date : new Date();
         return new Date(date.getFullYear(), date.getMonth(), 1);
     }
 
