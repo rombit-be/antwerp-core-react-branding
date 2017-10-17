@@ -15,6 +15,7 @@ export class Confirm extends React.Component<ConfirmProperties, {}> {
             <Checkboxes
                 options={this.getOptions()}
                 {...this.props}
+                label={null}
                 value={[this.parseValueToString(this.props.value)]}
             />
         );
