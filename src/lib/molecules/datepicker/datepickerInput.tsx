@@ -7,6 +7,8 @@ import { Location } from "../../common/locations";
 import { DatePicker } from "./datepicker";
 
 export type DatePickerInputProperties = { dateFormat?: string } & InputProperties<string>;
+export type ReduxDatePickerFormAdapterProperties = { input?: Partial<DatePickerInputProperties> }
+    & Partial<DatePickerInputProperties>;
 export type DatePickerInputState = {
     dateFormat?: string,
     datePickerVisible: boolean,

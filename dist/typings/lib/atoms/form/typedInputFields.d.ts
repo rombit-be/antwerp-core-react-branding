@@ -1,4 +1,5 @@
 /// <reference types="react" />
+import { ReduxDatePickerFormAdapterProperties } from "../../molecules/datepicker/datepickerInput";
 import { ReduxCheckboxesAdapterProperties } from "./reduxCheckboxesAdapter";
 import { ReduxFormAdapterProperties } from "./reduxFormAdapter";
 import { ReduxSelectFormAdapterProperties } from "./reduxSelectFormAdapter";
@@ -18,3 +19,4 @@ export declare const WeekInputField: (props: ReduxFormAdapterProperties) => JSX.
 export declare const SelectField: (props: ReduxSelectFormAdapterProperties) => JSX.Element;
 export declare const CheckboxField: (props: ReduxCheckboxesAdapterProperties) => JSX.Element;
 export declare const ConfirmField: (props: ReduxFormAdapterProperties) => JSX.Element;
+export declare const DatePickerField: (props: ReduxDatePickerFormAdapterProperties) => JSX.Element;

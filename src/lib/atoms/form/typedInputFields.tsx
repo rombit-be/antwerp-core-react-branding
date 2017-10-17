@@ -1,14 +1,16 @@
 import * as React from "react";
 
 import { Checkboxes } from "../..";
+import { DatePicker } from "../../molecules/datepicker/datepicker";
+import { ReduxDatePickerFormAdapterProperties } from "../../molecules/datepicker/datepickerInput";
 import { Confirm } from "./confirm";
 import { Input } from "./input";
 import { InputTypes } from "./inputProperties";
 import { ReduxCheckboxesAdapter, ReduxCheckboxesAdapterProperties } from "./reduxCheckboxesAdapter";
-import { ReduxFormAdapterProperties } from "./reduxFormAdapter";
 import ReduxFormAdapter from "./reduxFormAdapter";
-import ReduxSelectFormAdapter from "./reduxSelectFormAdapter";
+import { ReduxFormAdapterProperties } from "./reduxFormAdapter";
 import { ReduxSelectFormAdapterProperties } from "./reduxSelectFormAdapter";
+import ReduxSelectFormAdapter from "./reduxSelectFormAdapter";
 import { Select } from "./select";
 
 type Properties = ReduxFormAdapterProperties;
@@ -45,3 +47,5 @@ export const CheckboxField = (props: ReduxCheckboxesAdapterProperties) =>
     (<ReduxCheckboxesAdapter {...props}><Checkboxes {...props as any} /></ReduxCheckboxesAdapter>);
 export const ConfirmField = (props: Properties) =>
     (<ReduxFormAdapter {...props}><Confirm type={InputTypes.Color} {...props as any} /></ReduxFormAdapter>);
+export const DatePickerField = (props: ReduxDatePickerFormAdapterProperties) =>
+    (<ReduxFormAdapter {...props}><DatePicker type={InputTypes.Color} {...props as any} /></ReduxFormAdapter>);

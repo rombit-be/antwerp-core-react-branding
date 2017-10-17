@@ -4,6 +4,9 @@ import { InputProperties } from "../../atoms/form/inputProperties";
 export declare type DatePickerInputProperties = {
     dateFormat?: string;
 } & InputProperties<string>;
+export declare type ReduxDatePickerFormAdapterProperties = {
+    input?: Partial<DatePickerInputProperties>;
+} & Partial<DatePickerInputProperties>;
 export declare type DatePickerInputState = {
     dateFormat?: string;
     datePickerVisible: boolean;
