@@ -2,6 +2,7 @@
 import * as React from "react";
 import { StyleProperties } from "../common/properties";
 export declare enum ParagraphStyle {
+    Alert = "m-alert",
     Bold = "u-text-bold",
     Capitalize = "u-text-capitalize",
     Center = "u-text-center",

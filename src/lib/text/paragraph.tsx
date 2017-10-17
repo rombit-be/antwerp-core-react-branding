@@ -6,6 +6,7 @@ import { Spacing, SpacingStyle } from "../utilities/spacing";
 
 // Define the types and properties
 export enum ParagraphStyle {
+    Alert = "m-alert",
     Bold = "u-text-bold",
     Capitalize = "u-text-capitalize",
     Center = "u-text-center",
