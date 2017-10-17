@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import * as React from "react";
 export declare type FieldsetProperties = {
-    legend?: string;
+    legend?: string | JSX.Element;
 } & React.FieldsetHTMLAttributes<HTMLFieldSetElement>;
 /**
  * Atoms: Form component
