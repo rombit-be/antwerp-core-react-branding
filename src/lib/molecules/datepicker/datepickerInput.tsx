@@ -114,9 +114,11 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
     }
 
     private onSelect(date: Date): void {
+        const displayValue: string = this.convertDateToString(date, true);
         const value: string = this.convertDateToString(date, false);
         this.setState({
             datePickerVisible: false,
+            displayValue,
             value,
         });
 
