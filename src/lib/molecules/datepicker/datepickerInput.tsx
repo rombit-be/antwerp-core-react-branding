@@ -8,12 +8,18 @@ import { TextInput } from "../../atoms/form/typedInputs";
 import { Location } from "../../common/locations";
 import { DatePicker } from "./datepicker";
 
-export type DatePickerInputProperties = { dateFormat?: string } & InputProperties<string>;
+export type DatePickerInputProperties = {
+    dateFormat?: string,
+    displayDateFormat?: string,
+}
+    & InputProperties<string>;
 export type ReduxDatePickerFormAdapterProperties = { input?: Partial<DatePickerInputProperties> }
     & Partial<DatePickerInputProperties>;
 export type DatePickerInputState = {
     dateFormat?: string,
     datePickerVisible: boolean,
+    displayDateFormat?: string,
+    displayValue?: string,
     id?: string,
     position?: any,
     value?: string,
@@ -24,15 +30,18 @@ export type DatePickerInputState = {
  */
 export class DatePickerInput extends React.Component<DatePickerInputProperties, DatePickerInputState> {
 
-    private static defaultDateFormat = "DD-MM-YYYY";
+    public static DefaultDateFormat = "YYYY-MM-DD";
+    public static DefaultDisplayDateFormat = "DD-MM-YYYY";
     private static eventName: string = "a-datepicker";
     private static registeredComponents: number = 1;
 
     public constructor(props: DatePickerInputProperties) {
         super(props);
         this.state = {
-            dateFormat: this.props.dateFormat || DatePickerInput.defaultDateFormat,
+            dateFormat: this.props.dateFormat || DatePickerInput.DefaultDateFormat,
             datePickerVisible: false,
+            displayDateFormat: this.props.displayDateFormat || DatePickerInput.DefaultDisplayDateFormat,
+            displayValue: this.convertValueToDisplayValue(this.props.value),
             id: `a-datepicker-${DatePickerInput.registeredComponents++}`,
             value: this.props.value,
         };
@@ -44,6 +53,8 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
         delete props.onChange;
         delete props.value;
 
+        const dateValue: Date = this.convertStringToDate(this.state.value, false);
+
         return (
             <div className="a-datepicker" style={{ position: "relative" }}>
                 <TextInput
@@ -53,14 +64,14 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
                     onChange={(e) => this.onChange(e)}
                     onFocus={(e) => this.onFocus(e)}
                     onIconClick={(e) => this.showDatePicker(e)}
-                    placeholder={this.state.dateFormat}
+                    placeholder={this.state.displayDateFormat}
                     {...props}
-                    value={this.state.value || ""}
+                    value={this.state.displayValue}
                 />
                 <DatePicker
                     onSelect={(e) => this.onSelect(e)}
                     position={this.state.position}
-                    value={this.convertStringToDate(this.state.value)}
+                    value={dateValue}
                     visible={this.state.datePickerVisible}
                 />
             </div>
@@ -88,14 +99,22 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
     }
 
     private onChange(e: React.SyntheticEvent<HTMLInputElement>) {
-        this.setState({ value: e.currentTarget.value });
+        const displayValue = e.currentTarget.value;
+        const value = this.convertDisplayValueToValue(displayValue);
+
+        this.setState({
+            displayValue,
+            value,
+        });
+
         if (this.props.onChange) {
-            this.props.onChange(e);
+            this.props.onChange(value as any);
         }
+
     }
 
     private onSelect(date: Date): void {
-        const value: string = this.convertDateToString(date);
+        const value: string = this.convertDateToString(date, false);
         this.setState({
             datePickerVisible: false,
             value,
@@ -122,9 +141,9 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
         }
     }
 
-    private convertDateToString(date: Date): string {
+    private convertDateToString(date: Date, display: boolean): string {
         try {
-            return moment(date).format(this.state.dateFormat);
+            return moment(date).format(display ? this.state.displayDateFormat : this.state.dateFormat);
         } catch (e) {
             // tslint:disable-next-line:no-console
             console.warn(`Cannot convert date to string: ${e.message}`, date);
@@ -132,10 +151,11 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
         }
     }
 
-    private convertStringToDate(value: string): Date {
+    private convertStringToDate(value: string, display: boolean): Date {
         try {
             if (value) {
-                const date = moment(value, this.state.dateFormat).toDate();
+                const date = moment(value, display ? this.state.displayDateFormat : this.state.dateFormat)
+                    .toDate();
                 // tslint:disable-next-line:no-console
                 return date;
             }
@@ -145,6 +165,20 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
             console.warn(`Cannot convert string to date: ${e.message}`, value);
             return new Date();
         }
+    }
+
+    private convertValueToDisplayValue(value: string): string {
+        if (value) {
+            return this.convertDateToString(this.convertStringToDate(value, false), true);
+        }
+        return "";
+    }
+
+    private convertDisplayValueToValue(value: string): string {
+        if (value) {
+            return this.convertDateToString(this.convertStringToDate(value, true), false);
+        }
+        return "";
     }
 
     // Window datepicker utils

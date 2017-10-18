@@ -4,6 +4,7 @@ import * as React from "react";
 import { InputProperties } from "../../atoms/form/inputProperties";
 export declare type DatePickerInputProperties = {
     dateFormat?: string;
+    displayDateFormat?: string;
 } & InputProperties<string>;
 export declare type ReduxDatePickerFormAdapterProperties = {
     input?: Partial<DatePickerInputProperties>;
@@ -11,6 +12,8 @@ export declare type ReduxDatePickerFormAdapterProperties = {
 export declare type DatePickerInputState = {
     dateFormat?: string;
     datePickerVisible: boolean;
+    displayDateFormat?: string;
+    displayValue?: string;
     id?: string;
     position?: any;
     value?: string;
@@ -19,7 +22,8 @@ export declare type DatePickerInputState = {
  * Molecules: DatePicker element with input
  */
 export declare class DatePickerInput extends React.Component<DatePickerInputProperties, DatePickerInputState> {
-    private static defaultDateFormat;
+    static DefaultDateFormat: string;
+    static DefaultDisplayDateFormat: string;
     private static eventName;
     private static registeredComponents;
     constructor(props: DatePickerInputProperties);
@@ -30,8 +34,10 @@ export declare class DatePickerInput extends React.Component<DatePickerInputProp
     private onSelect(date);
     private onFocus(e);
     private onBlur(e);
-    private convertDateToString(date);
-    private convertStringToDate(value);
+    private convertDateToString(date, display);
+    private convertStringToDate(value, display);
+    private convertValueToDisplayValue(value);
+    private convertDisplayValueToValue(value);
     private dispatchDatepickerOpenEvent(all?);
     private handleDatepickerOpenEvent(e);
     private registerDatepickerOpenEventHandler();

@@ -19,7 +19,7 @@ export default class DatepickerComponent extends React.Component<{}, {}> {
                     label="This is a datepicker"
                     input={{
                         onChange: (e) => this.debug(e),
-                        value: "12-03-1981",
+                        value: "1981-03-12",
                     }}
 
                     meta={{ valid: true, touched: true }}
