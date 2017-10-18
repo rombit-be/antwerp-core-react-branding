@@ -31,6 +31,8 @@ export class Input extends React.Component<TypedInputProperties, {}> {
     }
 
     public componentWillReceiveProps(nextProps: TypedInputProperties) {
+        // tslint:disable-next-line:no-console
+        console.log(this.props.value, this.props.value !== nextProps.value, this.props.triggerChangeOnNextProps)
         if (this.props.value !== "" && this.props.value !== nextProps.value && this.props.triggerChangeOnNextProps) {
             if (this.props.onChange) {
                 setTimeout(() => this.props.onChange(this.createSyntheticEvent() as any), 0);
