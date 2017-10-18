@@ -1,0 +1,16 @@
+.a-datepicker {
+    .has-success,
+    .has-warning,
+    .has-error {
+        .a-input__wrapper {
+                &::before {
+                display: none;
+            }
+        }
+        .fa {
+            &.is-clickable {
+                display: block !important;
+            }
+        }
+    }
+}

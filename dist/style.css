@@ -6474,6 +6474,18 @@ dl {
   color: white !important;
 }
 
+.a-datepicker .has-success .a-input__wrapper::before,
+.a-datepicker .has-warning .a-input__wrapper::before,
+.a-datepicker .has-error .a-input__wrapper::before {
+  display: none;
+}
+
+.a-datepicker .has-success .fa.is-clickable,
+.a-datepicker .has-warning .fa.is-clickable,
+.a-datepicker .has-error .fa.is-clickable {
+  display: block !important;
+}
+
 /**
  * QUARKS
  * -------------------------------------------------------------------

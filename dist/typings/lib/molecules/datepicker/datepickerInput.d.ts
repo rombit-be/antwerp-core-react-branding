@@ -1,4 +1,5 @@
 /// <reference types="react" />
+import "./datepickerInput.scss";
 import * as React from "react";
 import { InputProperties } from "../../atoms/form/inputProperties";
 export declare type DatePickerInputProperties = {

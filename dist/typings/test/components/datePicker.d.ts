@@ -6,4 +6,5 @@ import * as React from "react";
 export default class DatepickerComponent extends React.Component<{}, {}> {
     private sectionProps;
     render(): any;
+    private debug(e);
 }

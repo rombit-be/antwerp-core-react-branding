@@ -1,3 +1,5 @@
+import "./datepickerInput.scss";
+
 import * as moment from "moment";
 import * as React from "react";
 
@@ -53,8 +55,8 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
                     onIconClick={(e) => this.showDatePicker(e)}
                     placeholder={this.state.dateFormat}
                     triggerChangeOnNextProps={true}
-                    value={this.state.value || ""}
                     {...props}
+                    value={this.state.value || ""}
                 />
                 <DatePicker
                     onSelect={(e) => this.onSelect(e)}
@@ -71,7 +73,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
     }
 
     private showDatePicker(e: React.SyntheticEvent<HTMLElement>) {
-        const { height } = (e.target as any).getBoundingClientRect();
+        const { height } = (e.target as any).parentNode.parentNode.getBoundingClientRect();
 
         const position: any = {
             right: 0,
