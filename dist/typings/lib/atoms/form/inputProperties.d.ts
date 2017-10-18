@@ -50,7 +50,6 @@ export declare type InputProperties<T> = {
     onIconClick?: (e: React.SyntheticEvent<HTMLElement>) => void;
     placeholder?: string;
     required?: boolean;
-    triggerChangeOnNextProps?: boolean;
     value?: T;
 };
 export declare type TypedInputProperties = {

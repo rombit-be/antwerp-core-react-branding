@@ -7,8 +7,6 @@ import { TypedInputProperties } from "./inputProperties";
 export declare class Input extends React.Component<TypedInputProperties, {}> {
     private element;
     render(): any;
-    componentWillReceiveProps(nextProps: TypedInputProperties): void;
-    createSyntheticEvent(): Partial<React.SyntheticEvent<HTMLInputElement | HTMLTextAreaElement>>;
     private renderInput();
     private renderAddon(location);
     private renderIcon(location);

@@ -52,7 +52,6 @@ export type InputProperties<T> = {
     onIconClick?: (e: React.SyntheticEvent<HTMLElement>) => void;
     placeholder?: string;
     required?: boolean;
-    triggerChangeOnNextProps?: boolean,
     value?: T;
 };
 

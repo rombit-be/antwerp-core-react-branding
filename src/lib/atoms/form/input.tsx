@@ -30,37 +30,11 @@ export class Input extends React.Component<TypedInputProperties, {}> {
         );
     }
 
-    public componentWillReceiveProps(nextProps: TypedInputProperties) {
-        // tslint:disable-next-line:no-console
-        console.log(this.props.value, this.props.value !== nextProps.value, this.props.triggerChangeOnNextProps)
-        if (this.props.value !== "" && this.props.value !== nextProps.value && this.props.triggerChangeOnNextProps) {
-            if (this.props.onChange) {
-                setTimeout(() => this.props.onChange(this.createSyntheticEvent() as any), 0);
-            }
-        }
-    }
-
-    public createSyntheticEvent(): Partial<React.SyntheticEvent<HTMLInputElement | HTMLTextAreaElement>> {
-        if (this.element) {
-            return ({
-                bubbles: true,
-                currentTarget: this.element,
-                defaultPrevented: true,
-                eventPhase: undefined,
-                isTrusted: true,
-                nativeEvent: undefined,
-                target: this.element,
-            });
-        }
-        return undefined;
-    }
-
     private renderInput(): JSX.Element {
         const props = { ...this.props };
 
         delete props.iconLocation;
         delete props.onIconClick;
-        delete props.triggerChangeOnNextProps;
         delete props.meta;
 
         if (this.props.type === InputTypes.TextArea) {

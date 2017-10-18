@@ -54,7 +54,6 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
                     onFocus={(e) => this.onFocus(e)}
                     onIconClick={(e) => this.showDatePicker(e)}
                     placeholder={this.state.dateFormat}
-                    triggerChangeOnNextProps={true}
                     {...props}
                     value={this.state.value || ""}
                 />
@@ -96,10 +95,15 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
     }
 
     private onSelect(date: Date): void {
+        const value: string = this.convertDateToString(date);
         this.setState({
             datePickerVisible: false,
-            value: this.convertDateToString(date),
+            value,
         });
+
+        if (this.props.onChange) {
+            this.props.onChange(value as any);
+        }
     }
 
     private onFocus(e: React.SyntheticEvent<HTMLInputElement>): void {

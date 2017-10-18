@@ -28,6 +28,7 @@
   "homepage": "https://bitbucket.org/rombit/antwerp-core-react-branding#readme",
   "dependencies": {
     "classnames": "^2.2.5",
+    "core-branding": "bitbucket.org:rombit/antwerp-core-react-branding.git",
     "moment": "^2.18.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
