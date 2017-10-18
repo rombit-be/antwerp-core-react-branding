@@ -1,3 +1,5 @@
+import "./input.scss";
+
 import * as classNames from "classnames";
 import * as React from "react";
 
@@ -33,9 +35,10 @@ export class Input extends React.Component<TypedInputProperties, {}> {
     private renderInput(): JSX.Element {
         const props = { ...this.props };
 
+        delete props.errorComponent;
         delete props.iconLocation;
-        delete props.onIconClick;
         delete props.meta;
+        delete props.onIconClick;
 
         if (this.props.type === InputTypes.TextArea) {
 
@@ -71,14 +74,34 @@ export class Input extends React.Component<TypedInputProperties, {}> {
     }
 
     private renderDescription(): JSX.Element {
-        if (this.props.description) {
-            return (
-                <small>
-                    {this.props.description}
-                </small>
-            );
+        if (this.isError()) {
+            if (this.props.errorComponent) {
+                let component: JSX.Element;
+                if (typeof (this.props.errorComponent) === "function") {
+                    component = this.props.errorComponent(this.props.meta);
+                } else {
+                    component = this.props.errorComponent;
+                }
+                return (
+                    <small className="has-error">
+                        {component}
+                    </small>
+                );
+            } else {
+                return (
+                    <small className="has-error">
+                        {this.props.meta.error}
+                    </small>
+                );
+            }
         }
-        return null;
+
+        // Return default description
+        return (
+            <small>
+                {this.props.description || " "}
+            </small>
+        );
     }
 
     private className(): string {
@@ -88,9 +111,14 @@ export class Input extends React.Component<TypedInputProperties, {}> {
             { "is-required": this.props.required },
             this.props.iconLocation ? `has-icon-${this.props.iconLocation}` : "",
             { "has-success": meta.touched && meta.valid },
-            { "has-error": meta.touched && meta.error },
+            { "has-error": this.isError() },
             { "has-addon": this.props.addon ? true : false },
         );
+    }
+
+    private isError(): boolean {
+        const meta: FieldMetaProperties = this.props.meta || {};
+        return meta.touched && (meta.error ? true : false);
     }
 
     private id(): string {

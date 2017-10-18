@@ -25,7 +25,7 @@ export enum InputTypes {
 export type FieldMetaProperties = {
     active?: boolean;
     dirty?: boolean;
-    error?: boolean;
+    error?: boolean | string | JSX.Element;
     invalid?: boolean;
     pristine?: boolean;
     touched?: boolean;
@@ -38,6 +38,7 @@ export type InputProperties<T> = {
     checked?: boolean;
     description?: string | JSX.Element;
     disabled?: boolean;
+    errorComponent?: JSX.Element | ((props: any) => JSX.Element),
     icon?: string;
     iconLocation?: Location;
     inline?: boolean;

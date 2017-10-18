@@ -37,11 +37,15 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
 
     public constructor(props: DatePickerInputProperties) {
         super(props);
+
+        const dateFormat = props.dateFormat || DatePickerInput.DefaultDateFormat;
+        const displayDateFormat = props.displayDateFormat || DatePickerInput.DefaultDisplayDateFormat;
+
         this.state = {
-            dateFormat: this.props.dateFormat || DatePickerInput.DefaultDateFormat,
+            dateFormat,
             datePickerVisible: false,
-            displayDateFormat: this.props.displayDateFormat || DatePickerInput.DefaultDisplayDateFormat,
-            displayValue: this.convertValueToDisplayValue(this.props.value),
+            displayDateFormat,
+            displayValue: this.convertValueToDisplayValue(this.props.value, dateFormat, displayDateFormat),
             id: `a-datepicker-${DatePickerInput.registeredComponents++}`,
             value: this.props.value,
         };
@@ -143,20 +147,22 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
         }
     }
 
-    private convertDateToString(date: Date, display: boolean): string {
+    private convertDateToString(date: Date, display: boolean, format?: string): string {
+        format = format || (display ? this.state.displayDateFormat : this.state.dateFormat);
         try {
-            return moment(date).format(display ? this.state.displayDateFormat : this.state.dateFormat);
+            return moment(date).format(format);
         } catch (e) {
             // tslint:disable-next-line:no-console
-            console.warn(`Cannot convert date to string: ${e.message}`, date);
+            console.warn(`Cannot convert date to string: ${e.message}`, { date, display, format });
             return "";
         }
     }
 
-    private convertStringToDate(value: string, display: boolean): Date {
+    private convertStringToDate(value: string, display: boolean, format?: string): Date {
+        format = format ||  (display ? this.state.displayDateFormat : this.state.dateFormat);
         try {
             if (value) {
-                const date = moment(value, display ? this.state.displayDateFormat : this.state.dateFormat)
+                const date = moment(value, format)
                     .toDate();
                 // tslint:disable-next-line:no-console
                 return date;
@@ -164,23 +170,32 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
             return undefined;
         } catch (e) {
             // tslint:disable-next-line:no-console
-            console.warn(`Cannot convert string to date: ${e.message}`, value);
+            console.warn(`Cannot convert string to date: ${e.message}`, { value, display, format });
             return new Date();
         }
     }
 
-    private convertValueToDisplayValue(value: string): string {
-        if (value) {
-            return this.convertDateToString(this.convertStringToDate(value, false), true);
+    private convertValueToDisplayValue(value: string, valueFormat?: string, displayValueFormat?: string): string {
+        try {
+            if (value) {
+                return this.convertDateToString(
+                    this.convertStringToDate(value, false, valueFormat),
+                    true,
+                    displayValueFormat);
+            }
+        } catch (e) {
+            // tslint:disable-next-line:no-console
+            console.warn(`Cannot convert value to display value: ${e.message}`, { value, valueFormat, displayValueFormat });
         }
-        return "";
+
+        return undefined;
     }
 
     private convertDisplayValueToValue(value: string): string {
         if (value) {
             return this.convertDateToString(this.convertStringToDate(value, true), false);
         }
-        return "";
+        return undefined;
     }
 
     // Window datepicker utils

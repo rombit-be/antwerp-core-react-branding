@@ -1,0 +1,9 @@
+@import '../../../base/src/styles/_quarks.scss';
+
+.a-input {
+    small {
+        &.has-error {
+            color: $input-danger-icon;
+        }
+    }
+}

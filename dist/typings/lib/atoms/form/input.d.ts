@@ -1,4 +1,5 @@
 /// <reference types="react" />
+import "./input.scss";
 import * as React from "react";
 import { TypedInputProperties } from "./inputProperties";
 /**
@@ -12,5 +13,6 @@ export declare class Input extends React.Component<TypedInputProperties, {}> {
     private renderIcon(location);
     private renderDescription();
     private className();
+    private isError();
     private id();
 }

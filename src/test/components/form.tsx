@@ -17,6 +17,17 @@ export default class FormComponents extends React.Component<{}, {}> {
                 <A.Fieldset legend="Input elements">
                     <A.Confirm name="confirm" label="Confirm me" />
                     <A.TextInput name="text" label="Text input" />
+                    <A.TextInput name="text_with_description" label="Text input" description="This is a description" />
+                    <A.TextInput name="text_with_error" label="Text input"
+                        meta={{ touched: true, error: "This input is horribly wrong" }} />
+                    <A.TextInput name="text_with_error_component" label="Text input"
+                        meta={{ touched: true, error: "This input is horribly wrong" }}
+                        errorComponent={(props) => <span>An error: {props.error}</span>}
+                    />
+                    <A.TextInput name="text_with_error_staticcomponent" label="Text input"
+                        meta={{ touched: true, error: "This input is horribly wrong" }}
+                        errorComponent={<span>An error in this field :(</span>}
+                    />
                     <A.NumberInput name="number" label="Number input" />
                     <A.EmailInput name="email" label="Email input" />
                     <A.DateTimeInput name="datetime" label="Date/Time input" />

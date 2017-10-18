@@ -34,9 +34,9 @@ export declare class DatePickerInput extends React.Component<DatePickerInputProp
     private onSelect(date);
     private onFocus(e);
     private onBlur(e);
-    private convertDateToString(date, display);
-    private convertStringToDate(value, display);
-    private convertValueToDisplayValue(value);
+    private convertDateToString(date, display, format?);
+    private convertStringToDate(value, display, format?);
+    private convertValueToDisplayValue(value, valueFormat?, displayValueFormat?);
     private convertDisplayValueToValue(value);
     private dispatchDatepickerOpenEvent(all?);
     private handleDatepickerOpenEvent(e);
