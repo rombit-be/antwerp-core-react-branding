@@ -8,23 +8,32 @@ import { InputProperties } from "./inputProperties";
 
 export type SelectOption = { label: string | JSX.Element, value: string, disabled?: boolean };
 export type SelectProperties = { options: SelectOption[] } & InputProperties<string>;
+export type SelectState = { value: string };
 
 /**
  * Atoms: Radiobutton group element
  */
-export class Select extends React.Component<SelectProperties, {}> {
+export class Select extends React.Component<SelectProperties, SelectState> {
+
+    public constructor(props: SelectProperties) {
+        super(props);
+        this.state = { value: props.value || "" };
+    }
 
     public render(): any {
         // Clean the select props
         const props: any = { ...this.props };
         delete props.options;
-        delete props.value;
 
         return (
             <div className={this.className()}>
                 <FormLabel {...this.props} />
                 <div className="a-input__wrapper">
-                    <select id={this.id()} {...props}>
+                    <select id={this.id()}
+                        {...props}
+                        value={this.state.value}
+                        onChange={(e) => this.onChange(e)}
+                    >
                         {this.renderOptions()}
                     </select>
                     <Icon name="angle-down" span />
@@ -35,16 +44,18 @@ export class Select extends React.Component<SelectProperties, {}> {
     }
 
     private renderOptions(): JSX.Element[] {
-        return this.props.options
+        const options = this.props.options
             .map((x, i) => (
                 <option
                     disabled={x.disabled}
                     id={this.optionId(i)}
                     key={i}
+                    value={x.value}
                 >
                     {x.label}
                 </option>
             ));
+        return [<option key={-1}></option>, ...options];
     }
 
     private renderDescription(): JSX.Element {
@@ -56,6 +67,15 @@ export class Select extends React.Component<SelectProperties, {}> {
             );
         }
         return null;
+    }
+
+    private onChange(e: React.SyntheticEvent<HTMLSelectElement>) {
+        const value = e.currentTarget.value;
+        this.setState({ value });
+
+        if (this.props.onChange) {
+            this.props.onChange(e as any);
+        }
     }
 
     private className(): string {

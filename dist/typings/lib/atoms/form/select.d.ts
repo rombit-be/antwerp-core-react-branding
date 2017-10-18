@@ -9,13 +9,18 @@ export declare type SelectOption = {
 export declare type SelectProperties = {
     options: SelectOption[];
 } & InputProperties<string>;
+export declare type SelectState = {
+    value: string;
+};
 /**
  * Atoms: Radiobutton group element
  */
-export declare class Select extends React.Component<SelectProperties, {}> {
+export declare class Select extends React.Component<SelectProperties, SelectState> {
+    constructor(props: SelectProperties);
     render(): any;
     private renderOptions();
     private renderDescription();
+    private onChange(e);
     private className();
     private optionId(i);
     private id();
