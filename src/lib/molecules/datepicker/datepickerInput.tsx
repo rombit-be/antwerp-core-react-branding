@@ -45,7 +45,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
             dateFormat,
             datePickerVisible: false,
             displayDateFormat,
-            displayValue: this.convertValueToDisplayValue(this.props.value, dateFormat, displayDateFormat),
+            displayValue: this.convertValueToDisplayValue(this.props.value, dateFormat, displayDateFormat) || "",
             id: `a-datepicker-${DatePickerInput.registeredComponents++}`,
             value: this.props.value,
         };
@@ -159,7 +159,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
     }
 
     private convertStringToDate(value: string, display: boolean, format?: string): Date {
-        format = format ||  (display ? this.state.displayDateFormat : this.state.dateFormat);
+        format = format || (display ? this.state.displayDateFormat : this.state.dateFormat);
         try {
             if (value) {
                 const date = moment(value, format)
@@ -188,7 +188,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
             console.warn(`Cannot convert value to display value: ${e.message}`, { value, valueFormat, displayValueFormat });
         }
 
-        return undefined;
+        return "";
     }
 
     private convertDisplayValueToValue(value: string): string {
