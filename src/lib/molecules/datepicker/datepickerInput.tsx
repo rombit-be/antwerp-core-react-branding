@@ -43,7 +43,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
         delete props.value;
 
         return (
-            <div style={{ position: "relative" }}>
+            <div className="a-datepicker" style={{ position: "relative" }}>
                 <TextInput
                     icon="calendar"
                     iconLocation={Location.Right}

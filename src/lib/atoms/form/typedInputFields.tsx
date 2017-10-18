@@ -46,5 +46,7 @@ export const CheckboxField = (props: ReduxCheckboxesAdapterProperties) =>
     (<ReduxCheckboxesAdapter {...props}><Checkboxes {...props as any} /></ReduxCheckboxesAdapter>);
 export const ConfirmField = (props: Properties) =>
     (<ReduxFormAdapter {...props}><Confirm type={InputTypes.Color} {...props as any} /></ReduxFormAdapter>);
-export const DatePickerField = (props: ReduxDatePickerFormAdapterProperties) =>
-    (<ReduxFormAdapter {...props}><DatePickerInput {...props as any} /></ReduxFormAdapter>);
+export const DatePickerField = (props: ReduxDatePickerFormAdapterProperties) => {
+    const mergedProps: any = { ...props, ...props.input };
+    return (<ReduxFormAdapter {...props}><DatePickerInput {...mergedProps as any} /></ReduxFormAdapter>);
+};
