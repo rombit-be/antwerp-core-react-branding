@@ -8,6 +8,7 @@ import { DatePickerElement, DatePickerElementProperties } from "./datepickerElem
 
 export type DatePickerProperties = {
     locale?: DatePickerLocale,
+    minDate?: Date,
     onSelect?: (date: Date) => void;
     position?: { top: number, left: number };
     value?: Date,
@@ -170,6 +171,7 @@ export class DatePicker extends React.Component<DatePickerProperties, DatePicker
                     current: this.dateEqualsNow(date),
                     currentMonth: viewDate.getMonth() === date.getMonth(),
                     date,
+                    disabled: this.props.minDate ? this.dateLowerThan(date, this.props.minDate) : false,
                     selected: this.dateEquals(date, this.state.value),
                 };
             }
@@ -191,6 +193,10 @@ export class DatePicker extends React.Component<DatePickerProperties, DatePicker
                 a.getDate() === b.getDate();
         }
         return false;
+    }
+
+    private dateLowerThan(a: Date, b: Date): boolean {
+        return a.getTime() < b.getTime();
     }
 
     /**

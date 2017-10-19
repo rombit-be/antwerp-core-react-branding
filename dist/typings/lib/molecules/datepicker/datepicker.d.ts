@@ -2,6 +2,7 @@
 import * as React from "react";
 export declare type DatePickerProperties = {
     locale?: DatePickerLocale;
+    minDate?: Date;
     onSelect?: (date: Date) => void;
     position?: {
         top: number;
@@ -50,6 +51,7 @@ export declare class DatePicker extends React.Component<DatePickerProperties, Da
      * @param b
      */
     private dateEquals(a, b);
+    private dateLowerThan(a, b);
     /**
      * Check if a date equals now
      *

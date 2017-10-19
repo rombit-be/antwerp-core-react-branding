@@ -18,11 +18,10 @@ export default class DatepickerComponent extends React.Component<{}, {}> {
                 <A.DatePickerField name="datepicker"
                     label="This is a datepicker"
                     input={{
+                        minDate: "2017-10-23",
                         onChange: (e) => this.debug(e),
-                        value: "1981-03-12",
+                        value: "2017-10-25",
                     }}
-
-                    meta={{ valid: true, touched: true }}
                 />
             </StyleSection >
         );

@@ -11,10 +11,13 @@ import { DatePicker } from "./datepicker";
 export type DatePickerInputProperties = {
     dateFormat?: string,
     displayDateFormat?: string,
+    minDate?: string,
 }
     & InputProperties<string>;
+
 export type ReduxDatePickerFormAdapterProperties = { input?: Partial<DatePickerInputProperties> }
     & Partial<DatePickerInputProperties>;
+
 export type DatePickerInputState = {
     dateFormat?: string,
     datePickerVisible: boolean,
@@ -73,6 +76,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
                     value={this.state.displayValue}
                 />
                 <DatePicker
+                    minDate={this.props.minDate ? this.convertStringToDate(this.props.minDate, false) : null}
                     onSelect={(e) => this.onSelect(e)}
                     position={this.state.position}
                     value={dateValue}
@@ -101,6 +105,8 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
 
         this.dispatchDatepickerOpenEvent();
     }
+
+    // region private handlers
 
     private onChange(e: React.SyntheticEvent<HTMLInputElement>) {
         const displayValue = e.currentTarget.value;
@@ -146,6 +152,8 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
             this.props.onBlur(e);
         }
     }
+
+    // endregion
 
     private convertDateToString(date: Date, display: boolean, format?: string): string {
         format = format || (display ? this.state.displayDateFormat : this.state.dateFormat);

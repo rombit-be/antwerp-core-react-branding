@@ -4,8 +4,9 @@ export declare type DatePickerElementProperties = {
     current: boolean;
     currentMonth: boolean;
     date: Date;
-    selected: boolean;
+    disabled?: boolean;
     onClick?: (date: Date) => void;
+    selected: boolean;
 };
 /**
  * Molecules: DatePicker Element (in the grid)
@@ -14,4 +15,5 @@ export declare class DatePickerElement extends React.Component<DatePickerElement
     render(): JSX.Element;
     private className();
     private onClick();
+    private isDisabled();
 }

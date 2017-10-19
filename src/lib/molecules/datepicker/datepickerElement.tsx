@@ -5,8 +5,9 @@ export type DatePickerElementProperties = {
     current: boolean,
     currentMonth: boolean,
     date: Date,
-    selected: boolean,
+    disabled?: boolean,
     onClick?: (date: Date) => void;
+    selected: boolean,
 };
 
 /**
@@ -29,15 +30,19 @@ export class DatePickerElement extends React.Component<DatePickerElementProperti
 
     private className(): string {
         return classNames(
-            { "is-faded": !this.props.currentMonth },
+            { "is-faded": this.isDisabled() },
             { "is-current": this.props.current },
             { "is-selected": this.props.selected },
         );
     }
 
     private onClick(): void {
-        if (this.props.onClick) {
+        if (this.props.onClick && !this.isDisabled()) {
             this.props.onClick(this.props.date);
         }
+    }
+
+    private isDisabled(): boolean {
+        return !this.props.currentMonth || this.props.disabled;
     }
 }
