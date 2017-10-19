@@ -91,19 +91,26 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
     }
 
     private showDatePicker(e: React.SyntheticEvent<HTMLElement>) {
-        const { height } = (e.target as any).parentNode.parentNode.getBoundingClientRect();
+        if (this.state.datePickerVisible) {
+            this.setState({
+                datePickerVisible: false,
+            });
+        } else {
+            const height = (e.target as any).previousSibling.offsetHeight;
+            const top = (e.target as any).parentNode.offsetTop;
 
-        const position: any = {
-            right: 0,
-            top: height,
-        };
+            const position: any = {
+                right: 0,
+                top: height + top,
+            };
 
-        this.setState({
-            datePickerVisible: true,
-            position,
-        });
+            this.setState({
+                datePickerVisible: true,
+                position,
+            });
 
-        this.dispatchDatepickerOpenEvent();
+            this.dispatchDatepickerOpenEvent();
+        }
     }
 
     // region private handlers
