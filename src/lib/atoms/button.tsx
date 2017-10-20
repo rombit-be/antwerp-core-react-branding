@@ -33,8 +33,9 @@ export class Button extends React.Component<ButtonProperties, {}> {
     public render(): any {
         return (
             <button
-                onClick={(e) => this.onClick(e)}
                 className={this.className()}
+                disabled={this.props.disabled}
+                onClick={(e) => this.onClick(e)}
                 style={this.props.style}
                 type={this.buttonType()}
             >
@@ -48,7 +49,6 @@ export class Button extends React.Component<ButtonProperties, {}> {
             this.props.type && this.props.type !== ButtonType.Default ? `a-button-${this.props.type}` : "a-button",
             this.props.level ? `a-button--${this.props.level}` : "",
             this.props.size ? `a-button--${this.props.size}` : "",
-            { disabled: this.props.disabled },
             this.props.className,
         );
     }
