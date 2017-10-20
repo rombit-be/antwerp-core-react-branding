@@ -12,12 +12,14 @@ export declare enum ButtonType {
 export declare type ButtonProperties = {
     className?: string;
     disabled?: boolean;
+    focus?: boolean;
     level?: Levels;
     negative?: boolean;
     onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
     reset?: boolean;
     size?: Sizes;
     submit?: boolean;
+    tabIndex?: number;
     text?: string | JSX.Element;
     type?: ButtonType;
 } & StyleProperties;
@@ -25,7 +27,9 @@ export declare type ButtonProperties = {
  * Atoms: button component
  */
 export declare class Button extends React.Component<ButtonProperties, {}> {
+    private buttonRef;
     render(): any;
+    componentDidMount(): void;
     private className();
     private buttonType();
     private onClick(e);

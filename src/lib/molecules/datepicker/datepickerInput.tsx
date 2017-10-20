@@ -59,6 +59,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
         const props = { ...this.props };
         delete props.onChange;
         delete props.value;
+        delete props.minDate;
 
         const dateValue: Date = this.convertStringToDate(this.state.value, false);
 

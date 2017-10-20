@@ -64,9 +64,12 @@ export class Alert extends React.Component<AlertProperties, AlertState> {
                         }
                         <Button
                             className={"m-alert__ok"}
+                            focus
                             level={this.props.level}
                             onClick={() => this.onOk()}
                             size={Sizes.Small}
+                            submit
+                            tabIndex={0}
                         >
                             {this.props.okText || "OK"}
                         </Button>

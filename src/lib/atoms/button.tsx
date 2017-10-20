@@ -15,12 +15,14 @@ export enum ButtonType {
 export type ButtonProperties = {
     className?: string;
     disabled?: boolean;
+    focus?: boolean;
     level?: Levels;
     negative?: boolean;
     onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
     reset?: boolean;
     size?: Sizes;
     submit?: boolean;
+    tabIndex?: number;
     text?: string | JSX.Element;
     type?: ButtonType;
 } & StyleProperties;
@@ -30,19 +32,31 @@ export type ButtonProperties = {
  */
 export class Button extends React.Component<ButtonProperties, {}> {
 
+    private buttonRef: HTMLButtonElement;
+
     public render(): any {
         return (
             <button
                 className={this.className()}
                 disabled={this.props.disabled}
                 onClick={(e) => this.onClick(e)}
+                ref={(b: any) => this.buttonRef = b}
                 style={this.props.style}
+                tabIndex={this.props.tabIndex}
                 type={this.buttonType()}
+                autoFocus
             >
                 {this.props.children || this.props.text}
             </button>
         );
     }
+
+    public componentDidMount() {
+        if (this.buttonRef && this.props.focus) {
+            setTimeout(() => this.buttonRef.focus(), 0);
+        }
+    }
+
 
     private className(): string {
         return classNames(
