@@ -1,4 +1,5 @@
 /// <reference types="react" />
+import "./footer.scss";
 import * as React from "react";
 export declare type FooterProperties = {
     label?: string;

@@ -7375,5 +7375,12 @@ body.a-overlay--open {
   overflow: hidden;
 }
 
+.o-footer {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
 
 /*# sourceMappingURL=style.css.map*/

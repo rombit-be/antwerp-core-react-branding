@@ -1,3 +1,5 @@
+import "./footer.scss";
+
 import * as React from "react";
 
 export type FooterProperties = {
