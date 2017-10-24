@@ -2,7 +2,11 @@ import * as React from "react";
 
 import { SelectProperties } from "./select";
 
-export type ReduxSelectFormAdapterProperties = { input?: Partial<SelectProperties> } & Partial<SelectProperties>;
+export type ReduxSelectFormAdapterProperties = {
+    validate?: any,
+    input?: Partial<SelectProperties>,
+}
+    & Partial<SelectProperties>;
 
 /**
  * React Component ReduxFormAdapter
@@ -18,6 +22,7 @@ export default class ReduxSelectFormAdapter extends React.Component<ReduxSelectF
             // Clone the props
             const props: any = { ...this.props, ...this.props.input };
             props.children = null;
+            props.required = this.props.validate ? true : false;
 
             // Clone the react element
             return React.cloneElement((React.Children.toArray(this.props.children)[0] as any), props);

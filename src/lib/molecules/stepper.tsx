@@ -21,7 +21,8 @@ export class Stepper extends React.Component<StepperProperties, {}> {
 
     private renderSteps(): JSX.Element[] {
         if (this.props.steps && this.props.steps.length > 0) {
-            return this.props.steps.map((x, i) => this.renderStep(x, i));
+            return this.props.steps
+                .map((x, i) => this.renderStep(x, i));
         }
         return null;
     }

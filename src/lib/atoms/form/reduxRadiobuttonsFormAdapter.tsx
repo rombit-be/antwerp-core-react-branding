@@ -1,16 +1,16 @@
 import * as React from "react";
 
-import { InputProperties, TypedInputProperties } from "./inputProperties";
+import { RadiobuttonsProperties } from "../..";
 
-export type ReduxFormAdapterProperties = {
-    input?: Partial<InputProperties<any>>,
-    validate?: any,
-} & Partial<TypedInputProperties>;
+export type ReduxRadiobuttonsFormAdapterProperties = {
+    input?: Partial<RadiobuttonsProperties>,
+    validate: any,
+} & Partial<RadiobuttonsProperties>;
 
 /**
  * React Component ReduxFormAdapter
  */
-export default class ReduxFormAdapter extends React.Component<ReduxFormAdapterProperties, {}> {
+export default class ReduxRadiobuttonsFormAdapter extends React.Component<ReduxRadiobuttonsFormAdapterProperties, {}> {
 
     public render(): any {
         return this.renderAdaptedChild();
@@ -27,7 +27,7 @@ export default class ReduxFormAdapter extends React.Component<ReduxFormAdapterPr
             return React.cloneElement((React.Children.toArray(this.props.children)[0] as any), props);
         }
         // tslint:disable-next-line:no-console
-        console.warn(`${ReduxFormAdapter.name}: only one child should be provided`);
+        console.warn(`${ReduxRadiobuttonsFormAdapter.name}: only one child should be provided`);
         return null;
     }
 }

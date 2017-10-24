@@ -1,7 +1,7 @@
 {
   "name": "antwerp-core-react-branding",
-  "description": "> React port of the Antwerpen.be Core Branding",
-  "version": "0.0.7",
+  "description": "React port of the Antwerpen.be Core Branding",
+  "version": "0.0.8",
   "main": "./dist/index.js",
   "types": "./dist/typings/lib/index.d.ts",
   "directories": {
@@ -11,11 +11,8 @@
   "scripts": {
     "start": "webpack-dev-server --content-base src/test",
     "build": "NODE_ENV=production webpack --config webpack.prod.js",
-    "test": "jest --config jest.config.json"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@bitbucket.org/rombit/antwerp-core-react-branding.git"
+    "test": "jest --config jest.config.json",
+    "deploy": "./quick-deploy.sh"
   },
   "keywords": [
     "antwerp",
@@ -25,7 +22,7 @@
   ],
   "author": "Gie Spaepen <gie.spaepen@rombit.be>",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/rombit/antwerp-core-react-branding#readme",
+  "homepage": "https://rombit.be",
   "dependencies": {
     "classnames": "^2.2.5",
     "core-branding": "bitbucket.org:rombit/antwerp-core-react-branding.git",

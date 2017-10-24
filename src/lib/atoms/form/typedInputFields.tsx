@@ -8,8 +8,10 @@ import { InputTypes } from "./inputProperties";
 import { ReduxCheckboxesAdapter, ReduxCheckboxesAdapterProperties } from "./reduxCheckboxesAdapter";
 import ReduxFormAdapter from "./reduxFormAdapter";
 import { ReduxFormAdapterProperties } from "./reduxFormAdapter";
-import { ReduxSelectFormAdapterProperties } from "./reduxSelectFormAdapter";
+import ReduxRadiobuttonsFormAdapter from "./reduxRadiobuttonsFormAdapter";
+import { ReduxRadiobuttonsFormAdapterProperties } from "./reduxRadiobuttonsFormAdapter";
 import ReduxSelectFormAdapter from "./reduxSelectFormAdapter";
+import { ReduxSelectFormAdapterProperties } from "./reduxSelectFormAdapter";
 import { Select } from "./select";
 
 type Properties = ReduxFormAdapterProperties;
@@ -40,8 +42,7 @@ export const UrlInputField = (props: Properties) =>
     (<ReduxFormAdapter {...props}><Input type={InputTypes.Url} {...props as any} /></ReduxFormAdapter>);
 export const WeekInputField = (props: Properties) =>
     (<ReduxFormAdapter {...props}><Input type={InputTypes.Week} {...props as any} /></ReduxFormAdapter>);
-export const SelectField = (props: ReduxSelectFormAdapterProperties) =>
-    (<ReduxSelectFormAdapter {...props}><Select {...props as any} /></ReduxSelectFormAdapter>);
+
 export const CheckboxField = (props: ReduxCheckboxesAdapterProperties) =>
     (<ReduxCheckboxesAdapter {...props}><Checkboxes {...props as any} /></ReduxCheckboxesAdapter>);
 export const ConfirmField = (props: Properties) =>
@@ -49,3 +50,8 @@ export const ConfirmField = (props: Properties) =>
 export const DatePickerField = (props: ReduxDatePickerFormAdapterProperties) => {
     return (<ReduxFormAdapter {...props}><DatePickerInput {...props as any} /></ReduxFormAdapter>);
 };
+
+export const SelectField = (props: ReduxSelectFormAdapterProperties) =>
+    (<ReduxSelectFormAdapter {...props}><Select {...props as any} /></ReduxSelectFormAdapter>);
+export const RadiobuttonsField = (props: ReduxRadiobuttonsFormAdapterProperties) =>
+    (<ReduxRadiobuttonsFormAdapter {...props}><Select {...props as any} /></ReduxRadiobuttonsFormAdapter>);

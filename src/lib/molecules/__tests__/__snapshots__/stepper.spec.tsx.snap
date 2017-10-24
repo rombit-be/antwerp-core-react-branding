@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`stepper Renders stepper 1`] = `
+<ol
+  className="m-step-indicator"
+>
+  <li
+    className=""
+  >
+    <span
+      className="m-step-indicator__label"
+    >
+      Step 1
+    </span>
+  </li>
+  <li
+    className=""
+  >
+    <span
+      className="m-step-indicator__label"
+    >
+      Step 2
+    </span>
+  </li>
+</ol>
+`;
+
+exports[`stepper Renders stepper 2`] = `
+<ol
+  className="m-step-indicator"
+>
+  <li
+    className=""
+  >
+    <span
+      className="m-step-indicator__label"
+    >
+      Step 1
+    </span>
+  </li>
+  <li
+    className=""
+  >
+    <span
+      className="m-step-indicator__label"
+    >
+      Step 2
+    </span>
+  </li>
+  <li
+    className=""
+  >
+    <span
+      className="m-step-indicator__label"
+    >
+      Stepper 3
+    </span>
+  </li>
+</ol>
+`;
+
+exports[`stepper Renders stepper 3`] = `
+<ol
+  className="m-step-indicator"
+>
+  <li
+    className="is-completed"
+  >
+    <span
+      className="m-step-indicator__label"
+    >
+      Step 1
+    </span>
+  </li>
+  <li
+    className="is-active"
+  >
+    <span
+      className="m-step-indicator__label"
+    >
+      Step 2
+    </span>
+  </li>
+</ol>
+`;

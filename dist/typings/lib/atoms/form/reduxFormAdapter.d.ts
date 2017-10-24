@@ -3,6 +3,7 @@ import * as React from "react";
 import { InputProperties, TypedInputProperties } from "./inputProperties";
 export declare type ReduxFormAdapterProperties = {
     input?: Partial<InputProperties<any>>;
+    validate?: any;
 } & Partial<TypedInputProperties>;
 /**
  * React Component ReduxFormAdapter

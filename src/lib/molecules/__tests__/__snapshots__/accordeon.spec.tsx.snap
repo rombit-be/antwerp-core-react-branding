@@ -5,7 +5,8 @@ exports[`accordeon Doesn't render non AccordeonItem items 1`] = `
   className="m-accordion"
 >
   <div
-    className="m-accordion__tab is"
+    className="m-accordion__tab"
+    style={undefined}
   >
     <div
       className="m-accordion__header"
@@ -24,6 +25,7 @@ exports[`accordeon Doesn't render non AccordeonItem items 1`] = `
   </div>
   <div
     className="m-accordion__tab is-open"
+    style={undefined}
   >
     <div
       className="m-accordion__header"
@@ -49,6 +51,7 @@ exports[`accordeon Renders accordeon 1`] = `
 >
   <div
     className="m-accordion__tab is-open"
+    style={undefined}
   >
     <div
       className="m-accordion__header"
@@ -66,7 +69,8 @@ exports[`accordeon Renders accordeon 1`] = `
     </div>
   </div>
   <div
-    className="m-accordion__tab is"
+    className="m-accordion__tab"
+    style={undefined}
   >
     <div
       className="m-accordion__header"
@@ -84,7 +88,8 @@ exports[`accordeon Renders accordeon 1`] = `
     </div>
   </div>
   <div
-    className="m-accordion__tab is"
+    className="m-accordion__tab"
+    style={undefined}
   >
     <div
       className="m-accordion__header"
@@ -109,7 +114,8 @@ exports[`accordeon Renders accordeon with active index 1`] = `
   className="m-accordion"
 >
   <div
-    className="m-accordion__tab is"
+    className="m-accordion__tab"
+    style={undefined}
   >
     <div
       className="m-accordion__header"
@@ -128,6 +134,7 @@ exports[`accordeon Renders accordeon with active index 1`] = `
   </div>
   <div
     className="m-accordion__tab is-open"
+    style={undefined}
   >
     <div
       className="m-accordion__header"
@@ -145,7 +152,8 @@ exports[`accordeon Renders accordeon with active index 1`] = `
     </div>
   </div>
   <div
-    className="m-accordion__tab is"
+    className="m-accordion__tab"
+    style={undefined}
   >
     <div
       className="m-accordion__header"

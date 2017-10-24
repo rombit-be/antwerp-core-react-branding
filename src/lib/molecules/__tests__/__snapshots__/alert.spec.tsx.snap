@@ -9,17 +9,6 @@ exports[`Alert Renders visible 1`] = `
   <div
     className="m-alert"
   >
-    <button
-      className="a-button-transparent m-alert__close has-icon"
-      onClick={[Function]}
-      style={undefined}
-      type="button"
-    >
-       
-      <i
-        className="fa fa-close"
-      />
-    </button>
     <h5
       className="u-margin-bottom-xs"
     >
@@ -34,21 +23,14 @@ exports[`Alert Renders visible 1`] = `
       className="m-alert__actions"
     >
       <button
-        className="a-button-outline a-button--small m-alert__cancel"
-        onClick={[Function]}
-        style={undefined}
-        type="button"
-      >
-         
-        Cancel
-      </button>
-      <button
+        autoFocus={true}
         className="a-button a-button--small m-alert__ok"
+        disabled={undefined}
         onClick={[Function]}
         style={undefined}
-        type="button"
+        tabIndex={0}
+        type="submit"
       >
-         
         OK
       </button>
     </div>
@@ -63,17 +45,6 @@ exports[`Alert Renders visible, danger 1`] = `
   <div
     className="m-alert m-alert--danger"
   >
-    <button
-      className="a-button-transparent a-button--danger m-alert__close has-icon"
-      onClick={[Function]}
-      style={undefined}
-      type="button"
-    >
-       
-      <i
-        className="fa fa-close"
-      />
-    </button>
     <h5
       className="u-margin-bottom-xs"
     >
@@ -88,21 +59,14 @@ exports[`Alert Renders visible, danger 1`] = `
       className="m-alert__actions"
     >
       <button
-        className="a-button-outline a-button--danger a-button--small m-alert__cancel"
-        onClick={[Function]}
-        style={undefined}
-        type="button"
-      >
-         
-        Cancel
-      </button>
-      <button
+        autoFocus={true}
         className="a-button a-button--danger a-button--small m-alert__ok"
+        disabled={undefined}
         onClick={[Function]}
         style={undefined}
-        type="button"
+        tabIndex={0}
+        type="submit"
       >
-         
         OK
       </button>
     </div>
@@ -117,17 +81,6 @@ exports[`Alert Renders visible, danger, with onOk 1`] = `
   <div
     className="m-alert m-alert--danger"
   >
-    <button
-      className="a-button-transparent a-button--danger m-alert__close has-icon"
-      onClick={[Function]}
-      style={undefined}
-      type="button"
-    >
-       
-      <i
-        className="fa fa-close"
-      />
-    </button>
     <h5
       className="u-margin-bottom-xs"
     >
@@ -142,21 +95,14 @@ exports[`Alert Renders visible, danger, with onOk 1`] = `
       className="m-alert__actions"
     >
       <button
-        className="a-button-outline a-button--danger a-button--small m-alert__cancel"
-        onClick={[Function]}
-        style={undefined}
-        type="button"
-      >
-         
-        Cancel
-      </button>
-      <button
+        autoFocus={true}
         className="a-button a-button--danger a-button--small m-alert__ok"
+        disabled={undefined}
         onClick={[Function]}
         style={undefined}
-        type="button"
+        tabIndex={0}
+        type="submit"
       >
-         
         OK
       </button>
     </div>
@@ -172,12 +118,14 @@ exports[`Alert Renders visible, danger, with onOk and onCancel 1`] = `
     className="m-alert m-alert--danger"
   >
     <button
+      autoFocus={true}
       className="a-button-transparent a-button--danger m-alert__close has-icon"
+      disabled={undefined}
       onClick={[Function]}
       style={undefined}
+      tabIndex={undefined}
       type="button"
     >
-       
       <i
         className="fa fa-close"
       />
@@ -196,21 +144,25 @@ exports[`Alert Renders visible, danger, with onOk and onCancel 1`] = `
       className="m-alert__actions"
     >
       <button
+        autoFocus={true}
         className="a-button-outline a-button--danger a-button--small m-alert__cancel"
+        disabled={undefined}
         onClick={[Function]}
         style={undefined}
+        tabIndex={undefined}
         type="button"
       >
-         
         Cancel
       </button>
       <button
+        autoFocus={true}
         className="a-button a-button--danger a-button--small m-alert__ok"
+        disabled={undefined}
         onClick={[Function]}
         style={undefined}
-        type="button"
+        tabIndex={0}
+        type="submit"
       >
-         
         OK
       </button>
     </div>
@@ -225,17 +177,6 @@ exports[`Alert Renders visible, primary 1`] = `
   <div
     className="m-alert m-alert--primary"
   >
-    <button
-      className="a-button-transparent a-button--primary m-alert__close has-icon"
-      onClick={[Function]}
-      style={undefined}
-      type="button"
-    >
-       
-      <i
-        className="fa fa-close"
-      />
-    </button>
     <h5
       className="u-margin-bottom-xs"
     >
@@ -250,21 +191,14 @@ exports[`Alert Renders visible, primary 1`] = `
       className="m-alert__actions"
     >
       <button
-        className="a-button-outline a-button--primary a-button--small m-alert__cancel"
-        onClick={[Function]}
-        style={undefined}
-        type="button"
-      >
-         
-        Cancel
-      </button>
-      <button
+        autoFocus={true}
         className="a-button a-button--primary a-button--small m-alert__ok"
+        disabled={undefined}
         onClick={[Function]}
         style={undefined}
-        type="button"
+        tabIndex={0}
+        type="submit"
       >
-         
         OK
       </button>
     </div>
@@ -279,17 +213,6 @@ exports[`Alert Renders visible, warning 1`] = `
   <div
     className="m-alert m-alert--warning"
   >
-    <button
-      className="a-button-transparent a-button--warning m-alert__close has-icon"
-      onClick={[Function]}
-      style={undefined}
-      type="button"
-    >
-       
-      <i
-        className="fa fa-close"
-      />
-    </button>
     <h5
       className="u-margin-bottom-xs"
     >
@@ -304,21 +227,14 @@ exports[`Alert Renders visible, warning 1`] = `
       className="m-alert__actions"
     >
       <button
-        className="a-button-outline a-button--warning a-button--small m-alert__cancel"
-        onClick={[Function]}
-        style={undefined}
-        type="button"
-      >
-         
-        Cancel
-      </button>
-      <button
+        autoFocus={true}
         className="a-button a-button--warning a-button--small m-alert__ok"
+        disabled={undefined}
         onClick={[Function]}
         style={undefined}
-        type="button"
+        tabIndex={0}
+        type="submit"
       >
-         
         OK
       </button>
     </div>

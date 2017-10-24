@@ -5,21 +5,25 @@ exports[`ButtonGroup 1`] = `
   className="m-button-group"
 >
   <button
+    autoFocus={true}
     className="a-button"
+    disabled={undefined}
     onClick={[Function]}
     style={undefined}
+    tabIndex={undefined}
     type="button"
   >
-     
     bla
   </button>
   <button
+    autoFocus={true}
     className="a-button"
+    disabled={undefined}
     onClick={[Function]}
     style={undefined}
+    tabIndex={undefined}
     type="button"
   >
-     
     bli
   </button>
 </div>
@@ -30,12 +34,14 @@ exports[`ButtonGroup with wrong children 1`] = `
   className="m-button-group"
 >
   <button
+    autoFocus={true}
     className="a-button"
+    disabled={undefined}
     onClick={[Function]}
     style={undefined}
+    tabIndex={undefined}
     type="button"
   >
-     
     bla
   </button>
 </div>
