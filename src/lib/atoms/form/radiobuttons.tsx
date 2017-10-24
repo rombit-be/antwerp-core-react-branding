@@ -2,7 +2,7 @@ import * as classNames from "classnames";
 import * as React from "react";
 
 import { FormLabel } from "./formlabel";
-import { InputProperties } from "./inputProperties";
+import { FieldMetaProperties, InputProperties } from "./inputProperties";
 
 export type RadiobuttonOption = { label: string | JSX.Element, value: string, disabled?: boolean };
 export type RadiobuttonsProperties = { options: RadiobuttonOption[] } & InputProperties<string>;
@@ -76,14 +76,27 @@ export class Radiobuttons extends React.Component<RadiobuttonsProperties, Radiob
     }
 
     private renderDescription(): JSX.Element {
-        if (this.props.description) {
-            return (
-                <small>
-                    {this.props.description}
-                </small>
-            );
+        if (this.isError()) {
+            if (this.props.errorComponent) {
+                let component: JSX.Element;
+                if (typeof (this.props.errorComponent) === "function") {
+                    component = this.props.errorComponent(this.props.meta);
+                } else {
+                    component = this.props.errorComponent;
+                }
+                return (
+                    <small className="has-error">
+                        {component}
+                    </small>
+                );
+            } else {
+                return (
+                    <small className="has-error">
+                        {this.props.meta.error}
+                    </small>
+                );
+            }
         }
-        return null;
     }
 
     private className(): string {
@@ -100,5 +113,10 @@ export class Radiobuttons extends React.Component<RadiobuttonsProperties, Radiob
 
     private id(i: number): string {
         return `${this.props.required ? "required-" : ""}radiobutton-${this.props.name}-${i}`;
+    }
+
+    private isError(): boolean {
+        const meta: FieldMetaProperties = this.props.meta || {};
+        return meta.touched && (meta.error ? true : false);
     }
 }
