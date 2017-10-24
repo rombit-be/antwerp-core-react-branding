@@ -4,7 +4,6 @@ import { RadiobuttonsProperties } from "../..";
 
 export type ReduxRadiobuttonsFormAdapterProperties = {
     input?: Partial<RadiobuttonsProperties>,
-    validate: any,
 } & Partial<RadiobuttonsProperties>;
 
 /**
@@ -21,7 +20,6 @@ export default class ReduxRadiobuttonsFormAdapter extends React.Component<ReduxR
             // Clone the props
             const props: any = { ...this.props, ...this.props.input };
             props.children = null;
-            props.required = this.props.validate ? true : false;
 
             // Clone the react element
             return React.cloneElement((React.Children.toArray(this.props.children)[0] as any), props);

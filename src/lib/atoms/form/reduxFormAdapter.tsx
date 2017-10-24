@@ -4,7 +4,6 @@ import { InputProperties, TypedInputProperties } from "./inputProperties";
 
 export type ReduxFormAdapterProperties = {
     input?: Partial<InputProperties<any>>,
-    validate?: any,
 } & Partial<TypedInputProperties>;
 
 /**
@@ -21,7 +20,6 @@ export default class ReduxFormAdapter extends React.Component<ReduxFormAdapterPr
             // Clone the props
             const props: any = { ...this.props, ...this.props.input };
             props.children = null;
-            props.required = this.props.validate ? true : false;
 
             // Clone the react element
             return React.cloneElement((React.Children.toArray(this.props.children)[0] as any), props);
