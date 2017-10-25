@@ -2,7 +2,6 @@
 import * as React from "react";
 import { SelectProperties } from "./select";
 export declare type ReduxSelectFormAdapterProperties = {
-    validate?: any;
     input?: Partial<SelectProperties>;
 } & Partial<SelectProperties>;
 /**

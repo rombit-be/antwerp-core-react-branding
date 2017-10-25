@@ -26,4 +26,5 @@ export declare class Radiobuttons extends React.Component<RadiobuttonsProperties
     private className();
     private isChecked(i);
     private id(i);
+    private isError();
 }
