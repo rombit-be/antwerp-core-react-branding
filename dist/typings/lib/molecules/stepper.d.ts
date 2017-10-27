@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import * as React from "react";
 export declare type StepperProperties = {
-    steps: string[];
+    steps: string[] | JSX.Element[];
     activeStep?: number;
 };
 /**

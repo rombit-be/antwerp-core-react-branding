@@ -2,7 +2,7 @@ import * as classNames from "classnames";
 import * as React from "react";
 
 export type StepperProperties = {
-    steps: string[];
+    steps: string[] | JSX.Element[];
     activeStep?: number;
 };
 
@@ -21,13 +21,13 @@ export class Stepper extends React.Component<StepperProperties, {}> {
 
     private renderSteps(): JSX.Element[] {
         if (this.props.steps && this.props.steps.length > 0) {
-            return this.props.steps
+            return (this.props.steps as string[])
                 .map((x, i) => this.renderStep(x, i));
         }
         return null;
     }
 
-    private renderStep(step: string, i: number): JSX.Element {
+    private renderStep(step: string | JSX.Element, i: number): JSX.Element {
         const classname: string = classNames({
             "is-active": i === this.props.activeStep,
             "is-completed": i < this.props.activeStep,
