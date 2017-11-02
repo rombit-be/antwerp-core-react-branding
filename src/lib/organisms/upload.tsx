@@ -7,14 +7,14 @@ import { Sizes } from "../common/sizes";
 
 export type UploadProperties = {
     busy?: boolean;
-    deleteFile?: (file: string) => void;
+    deleteFile?: (file: File) => void;
     info?: string;
     multiple?: boolean;
     progress?: string;
     progressHideOnComplete?: boolean;
     progressValue?: string;
     uploadFile?: () => void;
-    uploadedFiles?: string[];
+    uploadedFiles?: File[];
 } & InputProperties<string[] | string>;
 
 export type UploadState = {
@@ -33,6 +33,15 @@ export class Upload extends React.Component<UploadProperties, UploadState> {
 
     public render(): any {
         const props = { ...this.props };
+
+        delete props.busy;
+        delete props.deleteFile;
+        delete props.progress;
+        delete props.progressHideOnComplete;
+        delete props.progressValue;
+        delete props.uploadFile;
+        delete props.uploadedFiles;
+
         return (
             <div className="m-upload">
                 <div className="m-upload__inner">
@@ -91,11 +100,11 @@ export class Upload extends React.Component<UploadProperties, UploadState> {
                     <div className="m-upload__progress m-progress">
                         <div className="m-progress__inner">
                             <div
+                                aria-valuemax="100"
+                                aria-valuemin="0"
+                                aria-valuenow={value}
                                 className="m-progress__bar"
                                 role="progressbar"
-                                aria-valuenow={value}
-                                aria-valuemin="0"
-                                aria-valuemax="100"
                                 style={{ width: `${value}%` }}
                             />
                         </div>
@@ -145,7 +154,7 @@ export class Upload extends React.Component<UploadProperties, UploadState> {
                     uploadedFiles.map((x, i) => (
                         <li key={`uploaded-${i}`}>
                             <span className="fa fa-file-o"></span>
-                            <span className="m-upload__filename">{x}</span>
+                            <span className="m-upload__filename">{x.name}</span>
                             <IconButton
                                 className="m-upload__delete"
                                 icon="close"
@@ -174,7 +183,7 @@ export class Upload extends React.Component<UploadProperties, UploadState> {
         }
     }
 
-    private onDelete(file: string): void {
+    private onDelete(file: File): void {
         if (this.props.deleteFile) {
             this.props.deleteFile(file);
         }

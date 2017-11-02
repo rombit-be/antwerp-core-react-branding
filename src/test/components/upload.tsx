@@ -17,7 +17,6 @@ export default class UploadComponent extends React.Component<{}, {}> {
                 <A.Upload
                     description="A small description"
                     name="fileupload"
-                    uploadedFiles={["blabla", "blabli"]}
                 />
             </StyleSection >
         );

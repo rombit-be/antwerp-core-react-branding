@@ -3,14 +3,14 @@ import * as React from "react";
 import { InputProperties } from "../atoms/form/inputProperties";
 export declare type UploadProperties = {
     busy?: boolean;
-    deleteFile?: (file: string) => void;
+    deleteFile?: (file: File) => void;
     info?: string;
     multiple?: boolean;
     progress?: string;
     progressHideOnComplete?: boolean;
     progressValue?: string;
     uploadFile?: () => void;
-    uploadedFiles?: string[];
+    uploadedFiles?: File[];
 } & InputProperties<string[] | string>;
 export declare type UploadState = {
     files?: FileList;
