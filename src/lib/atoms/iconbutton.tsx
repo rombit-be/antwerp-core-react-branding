@@ -1,10 +1,11 @@
+import * as classNames from "classnames";
 import * as React from "react";
 
 import { Location } from "../common/locations";
 import Icon from "../utilities/icon";
 import { Button, ButtonProperties } from "./button";
 
-export type IconButtonProperties = { location: Location, icon: string } & ButtonProperties;
+export type IconButtonProperties = { location?: Location, icon: string } & ButtonProperties;
 
 /**
  * React Component IconButton
@@ -26,8 +27,15 @@ export class IconButton extends React.Component<IconButtonProperties, {}> {
         delete props.location;
         delete props.icon;
 
-        props.className = `has-icon-${this.props.location}`;
+        props.className = this.getClassName();
 
         return props as ButtonProperties;
+    }
+
+    public getClassName(): string {
+        return classNames(
+            this.props.className,
+            this.props.location ? `has-icon-${this.props.location}` : "has-icon",
+        );
     }
 }

@@ -14,7 +14,11 @@ export default class DatepickerComponent extends React.Component<{}, {}> {
         return (
             <StyleSection {...this.sectionProps}>
                 {/* tslint:disable-next-line:no-console */}
-                <A.DatePickerInput name="datewithdatepicker" description="A description" onChange={(e) => console.log("Selected date", e)} />
+                <A.DatePickerInput
+                    description="A description"
+                    name="datewithdatepicker"
+                    onChange={(e) => this.debug("Selected data: " + e)}
+                />
                 <A.DatePickerField name="datepicker"
                     label="This is a datepicker"
                     input={{

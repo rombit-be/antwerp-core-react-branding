@@ -12,9 +12,10 @@ import DatepickerComponent from "./components/datePicker";
 import FormComponents from "./components/form";
 import LabelComponents from "./components/label";
 import LayoutComponents from "./components/layout";
-import SpacingComponents from "./components/spacing";
 import TabNavigationComponent from "./components/tabNavigation";
 import TextComponents from "./components/text";
+import SpacingComponents from "./components/text";
+import UploadComponent from "./components/upload";
 
 const mountId = "mount";
 
@@ -26,6 +27,7 @@ ReactDOM.render((
         </header>
         <Alert title="Antwerp Core Branding" message="Welcome!" visible={true} />
         <div>
+            <UploadComponent />
             <DatepickerComponent />
             <TabNavigationComponent />
             <AccordeonComponents />

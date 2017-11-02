@@ -7,6 +7,7 @@ export enum InputTypes {
     DatetimeLocal = "datetime-local",
     Default = "text",
     Email = "email",
+    File = "file",
     Month = "month",
     Number = "number",
     Password = "password",

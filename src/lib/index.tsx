@@ -45,6 +45,7 @@ export * from "./atoms/definitionList";
 
 // Organisms
 export * from "./organisms/footer";
+export * from "./organisms/upload";
 
 // Utilities
 export * from "./utilities/background";

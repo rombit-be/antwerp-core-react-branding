@@ -57,10 +57,9 @@ export class Button extends React.Component<ButtonProperties, {}> {
         }
     }
 
-
     private className(): string {
         return classNames(
-            this.props.type && this.props.type !== ButtonType.Default ? `a-button-${this.props.type}` : "a-button",
+            this.props.type && this.props.type !== ButtonType.Default ? `a-button-${this.props.type}` : "a-button a-button--default",
             this.props.level ? `a-button--${this.props.level}` : "",
             this.props.size ? `a-button--${this.props.size}` : "",
             this.props.className,
