@@ -33,6 +33,7 @@ export * from "./molecules/stepper";
 export * from "./molecules/tabNavigation";
 export * from "./atoms/definitionList";
 export * from "./organisms/footer";
+export * from "./organisms/upload";
 export * from "./utilities/background";
 export * from "./utilities/layout";
 export * from "./utilities/logo";
