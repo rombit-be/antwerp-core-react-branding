@@ -1,8 +1,12 @@
 # Antwerp Core React Branding
 > React port of the Antwerpen.be Core Branding. This project is currently in beta and is provided without any support.
 
+![NPM Version](https://img.shields.io/npm/v/antwerp-core-react-branding/beta.svg)
+
 ## Goal of the project
-Make a tested react port of the Antwerp Core Branding static elements
+Make a tested react port of the Antwerp Core Branding static elements. 
+
+**Remarks**: this project is still in beta. Can be used without any warranty.
 
 ## Project Structure
 The original project is added as a **git submoduel** based on the master branch of the project.
@@ -12,8 +16,12 @@ This project has different main folders.
 - **test**: a stub site to test all the different components
 - **dist**: the distribution library
 
+## Development
+
 ### Setup
-Install Webpack Dev Server: `yarn global add webpack-dev-server`
+- Install [NodeJS](https://nodejs.org/en/download/) and [yarn](https://yarnpkg.com/lang/en/docs/install/)
+- Install Webpack Dev Server: `yarn global add webpack-dev-server`
+- Run `yarn install` to install all the dependencies.
 
 ## Development flow
 The development can easily be done via the Webpack Dev Server. This server spins up an ExpressJS server

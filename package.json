@@ -1,9 +1,14 @@
 {
   "name": "antwerp-core-react-branding",
   "description": "React port of the Antwerpen.be Core Branding",
-  "version": "0.0.20",
+  "version": "0.0.23",
   "main": "./dist/index.js",
   "types": "./dist/typings/lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/giespaepen/antwerp-core-react-branding.git"
+  },
+  "license": "Apache-2.0",
   "directories": {
     "lib": "lib",
     "test": "jest"
@@ -21,7 +26,6 @@
     "branding"
   ],
   "author": "Gie Spaepen <gie.spaepen@rombit.be>",
-  "license": "ISC",
   "homepage": "https://rombit.be",
   "dependencies": {
     "classnames": "^2.2.5",

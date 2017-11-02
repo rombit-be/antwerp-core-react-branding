@@ -24,7 +24,7 @@ exports[`Alert Renders visible 1`] = `
     >
       <button
         autoFocus={true}
-        className="a-button a-button--small m-alert__ok"
+        className="a-button a-button--default a-button--small m-alert__ok"
         disabled={undefined}
         onClick={[Function]}
         style={undefined}
@@ -60,7 +60,7 @@ exports[`Alert Renders visible, danger 1`] = `
     >
       <button
         autoFocus={true}
-        className="a-button a-button--danger a-button--small m-alert__ok"
+        className="a-button a-button--default a-button--danger a-button--small m-alert__ok"
         disabled={undefined}
         onClick={[Function]}
         style={undefined}
@@ -96,7 +96,7 @@ exports[`Alert Renders visible, danger, with onOk 1`] = `
     >
       <button
         autoFocus={true}
-        className="a-button a-button--danger a-button--small m-alert__ok"
+        className="a-button a-button--default a-button--danger a-button--small m-alert__ok"
         disabled={undefined}
         onClick={[Function]}
         style={undefined}
@@ -156,7 +156,7 @@ exports[`Alert Renders visible, danger, with onOk and onCancel 1`] = `
       </button>
       <button
         autoFocus={true}
-        className="a-button a-button--danger a-button--small m-alert__ok"
+        className="a-button a-button--default a-button--danger a-button--small m-alert__ok"
         disabled={undefined}
         onClick={[Function]}
         style={undefined}
@@ -192,7 +192,7 @@ exports[`Alert Renders visible, primary 1`] = `
     >
       <button
         autoFocus={true}
-        className="a-button a-button--primary a-button--small m-alert__ok"
+        className="a-button a-button--default a-button--primary a-button--small m-alert__ok"
         disabled={undefined}
         onClick={[Function]}
         style={undefined}
@@ -228,7 +228,7 @@ exports[`Alert Renders visible, warning 1`] = `
     >
       <button
         autoFocus={true}
-        className="a-button a-button--warning a-button--small m-alert__ok"
+        className="a-button a-button--default a-button--warning a-button--small m-alert__ok"
         disabled={undefined}
         onClick={[Function]}
         style={undefined}

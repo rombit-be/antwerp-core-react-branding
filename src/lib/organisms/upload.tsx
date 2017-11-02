@@ -41,6 +41,7 @@ export class Upload extends React.Component<UploadProperties, UploadState> {
         delete props.progressValue;
         delete props.uploadFile;
         delete props.uploadedFiles;
+        delete props.value;
 
         return (
             <div className="m-upload">
