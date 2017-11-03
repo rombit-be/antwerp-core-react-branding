@@ -123,25 +123,28 @@ export class Upload extends React.Component<UploadProperties, UploadState> {
 
     private renderUploadedfiles(): JSX.Element {
         const uploadedFiles = this.props.uploadedFiles || [];
-        return (
-            <ul className="m-upload__files">
-                {
-                    uploadedFiles.map((x, i) => (
-                        <li key={`uploaded-${i}`}>
-                            <span className="fa fa-file-o"></span>
-                            <span className="m-upload__filename">{x.name}</span>
-                            <IconButton
-                                className="m-upload__delete"
-                                icon="close"
-                                onClick={() => this.onDelete(x)}
-                                size={Sizes.Small}
-                                type={ButtonType.Transparent}
-                            />
-                        </li>
-                    ))
-                }
-            </ul>
-        );
+        if (Array.isArray(uploadedFiles)) {
+            return (
+                <ul className="m-upload__files">
+                    {
+                        uploadedFiles.map((x, i) => (
+                            <li key={`uploaded-${i}`}>
+                                <span className="fa fa-file-o"></span>
+                                <span className="m-upload__filename">{x.name}</span>
+                                <IconButton
+                                    className="m-upload__delete"
+                                    icon="close"
+                                    onClick={() => this.onDelete(x)}
+                                    size={Sizes.Small}
+                                    type={ButtonType.Transparent}
+                                />
+                            </li>
+                        ))
+                    }
+                </ul>
+            );
+        }
+        return null;
     }
 
     // endregion

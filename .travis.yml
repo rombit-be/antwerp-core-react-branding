@@ -25,7 +25,11 @@ deploy:
     branch: master
 
 notifications:
+  recipietns:
+    - giespaepen@outlook.com
   email:
     on_success: always
     on_failure: always
-    
+  on:
+    branch: master
+
