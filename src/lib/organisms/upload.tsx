@@ -9,7 +9,7 @@ export type UploadProperties = {
     access?: string;
     busy?: boolean;
     deleteFile?: (file: File) => void;
-    info?: string;
+    info?: string | JSX.Element;
     multiple?: boolean;
     progress?: string;
     progressHideOnComplete?: boolean;

@@ -1,7 +1,7 @@
 # Antwerp Core React Branding
 > React port of the Antwerpen.be Core Branding. This project is currently in beta and is provided without any support.
 
-![NPM Version](https://img.shields.io/npm/v/antwerp-core-react-branding/beta.svg)
+![NPM Version](https://img.shields.io/npm/v/antwerp-core-react-branding/beta.svg) ![Build status](https://travis-ci.org/giespaepen/antwerp-core-react-branding.svg?branch=master)
 
 ## Goal of the project
 Make a tested react port of the Antwerp Core Branding static elements. 

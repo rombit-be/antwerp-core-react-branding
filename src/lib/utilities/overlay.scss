@@ -10,16 +10,17 @@ $overlay-light: rgba(255, 255, 255, .75);
     transition: background-color 0.5s ease;
     width: 100vw;
     z-index: 10000;
-
+    
     &[class*='--dark'] {
         background-color: $overlay-dark;
     }
-
+    
     &[class*='--light'] {
         background-color: $overlay-light;
     }
 }
 
 body.a-overlay--open {
-    overflow: hidden;
+    overflow-y: scroll;
+    position: fixed;
 }
