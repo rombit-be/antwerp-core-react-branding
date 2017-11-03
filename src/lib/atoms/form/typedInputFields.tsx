@@ -2,12 +2,15 @@ import * as React from "react";
 
 import { Checkboxes } from "../..";
 import { DatePickerInput, ReduxDatePickerFormAdapterProperties } from "../../molecules/datepicker/datepickerInput";
+import ReduxUploadFormAdapter from "../../organisms/reduxUploadFormAdapter";
+import { ReduxUploadFormAdapterProperties } from "../../organisms/reduxUploadFormAdapter";
+import { Upload } from "../../organisms/upload";
 import { Confirm } from "./confirm";
 import { Input } from "./input";
 import { InputTypes } from "./inputProperties";
 import { ReduxCheckboxesAdapter, ReduxCheckboxesAdapterProperties } from "./reduxCheckboxesAdapter";
-import ReduxFormAdapter from "./reduxFormAdapter";
 import { ReduxFormAdapterProperties } from "./reduxFormAdapter";
+import ReduxFormAdapter from "./reduxFormAdapter";
 import ReduxRadiobuttonsFormAdapter from "./reduxRadiobuttonsFormAdapter";
 import { ReduxRadiobuttonsFormAdapterProperties } from "./reduxRadiobuttonsFormAdapter";
 import ReduxSelectFormAdapter from "./reduxSelectFormAdapter";
@@ -55,3 +58,6 @@ export const SelectField = (props: ReduxSelectFormAdapterProperties) =>
     (<ReduxSelectFormAdapter {...props}><Select {...props as any} /></ReduxSelectFormAdapter>);
 export const RadiobuttonsField = (props: ReduxRadiobuttonsFormAdapterProperties) =>
     (<ReduxRadiobuttonsFormAdapter {...props}><Select {...props as any} /></ReduxRadiobuttonsFormAdapter>);
+
+export const UploadField = (props: ReduxUploadFormAdapterProperties) =>
+    (<ReduxUploadFormAdapter {...props}><Upload {...props as any} /></ReduxUploadFormAdapter>);

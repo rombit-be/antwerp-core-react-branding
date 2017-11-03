@@ -2,6 +2,7 @@
 import * as React from "react";
 import { InputProperties } from "../atoms/form/inputProperties";
 export declare type UploadProperties = {
+    access?: string;
     busy?: boolean;
     deleteFile?: (file: File) => void;
     info?: string;

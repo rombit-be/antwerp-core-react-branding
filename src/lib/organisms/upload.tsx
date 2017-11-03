@@ -6,6 +6,7 @@ import { IconButton } from "../atoms/iconbutton";
 import { Sizes } from "../common/sizes";
 
 export type UploadProperties = {
+    access?: string;
     busy?: boolean;
     deleteFile?: (file: File) => void;
     info?: string;
