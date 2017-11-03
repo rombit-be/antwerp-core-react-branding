@@ -23,3 +23,9 @@ deploy:
   tag: beta
   on:
     branch: master
+
+notifications:
+  email:
+    on_success: always
+    on_failure: always
+    
