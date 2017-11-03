@@ -9,5 +9,4 @@ npm version patch -m "$MESSAGE"
 git push
 git checkout master
 git merge development
-git push 
-git checkout development
+git push github master
