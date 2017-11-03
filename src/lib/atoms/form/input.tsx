@@ -5,6 +5,7 @@ import * as React from "react";
 
 import { Location } from "../../common/locations";
 import Icon from "../../utilities/icon";
+import Description from "./description";
 import { FormLabel } from "./formlabel";
 import { inputElementId } from "./id";
 import { FieldMetaProperties, InputTypes, TypedInputProperties } from "./inputProperties";
@@ -27,7 +28,7 @@ export class Input extends React.Component<TypedInputProperties, {}> {
                     {this.renderIcon(Location.Right)}
                     {this.renderAddon(Location.Right)}
                 </div>
-                {this.renderDescription()}
+                <Description {...this.props} />
             </div>
         );
     }
@@ -71,37 +72,6 @@ export class Input extends React.Component<TypedInputProperties, {}> {
                 span
             />);
         }
-    }
-
-    private renderDescription(): JSX.Element {
-        if (this.isError()) {
-            if (this.props.errorComponent) {
-                let component: JSX.Element;
-                if (typeof (this.props.errorComponent) === "function") {
-                    component = this.props.errorComponent(this.props.meta);
-                } else {
-                    component = this.props.errorComponent;
-                }
-                return (
-                    <small className="has-error">
-                        {component}
-                    </small>
-                );
-            } else {
-                return (
-                    <small className="has-error">
-                        {this.props.meta.error}
-                    </small>
-                );
-            }
-        }
-
-        // Return default description
-        return (
-            <small>
-                {this.props.description || " "}
-            </small>
-        );
     }
 
     private className(): string {

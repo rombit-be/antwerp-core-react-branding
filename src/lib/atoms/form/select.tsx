@@ -2,9 +2,10 @@ import * as classNames from "classnames";
 import * as React from "react";
 
 import Icon from "../../utilities/icon";
+import Description from "./description";
 import { FormLabel } from "./formlabel";
 import { inputElementId } from "./id";
-import { FieldMetaProperties, InputProperties } from "./inputProperties";
+import { InputProperties } from "./inputProperties";
 
 export type SelectOption = { label: string | JSX.Element, value: string, disabled?: boolean };
 export type SelectProperties = { options: SelectOption[] } & InputProperties<string>;
@@ -40,7 +41,7 @@ export class Select extends React.Component<SelectProperties, SelectState> {
                     </select>
                     <Icon name="angle-down" span />
                 </div>
-                {this.renderDescription()}
+                <Description {...props} />
             </div>
         );
     }
@@ -58,37 +59,6 @@ export class Select extends React.Component<SelectProperties, SelectState> {
                 </option>
             ));
         return [<option key={-1}></option>, ...options];
-    }
-
-    private renderDescription(): JSX.Element {
-        if (this.isError()) {
-            if (this.props.errorComponent) {
-                let component: JSX.Element;
-                if (typeof (this.props.errorComponent) === "function") {
-                    component = this.props.errorComponent(this.props.meta);
-                } else {
-                    component = this.props.errorComponent;
-                }
-                return (
-                    <small className="has-error">
-                        {component}
-                    </small>
-                );
-            } else {
-                return (
-                    <small className="has-error">
-                        {this.props.meta.error}
-                    </small>
-                );
-            }
-        }
-
-        // Return default description
-        return (
-            <small>
-                {this.props.description || " "}
-            </small>
-        );
     }
 
     private onChange(e: React.SyntheticEvent<HTMLSelectElement>) {
@@ -110,11 +80,6 @@ export class Select extends React.Component<SelectProperties, SelectState> {
 
     private optionId(i: number): string {
         return `${this.props.required ? "required-" : ""}-checkbox-${this.props.name}-${i}`;
-    }
-
-    private isError(): boolean {
-        const meta: FieldMetaProperties = this.props.meta || {};
-        return meta.touched && (meta.error ? true : false);
     }
 
     private id(): string {

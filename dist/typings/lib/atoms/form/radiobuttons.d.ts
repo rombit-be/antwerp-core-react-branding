@@ -22,9 +22,7 @@ export declare class Radiobuttons extends React.Component<RadiobuttonsProperties
     componentWillReceiveProps(nextProps: RadiobuttonsProperties): void;
     private onChange(event);
     private renderRadiobuttons();
-    private renderDescription();
     private className();
     private isChecked(i);
     private id(i);
-    private isError();
 }

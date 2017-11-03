@@ -1,0 +1,7 @@
+@import '../../base/src/styles/_quarks.scss';
+
+small.m-upload__description {
+    &.has-error {
+        color: $state-danger;
+    }
+}

@@ -1,4 +1,5 @@
 /// <reference types="react" />
+import "./upload.scss";
 import * as React from "react";
 import { InputProperties } from "../atoms/form/inputProperties";
 export declare type UploadProperties = {
@@ -25,11 +26,9 @@ export declare class Upload extends React.Component<UploadProperties, UploadStat
     private renderInfoMessage();
     private renderSelectedValue();
     private renderProgress();
-    private renderDescription();
     private renderUploadedfiles();
     private onChange(e);
     private onDelete(file);
     private normalizeProgressValue();
-    private isError();
     private fileListToArray(fileList);
 }

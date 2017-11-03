@@ -19,10 +19,8 @@ export declare class Select extends React.Component<SelectProperties, SelectStat
     constructor(props: SelectProperties);
     render(): any;
     private renderOptions();
-    private renderDescription();
     private onChange(e);
     private className();
     private optionId(i);
-    private isError();
     private id();
 }

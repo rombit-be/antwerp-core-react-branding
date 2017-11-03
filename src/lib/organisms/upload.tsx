@@ -1,7 +1,10 @@
+import "./upload.scss";
+
 import * as React from "react";
 
 import { ButtonType } from "../atoms/button";
-import { FieldMetaProperties, InputProperties } from "../atoms/form/inputProperties";
+import Description from "../atoms/form/description";
+import { InputProperties } from "../atoms/form/inputProperties";
 import { IconButton } from "../atoms/iconbutton";
 import { Sizes } from "../common/sizes";
 
@@ -37,6 +40,7 @@ export class Upload extends React.Component<UploadProperties, UploadState> {
 
         delete props.busy;
         delete props.deleteFile;
+        delete props.errorComponent;
         delete props.progress;
         delete props.progressHideOnComplete;
         delete props.progressValue;
@@ -61,7 +65,7 @@ export class Upload extends React.Component<UploadProperties, UploadState> {
                         </div>
                     </div>
                 </div>
-                {this.renderDescription()}
+                <Description {...this.props as any} descriptionClassName="m-upload__description" />
                 {this.renderUploadedfiles()}
             </div>
         );
@@ -115,37 +119,6 @@ export class Upload extends React.Component<UploadProperties, UploadState> {
             }
         }
         return null;
-    }
-
-    private renderDescription(): JSX.Element {
-        if (this.isError()) {
-            if (this.props.errorComponent) {
-                let component: JSX.Element;
-                if (typeof (this.props.errorComponent) === "function") {
-                    component = this.props.errorComponent(this.props.meta);
-                } else {
-                    component = this.props.errorComponent;
-                }
-                return (
-                    <small className="m-upload__description has-error">
-                        {component}
-                    </small>
-                );
-            } else {
-                return (
-                    <small className="m-upload__description has-error">
-                        {this.props.meta.error}
-                    </small>
-                );
-            }
-        }
-
-        // Return default description
-        return (
-            <small className="m-upload__description">
-                {this.props.description || " "}
-            </small>
-        );
     }
 
     private renderUploadedfiles(): JSX.Element {
@@ -204,11 +177,6 @@ export class Upload extends React.Component<UploadProperties, UploadState> {
         } else {
             return value as number;
         }
-    }
-
-    private isError(): boolean {
-        const meta: FieldMetaProperties = this.props.meta || {};
-        return meta.touched && (meta.error ? true : false);
     }
 
     private fileListToArray(fileList: FileList): File[] {

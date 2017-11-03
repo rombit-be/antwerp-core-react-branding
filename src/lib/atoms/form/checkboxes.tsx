@@ -1,6 +1,7 @@
 import * as classNames from "classnames";
 import * as React from "react";
 
+import Description from "./description";
 import { FormLabel } from "./formlabel";
 import { InputProperties } from "./inputProperties";
 
@@ -27,7 +28,7 @@ export class Checkboxes extends React.Component<CheckboxesProperties, Checkboxes
             <div className={this.className()}>
                 <FormLabel {...this.props} />
                 {this.renderCheckBoxes()}
-                {this.renderDescription()}
+                <Description {...this.props as any} />
             </div>
         );
     }
@@ -94,17 +95,6 @@ export class Checkboxes extends React.Component<CheckboxesProperties, Checkboxes
         if (this.props.onChange) {
             this.props.onChange(event);
         }
-    }
-
-    private renderDescription(): JSX.Element {
-        if (this.props.description) {
-            return (
-                <small>
-                    {this.props.description}
-                </small>
-            );
-        }
-        return null;
     }
 
     private className(): string {

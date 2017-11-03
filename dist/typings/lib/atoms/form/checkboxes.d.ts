@@ -22,7 +22,6 @@ export declare class Checkboxes extends React.Component<CheckboxesProperties, Ch
     componentWillReceiveProps(nextProps: CheckboxesProperties): void;
     private renderCheckBoxes();
     private onChange(event);
-    private renderDescription();
     private className();
     private isChecked(i);
     private id(i);
