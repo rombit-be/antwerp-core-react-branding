@@ -7,20 +7,25 @@ $overlay-light: rgba(255, 255, 255, .75);
     left: 0;
     position: fixed;
     top: 0;
-    transition: background-color 0.5s ease;
+    transition: background-color .5s ease;
     width: 100vw;
     z-index: 10000;
-    
+
     &[class*='--dark'] {
         background-color: $overlay-dark;
     }
-    
+
     &[class*='--light'] {
         background-color: $overlay-light;
     }
 }
 
-body.a-overlay--open {
-    overflow-y: scroll;
-    position: fixed;
+.a-overlay--open {
+    overflow: hidden;
+
+}
+
+.a-overlay--open--overflow {
+    margin-right: 17px;
+    overflow: hidden;
 }

@@ -23,8 +23,10 @@ export class Overlay extends React.Component<OverlayProperties, {}> {
     }
 
     private handleBodyClass() {
-        const className: string = "a-overlay--open";
         if (window && window.document && window.document.body) {
+            const hasOverflow = window.innerHeight < window.document.body.clientHeight;
+            const className = classNames(hasOverflow ? "a-overlay--open--overflow" : "a-overlay--open");
+
             if (this.props.visible) {
                 if (!window.document.body.classList.contains(className)) {
                     window.document.body.classList.add(className);
