@@ -1,7 +1,7 @@
 {
   "name": "antwerp-core-react-branding",
   "description": "React port of the Antwerpen.be Core Branding",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "main": "./dist/index.js",
   "types": "./dist/typings/lib/index.d.ts",
   "repository": {
@@ -63,7 +63,7 @@
     "tslint": "^5.7.0",
     "tslint-loader": "^3.5.3",
     "tslint-microsoft-contrib": "^5.0.1",
-    "typescript": "^2.5.2",
+    "typescript": "2.6.1",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.8.2",
     "webpack-hot-middleware": "^2.19.1"

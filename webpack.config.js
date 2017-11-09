@@ -39,6 +39,9 @@ var config = {
         ]
     },
     devtool: "source-map",
+    devServer: {
+        stats: "minimal"
+    },
     module: {
         rules: [
             // All output ".js" files will have any sourcemaps re-processed by "source-map-loader".

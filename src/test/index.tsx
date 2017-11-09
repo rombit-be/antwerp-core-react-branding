@@ -14,6 +14,7 @@ import LabelComponents from "./components/label";
 import LayoutComponents from "./components/layout";
 import SpacingComponents from "./components/spacing";
 import TabNavigationComponent from "./components/tabNavigation";
+import TagComponents from "./components/tag";
 import TextComponents from "./components/text";
 import UploadComponent from "./components/upload";
 
@@ -26,6 +27,7 @@ ReactDOM.render((
             <h1>Overview of the different stylings</h1>
         </header>
         <div>
+            <TagComponents />
             <UploadComponent />
             <DatepickerComponent />
             <TabNavigationComponent />

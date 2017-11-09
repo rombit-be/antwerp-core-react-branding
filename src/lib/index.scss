@@ -4,3 +4,8 @@
 .u-bg-white-text {
     color: $white !important;
 }
+
+// Fix for chrome 62
+.a-button {
+    border-radius: 0;
+}

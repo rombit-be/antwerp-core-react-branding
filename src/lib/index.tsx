@@ -20,6 +20,7 @@ export * from "./atoms/label";
 export * from "./atoms/spinner";
 
 // Atoms / form
+export * from "./atoms/definitionList";
 export * from "./atoms/form/checkboxes";
 export * from "./atoms/form/confirm";
 export * from "./atoms/form/fieldset";
@@ -41,7 +42,7 @@ export * from "./molecules/datepicker/datepicker";
 export * from "./molecules/datepicker/datepickerInput";
 export * from "./molecules/stepper";
 export * from "./molecules/tabNavigation";
-export * from "./atoms/definitionList";
+export * from "./molecules/tag";
 
 // Organisms
 export * from "./organisms/footer";
