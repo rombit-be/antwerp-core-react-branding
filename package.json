@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --content-base src/test",
-    "build": "NODE_ENV=production webpack --config webpack.prod.js",
+    "prepublish": "NODE_ENV=production webpack --config webpack.prod.js",
     "test": "jest --config jest.config.json",
     "deploy": "./quick-deploy.sh"
   },
