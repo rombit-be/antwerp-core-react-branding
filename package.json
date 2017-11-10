@@ -18,7 +18,7 @@
     "prepublish": "NODE_ENV=production webpack --config webpack.prod.js",
     "test": "jest --config jest.config.json",
     "deploy": "./quick-deploy.sh",
-    "clean": "rm -rf ./dist"
+    "clean-publish": "rm -rf ./dist"
   },
   "keywords": [
     "antwerp",
