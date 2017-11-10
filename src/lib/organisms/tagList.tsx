@@ -66,7 +66,7 @@ export class TagList extends React.Component<TagListProperties, TagListState> {
     }
 
     private normalizeValue(value: string[]): string[] {
-        if (this.props.normalize) {
+        if (this.props.normalize && value) {
             return value.map((x) => this.props.normalize(x));
         }
         return value;
