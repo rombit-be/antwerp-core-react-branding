@@ -2,7 +2,7 @@
 
 MESSAGE=$1
 
-yarn build
+yarn prepublish
 git add -A
 git commit -m "$MESSAGE"
 git push

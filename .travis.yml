@@ -13,7 +13,6 @@ install:
 - yarn install
 script:
 - yarn test
-- yarn prepublish
 deploy:
   provider: npm
   skip_cleanup: true
