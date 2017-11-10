@@ -33,8 +33,6 @@ export class TagList extends React.Component<TagListProperties, TagListState> {
     }
 
     private renderTags(): JSX.Element[] {
-        // tslint:disable-next-line:no-console
-        console.log(this.state.value);
         if (this.state.value && this.state.value.length > 0) {
             return this.state.value.map((x, i) => (
                 <Tag
@@ -81,6 +79,9 @@ export class TagList extends React.Component<TagListProperties, TagListState> {
 
     private onKeyInputValue = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter" && this.state.inputValue) {
+            // Prevent submitting the form
+            e.preventDefault();
+
             // Trim the input and normalize it if a normalize fct is defined
             let inputValue = this.state.inputValue.trim();
             if (this.props.normalize) {
@@ -96,7 +97,7 @@ export class TagList extends React.Component<TagListProperties, TagListState> {
                 this.setState({ inputValue: "", value });
 
                 // Notify the change
-                this.onChanged(value);
+                this.onChanged([...value]);
             }
         }
     }

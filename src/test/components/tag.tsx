@@ -6,18 +6,25 @@ import StyleSection from "../common/styleSection";
 /**
  * React Component name
  */
-export default class TagComponents extends React.Component<{}, {}> {
+export default class TagComponents extends React.Component<{}, { value: string[] }> {
 
     private sectionProps: any = { title: "Tag components" };
+
+    public constructor(props: {}) {
+        super(props);
+        this.state = { value: ["test", "toast"] };
+    }
 
     public render(): any {
         return (
             <StyleSection {...this.sectionProps}>
                 <A.TagList
-                    name="taglist"
-                    value={["test", "toast"]}
                     description="Fill in your ingrediënts"
-                    normalize={(v) => v.toUpperCase()} />
+                    name="taglist"
+                    normalize={(v) => v.toUpperCase()}
+                    onChange={(v) => this.onChange(v as any)}
+                    value={this.state.value}
+                />
                 <div>
                     <A.Tag label="A simple tag" />
                 </div>
@@ -32,6 +39,10 @@ export default class TagComponents extends React.Component<{}, {}> {
                 </div>
             </StyleSection >
         );
+    }
+
+    private onChange(value: string[]): void {
+        this.setState({ value });
     }
 
     private onDelete(key: string | number) {
