@@ -1,16 +1,14 @@
+import * as classNames from "classnames";
 import * as React from "react";
 
-import * as classNames from "classnames";
-import { InputProperties, Levels } from "../index";
+import { Levels } from "../index";
 
 export type TagProperties = {
     icon?: string,
-    key: string | number,
     label: string | JSX.Element;
     level?: Levels,
-    name?: string;
-    onDelete?: (key: string | number) => void,
-} & InputProperties<string[]>;
+    onDelete?: () => void,
+};
 
 /**
  * React Component Tag
@@ -19,7 +17,7 @@ export class Tag extends React.Component<TagProperties, {}> {
 
     public render(): any {
         return (
-            <div className={this.className()} key={this.props.key}>
+            <div className={this.className()}>
                 {this.renderIconButton()}
                 <span className="m-tag__label">
                     {this.props.label}
@@ -51,7 +49,7 @@ export class Tag extends React.Component<TagProperties, {}> {
             return (
                 <button
                     className="a-button-transparent a-button--small a-button--danger has-icon"
-                    onClick={() => this.props.onDelete(this.props.key)}
+                    onClick={() => this.props.onDelete()}
                 >
                     <i className="fa fa-close"></i>
                 </button>

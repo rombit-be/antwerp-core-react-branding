@@ -1,0 +1,17 @@
+@import '../../base/src/styles/_quarks';
+
+.a-taglist {
+    .a-taglist__wrapper {
+        input {
+            background-color: transparent !important;
+            border: 0 !important;
+            border-radius: 0 !important;
+            min-height: 2.25rem !important;
+            padding: 0 .75rem !important;
+        }
+    }
+
+    .m-tag {
+        margin-right: $spacer / 4;
+    }
+}

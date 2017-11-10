@@ -27,7 +27,6 @@
     "files.autoSave": "onFocusChange",
     "sasslint.configFile": "./sass-lint.yml",
     "sasslint.enable": true,
-    "tsimporter.doubleQuotes": true,
     "tslint.autoFixOnSave": true,
     "typescriptHero.resolver.organizeOnSave": true,
     "typescriptHero.resolver.stringQuoteStyle": "\""

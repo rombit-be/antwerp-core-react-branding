@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import * as A from "../../lib";
 import StyleSection from "../common/styleSection";
 
@@ -12,18 +13,23 @@ export default class TagComponents extends React.Component<{}, {}> {
     public render(): any {
         return (
             <StyleSection {...this.sectionProps}>
-                <p>
-                    <A.Tag label="A simple tag" key={"1"} name="tag" />
-                </p>
-                <p>
-                    <A.Tag label="A simple tag with icon" key={"1"} name="tag" icon="check" />
-                </p>
-                <p>
-                    <A.Tag label="A simple tag with icon" key={"1"} name="tag" icon="check" level={A.Levels.Success} />
-                </p>
-                <p>
-                    <A.Tag label="A simple tag with delete" key={"1"} name="tag" onDelete={this.onDelete} />
-                </p>
+                <A.TagList
+                    name="taglist"
+                    value={["test", "toast"]}
+                    description="Fill in your ingrediënts"
+                    normalize={(v) => v.toUpperCase()} />
+                <div>
+                    <A.Tag label="A simple tag" />
+                </div>
+                <div>
+                    <A.Tag label="A simple tag with icon" icon="check" />
+                </div>
+                <div>
+                    <A.Tag label="A simple tag with icon" icon="check" level={A.Levels.Success} />
+                </div>
+                <div>
+                    <A.Tag label="A simple tag with delete" onDelete={() => this.onDelete("tag")} />
+                </div>
             </StyleSection >
         );
     }

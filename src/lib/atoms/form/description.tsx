@@ -1,9 +1,9 @@
 import * as classNames from "classnames";
 import * as React from "react";
 
-import { FieldMetaProperties, TypedInputProperties } from "./inputProperties";
+import { FieldMetaProperties, InputProperties } from "./inputProperties";
 
-export type DescriptionProperties = { descriptionClassName?: string } & TypedInputProperties;
+export type DescriptionProperties = { descriptionClassName?: string } & InputProperties<any>;
 
 /**
  * Atoms: Util Description element

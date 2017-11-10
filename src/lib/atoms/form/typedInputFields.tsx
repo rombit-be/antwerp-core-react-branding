@@ -2,8 +2,10 @@ import * as React from "react";
 
 import { Checkboxes } from "../..";
 import { DatePickerInput, ReduxDatePickerFormAdapterProperties } from "../../molecules/datepicker/datepickerInput";
+import ReduxTagListFormAdapter, { ReduxTagListFormAdapterProperties } from "../../organisms/reduxTagListFormAdapter";
 import ReduxUploadFormAdapter from "../../organisms/reduxUploadFormAdapter";
 import { ReduxUploadFormAdapterProperties } from "../../organisms/reduxUploadFormAdapter";
+import { TagList } from "../../organisms/tagList";
 import { Upload } from "../../organisms/upload";
 import { Confirm } from "./confirm";
 import { Input } from "./input";
@@ -61,3 +63,6 @@ export const RadiobuttonsField = (props: ReduxRadiobuttonsFormAdapterProperties)
 
 export const UploadField = (props: ReduxUploadFormAdapterProperties) =>
     (<ReduxUploadFormAdapter {...props}><Upload {...props as any} /></ReduxUploadFormAdapter>);
+
+export const TagListField = (props: ReduxTagListFormAdapterProperties) =>
+    (<ReduxTagListFormAdapter {...props}><TagList {...props as any} /></ReduxTagListFormAdapter>);

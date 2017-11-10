@@ -47,6 +47,7 @@ export * from "./molecules/tag";
 // Organisms
 export * from "./organisms/footer";
 export * from "./organisms/upload";
+export * from "./organisms/tagList";
 
 // Utilities
 export * from "./utilities/background";

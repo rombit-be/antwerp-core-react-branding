@@ -7,3 +7,12 @@ rules:
     -
       max-depth: 8
   no-important: 0
+  class-name-format:
+    - 1
+    -
+      allow-leading-underscore: false
+      convention: strictbem
+  clean-import-paths:
+    - 0
+    - filename-extension: false
+      leading-underscore: false
