@@ -1,4 +1,4 @@
-import "./taglist.scss";
+import "./tagList.scss";
 
 import * as React from "react";
 
