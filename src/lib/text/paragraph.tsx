@@ -1,8 +1,8 @@
 import * as classNames from "classnames";
 import * as React from "react";
 
-import { Levels } from "../../../dist/typings/lib/index";
 import { StyleProperties } from "../common/properties";
+import { Levels } from "../index";
 import { Spacing, SpacingStyle } from "../utilities/spacing";
 
 // Define the types and properties
