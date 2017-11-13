@@ -3,6 +3,7 @@ import "./tagList.scss";
 import * as React from "react";
 
 import Description from "../atoms/form/description";
+import { FormLabel } from "../atoms/form/formlabel";
 import { InputProperties, Tag } from "../index";
 
 export type TagListProperties = {
@@ -23,6 +24,7 @@ export class TagList extends React.Component<TagListProperties, TagListState> {
     public render(): any {
         return (
             <div className="a-input a-taglist">
+                <FormLabel {...this.props} />
                 <div className="a-input__wrapper a-taglist__wrapper">
                     {this.renderTags()}
                     {this.renderInputTag()}

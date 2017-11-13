@@ -1,6 +1,7 @@
 import * as classNames from "classnames";
 import * as React from "react";
 
+import { Levels } from "../../../dist/typings/lib/index";
 import { StyleProperties } from "../common/properties";
 import { Spacing, SpacingStyle } from "../utilities/spacing";
 
@@ -28,9 +29,10 @@ export enum ParagraphStyle {
 }
 
 export type ParagraphProperties = {
-    type?: ParagraphStyle;
     className?: string;
+    level?: Levels;
     spacing?: boolean;
+    type?: ParagraphStyle;
 } & StyleProperties;
 
 /**
@@ -50,7 +52,12 @@ export class Paragraph extends React.Component<ParagraphProperties, {}> {
     }
 
     private renderParagraph(): JSX.Element {
-        const className = classNames(this.props.type, this.props.className);
+        const className = classNames(
+            this.props.type,
+            this.props.type === ParagraphStyle.Alert && this.props.level ?
+                `m-alert--${this.props.level.toLowerCase()}` : "",
+            this.props.className,
+        );
 
         return (
             <p className={className} style={this.props.style}>
