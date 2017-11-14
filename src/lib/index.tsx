@@ -18,6 +18,7 @@ export * from "./atoms/copyright";
 export * from "./atoms/iconbutton";
 export * from "./atoms/label";
 export * from "./atoms/spinner";
+export * from "./atoms/table";
 
 // Atoms / form
 export * from "./atoms/definitionList";
@@ -46,8 +47,10 @@ export * from "./molecules/tag";
 
 // Organisms
 export * from "./organisms/footer";
-export * from "./organisms/upload";
+export * from "./organisms/hero";
+export * from "./organisms/heroItem";
 export * from "./organisms/tagList";
+export * from "./organisms/upload";
 
 // Utilities
 export * from "./utilities/background";

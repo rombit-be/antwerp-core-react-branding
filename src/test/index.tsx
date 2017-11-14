@@ -3,6 +3,7 @@ import "./index.scss";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
+import { Hero, HeroItem } from "../lib/index";
 import AccordeonComponents from "./components/accordeon";
 import AlertComponent from "./components/alert";
 import BackgroundComponents from "./components/background";
@@ -13,6 +14,7 @@ import FormComponents from "./components/form";
 import LabelComponents from "./components/label";
 import LayoutComponents from "./components/layout";
 import SpacingComponents from "./components/spacing";
+import TableComponents from "./components/table";
 import TabNavigationComponent from "./components/tabNavigation";
 import TagComponents from "./components/tag";
 import TextComponents from "./components/text";
@@ -22,25 +24,29 @@ const mountId = "mount";
 
 // Render the main document...
 ReactDOM.render((
-    <article>
-        <header>
-            <h1>Overview of the different stylings</h1>
-        </header>
-        <div>
-            <TagComponents />
-            <UploadComponent />
-            <DatepickerComponent />
-            <TabNavigationComponent />
-            <AccordeonComponents />
-            <LabelComponents />
-            <FormComponents />
-            <TextComponents />
-            <BackgroundComponents />
-            <LayoutComponents />
-            <SpacingComponents />
-            <AlertComponent />
-            <BadgeComponents />
-            <ButtonComponents />
-        </div>
-    </article>
+    <div>
+        <Hero title="Antwerp Core React Branding" subtitle="Overview of the styles" color="#ddbbbb">
+            <HeroItem title="Menuitem 1" onClick={() => ({})} />
+            <HeroItem title="Menuitem 2" href="http://www.google.com" target="_blank" />
+        </Hero>
+        <article>
+            <div>
+                <TableComponents />
+                <TagComponents />
+                <UploadComponent />
+                <DatepickerComponent />
+                <TabNavigationComponent />
+                <AccordeonComponents />
+                <LabelComponents />
+                <FormComponents />
+                <TextComponents />
+                <BackgroundComponents />
+                <LayoutComponents />
+                <SpacingComponents />
+                <AlertComponent />
+                <BadgeComponents />
+                <ButtonComponents />
+            </div>
+        </article>
+    </div>
 ), document.getElementById(mountId));

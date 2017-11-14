@@ -17,14 +17,11 @@ body {
         margin-left: auto;
         margin-right: auto;
         min-height: 100vh;
-        padding: $spacer;
         width: span(10 of 12 wide);
-
+        
         article {
-            header {
-                margin-bottom: $spacer * 2;
-                margin-top: $spacer;
-            }
+            padding: $spacer;
+            margin-top: $spacer * 2;
 
             .a-input {
                 margin-top: $spacer;
