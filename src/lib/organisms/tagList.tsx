@@ -35,6 +35,14 @@ export class TagList extends React.Component<TagListProperties, TagListState> {
         );
     }
 
+    public componentWillReceiveProps(nextProps: TagListProperties): void {
+        if (this.state.value !== nextProps.value) {
+            this.setState({
+                value: nextProps.value,
+            });
+        }
+    }
+
     private renderTags(): JSX.Element[] {
         if (this.state.value && this.state.value.length > 0) {
             return this.state.value.map((x, i) => (
