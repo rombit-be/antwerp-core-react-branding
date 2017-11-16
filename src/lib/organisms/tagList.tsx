@@ -8,6 +8,7 @@ import { InputProperties, Tag } from "../index";
 
 export type TagListProperties = {
     normalize?: (value: string) => string,
+    noinput?: boolean;
 } & InputProperties<string[]>;
 export type TagListState = { value: string[], inputValue: string; };
 
@@ -48,7 +49,7 @@ export class TagList extends React.Component<TagListProperties, TagListState> {
     }
 
     private renderInputTag(): any {
-        if (!this.props.disabled) {
+        if (!this.props.disabled && !this.props.noinput) {
             return (
                 <div className="m-tag d-tag">
                     <input
@@ -105,7 +106,7 @@ export class TagList extends React.Component<TagListProperties, TagListState> {
     }
 
     private onDeleteTag = (index: number) => {
-        if (this.state.value && this.state.value.length > 0) {
+        if (!this.props.disabled && this.state.value && this.state.value.length > 0) {
             const value = this.state.value.filter((x, i) => i !== index);
             this.setState({ value });
             this.onChanged(value);

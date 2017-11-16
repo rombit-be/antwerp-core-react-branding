@@ -71,7 +71,7 @@ export class Upload extends React.Component<UploadProperties, UploadState> {
         );
     }
 
-    // region private render methods
+    // #region private render methods
 
     private renderInfoMessage(): JSX.Element {
         return (
@@ -147,9 +147,9 @@ export class Upload extends React.Component<UploadProperties, UploadState> {
         return null;
     }
 
-    // endregion
+    // #endregion
 
-    // region handlers
+    // #region handlers
 
     private onChange(e: React.SyntheticEvent<HTMLInputElement>): void {
         // tslint:disable-next-line:no-console
@@ -167,9 +167,9 @@ export class Upload extends React.Component<UploadProperties, UploadState> {
         }
     }
 
-    // endregion
+    // #endregion
 
-    // region utilities
+    // #region utilities
 
     private normalizeProgressValue(): number {
         const value = this.props.progressValue || 0;
@@ -190,5 +190,5 @@ export class Upload extends React.Component<UploadProperties, UploadState> {
         return files;
     }
 
-    // endregion
+    // #endregion
 }

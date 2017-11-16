@@ -114,7 +114,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
         }
     }
 
-    // region private handlers
+    // #region private handlers
 
     private onChange(e: React.SyntheticEvent<HTMLInputElement>) {
         const displayValue = e.currentTarget.value;
@@ -161,7 +161,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
         }
     }
 
-    // endregion
+    // #endregion
 
     private convertDateToString(date: Date, display: boolean, format?: string): string {
         format = format || (display ? this.state.displayDateFormat : this.state.dateFormat);
