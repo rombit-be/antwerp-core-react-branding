@@ -41,11 +41,11 @@ export default class TagComponents extends React.Component<{}, { value: string[]
         );
     }
 
-    private onChange(value: string[]): void {
+    private onChange = (value: string[]) => {
         this.setState({ value });
     }
 
-    private onDelete(key: string | number) {
+    private onDelete = (key: string | number) => {
         // tslint:disable-next-line:no-console
         console.log(`Will delete tag ${key}`);
     }

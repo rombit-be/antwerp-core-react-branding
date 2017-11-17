@@ -4,12 +4,13 @@ import * as React from "react";
 
 import Description from "../atoms/form/description";
 import { FormLabel } from "../atoms/form/formlabel";
-import { InputProperties, Tag } from "../index";
+import { BaseInputProperties, Tag } from "../index";
 
 export type TagListProperties = {
-    normalize?: (value: string) => string,
     noinput?: boolean;
-} & InputProperties<string[]>;
+    normalize?: (value: string) => string,
+    onChanged?: (value: string[]) => void;
+} & BaseInputProperties<string[]>;
 export type TagListState = { value: string[], inputValue: string; };
 
 /**

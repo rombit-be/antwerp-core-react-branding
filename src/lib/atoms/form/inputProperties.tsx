@@ -33,7 +33,7 @@ export type FieldMetaProperties = {
     valid?: boolean;
 };
 
-export type InputProperties<T> = {
+export type BaseInputProperties<T> = {
     addon?: string;
     addonLocation?: Location;
     checked?: boolean;
@@ -55,6 +55,8 @@ export type InputProperties<T> = {
     placeholder?: string;
     required?: boolean;
     value?: T;
-} & React.InputHTMLAttributes<HTMLInputElement>;
+};
+
+export type InputProperties<T> = BaseInputProperties<T> & React.InputHTMLAttributes<HTMLInputElement>;
 
 export type TypedInputProperties = { type: InputTypes | string } & InputProperties<any>;

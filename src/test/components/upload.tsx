@@ -22,14 +22,14 @@ export default class UploadComponent extends React.Component<{}, { files: File[]
                 <A.Upload
                     description="A small description"
                     name="fileupload"
-                    onChange={(e) => this.onChange(e)}
+                    onChange={this.onChange}
                     uploadedFiles={this.state.files}
                 />
             </StyleSection >
         );
     }
 
-    private onChange(e: React.SyntheticEvent<HTMLInputElement>) {
+    private onChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
         const files = this.state.files;
         files.push(e.currentTarget.files.item(0));
         this.setState({

@@ -17,13 +17,13 @@ export default class DatepickerComponent extends React.Component<{}, {}> {
                 <A.DatePickerInput
                     description="A description"
                     name="datewithdatepicker"
-                    onChange={(e) => this.debug("Selected data: " + e)}
+                    onChange={(e: any) => this.debug("Selected data: " + e)}
                 />
                 <A.DatePickerField name="datepicker"
                     label="This is a datepicker"
                     input={{
                         minDate: "2017-10-23",
-                        onChange: (e) => this.debug(e),
+                        onChange: (e: any) => this.debug(e),
                         value: "2017-10-25",
                     }}
                 />

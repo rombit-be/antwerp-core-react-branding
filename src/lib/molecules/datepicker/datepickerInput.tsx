@@ -1,7 +1,8 @@
 import "./datepickerInput.scss";
 
-import * as moment from "moment";
 import * as React from "react";
+
+import * as moment from "moment";
 
 import { InputProperties } from "../../atoms/form/inputProperties";
 import { TextInput } from "../../atoms/form/typedInputs";
@@ -68,10 +69,10 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
                 <TextInput
                     icon="calendar"
                     iconLocation={Location.Right}
-                    onBlur={(e) => this.onBlur(e)}
-                    onChange={(e) => this.onChange(e)}
-                    onFocus={(e) => this.onFocus(e)}
-                    onIconClick={(e) => this.showDatePicker(e)}
+                    onBlur={this.onBlur}
+                    onChange={this.onChange}
+                    onFocus={this.onFocus}
+                    onIconClick={this.showDatePicker}
                     placeholder={this.state.displayDateFormat}
                     {...props}
                     value={this.state.displayValue}
@@ -91,7 +92,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
         this.registerDatepickerOpenEventHandler();
     }
 
-    private showDatePicker(e: React.SyntheticEvent<HTMLElement>) {
+    private showDatePicker = (e: React.SyntheticEvent<HTMLElement>): void => {
         if (this.state.datePickerVisible) {
             this.setState({
                 datePickerVisible: false,
@@ -116,7 +117,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
 
     // #region private handlers
 
-    private onChange(e: React.SyntheticEvent<HTMLInputElement>) {
+    private onChange = (e: React.SyntheticEvent<HTMLInputElement>): void => {
         const displayValue = e.currentTarget.value;
         const value = this.convertDisplayValueToValue(displayValue);
 
@@ -131,7 +132,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
 
     }
 
-    private onSelect(date: Date): void {
+    private onSelect = (date: Date): void => {
         const displayValue: string = this.convertDateToString(date, true);
         const value: string = this.convertDateToString(date, false);
         this.setState({
@@ -145,7 +146,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
         }
     }
 
-    private onFocus(e: React.SyntheticEvent<HTMLInputElement>): void {
+    private onFocus = (e: React.SyntheticEvent<HTMLInputElement>): void => {
         this.dispatchDatepickerOpenEvent(true);
 
         if (this.props.onFocus) {
@@ -153,7 +154,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
         }
     }
 
-    private onBlur(e: React.SyntheticEvent<HTMLInputElement>): void {
+    private onBlur = (e: React.SyntheticEvent<HTMLInputElement>): void => {
         this.dispatchDatepickerOpenEvent();
 
         if (this.props.onBlur) {
