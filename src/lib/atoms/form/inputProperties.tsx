@@ -44,7 +44,11 @@ export type BaseInputProperties<T> = {
     iconLocation?: Location;
     inline?: boolean;
     label?: string | JSX.Element;
+    max?: number | string;
+    maxLength?: number;
     meta?: FieldMetaProperties;
+    min?: number | string;
+    minLength?: number;
     name: string;
     onBlur?: (e: React.SyntheticEvent<HTMLInputElement>) => void;
     onChange?: (e: React.SyntheticEvent<HTMLInputElement>) => void;
