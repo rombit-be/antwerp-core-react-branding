@@ -19,15 +19,22 @@
         "**/bower_components": true,
         "client/assets/**/*.*": true
     },
-    "editor.fontLigatures": true,
-    "editor.fontSize": 12,
-    "editor.formatOnSave": true,
-    "editor.minimap.enabled": true,
     "editor.tabCompletion": true,
     "files.autoSave": "onFocusChange",
-    "sasslint.configFile": "./sass-lint.yml",
+    "sasslint.configFile": ".sass-lint.yml",
     "sasslint.enable": true,
-    "tslint.autoFixOnSave": true,
     "typescriptHero.resolver.organizeOnSave": true,
-    "typescriptHero.resolver.stringQuoteStyle": "\""
+    "typescriptHero.resolver.disableImportRemovalOnOrganize": true,
+    "typescriptHero.resolver.stringQuoteStyle": "\"",
+    "typescriptHero.resolver.importGroups": [
+        "Plains",
+        "/^react/",
+        {
+            "identifier": "/^react/",
+            "order": "asc"
+        },
+        "Modules",
+        "Workspace"
+    ]
+}
 }

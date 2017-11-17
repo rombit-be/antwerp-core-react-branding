@@ -55,6 +55,6 @@ export type InputProperties<T> = {
     placeholder?: string;
     required?: boolean;
     value?: T;
-};
+} & React.InputHTMLAttributes<HTMLInputElement>;
 
 export type TypedInputProperties = { type: InputTypes | string } & InputProperties<any>;
