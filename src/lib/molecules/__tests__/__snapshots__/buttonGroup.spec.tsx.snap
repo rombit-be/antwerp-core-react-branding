@@ -6,7 +6,7 @@ exports[`ButtonGroup 1`] = `
 >
   <button
     autoFocus={true}
-    className="a-button a-button--default"
+    className="a-button"
     disabled={undefined}
     onClick={[Function]}
     style={undefined}
@@ -17,7 +17,7 @@ exports[`ButtonGroup 1`] = `
   </button>
   <button
     autoFocus={true}
-    className="a-button a-button--default"
+    className="a-button"
     disabled={undefined}
     onClick={[Function]}
     style={undefined}
@@ -35,7 +35,7 @@ exports[`ButtonGroup with wrong children 1`] = `
 >
   <button
     autoFocus={true}
-    className="a-button a-button--default"
+    className="a-button"
     disabled={undefined}
     onClick={[Function]}
     style={undefined}
