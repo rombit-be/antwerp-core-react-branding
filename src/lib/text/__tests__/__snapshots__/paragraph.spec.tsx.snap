@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Paragraph 1`] = `
-<p
+<div
   className="u-text-bold"
   style={undefined}
 >
   test
-</p>
+</div>
 `;
