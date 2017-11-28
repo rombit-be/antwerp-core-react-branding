@@ -1,5 +1,6 @@
-import * as classNames from "classnames";
 import * as React from "react";
+
+import * as classNames from "classnames";
 
 import { Levels } from "../common/levels";
 import { StyleProperties } from "../common/properties";
@@ -59,7 +60,8 @@ export class Button extends React.Component<ButtonProperties, {}> {
 
     private className(): string {
         return classNames(
-            this.props.type && this.props.type !== ButtonType.Default ? `a-button-${this.props.type}` : "a-button a-button--default",
+            (this.props.type && this.props.type !== ButtonType.Default && !this.props.level) ?
+                `a-button-${this.props.type}` : "a-button a-button--default",
             this.props.level ? `a-button--${this.props.level}` : "",
             this.props.size ? `a-button--${this.props.size}` : "",
             this.props.className,

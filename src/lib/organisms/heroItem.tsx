@@ -5,7 +5,7 @@ import * as classNames from "classnames";
 export type HeroItemProperties = {
     active?: boolean;
     href?: string;
-    onClick?: () => {}
+    onClick?: () => void;
     target?: string;
     title: string | JSX.Element;
 };

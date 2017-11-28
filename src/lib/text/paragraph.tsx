@@ -59,10 +59,20 @@ export class Paragraph extends React.Component<ParagraphProperties, {}> {
             this.props.className,
         );
 
-        return (
-            <p className={className} style={this.props.style}>
-                {this.props.children}
-            </p>
-        );
+        if (this.props.level) {
+            return (
+                <p className={className} style={this.props.style}>
+                    {this.props.children}
+                </p>
+            );
+
+        } else {
+            return (
+                <div className={className} style={this.props.style}>
+                    {this.props.children}
+                </div>
+            );
+        }
+
     }
 }
