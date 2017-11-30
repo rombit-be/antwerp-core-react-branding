@@ -1,5 +1,6 @@
-import * as classNames from "classnames";
 import * as React from "react";
+
+import * as classNames from "classnames";
 
 import Icon from "../../utilities/icon";
 import Description from "./description";
@@ -18,7 +19,7 @@ export class Select extends React.Component<SelectProperties, SelectState> {
 
     public constructor(props: SelectProperties) {
         super(props);
-        this.state = { value: props.value || "" };
+        this.state = { value: props.value };
     }
 
     public render(): any {

@@ -40,7 +40,7 @@ var config = {
     },
     devtool: "source-map",
     devServer: {
-        stats: "minimal"
+        stats: "minimal",
     },
     module: {
         rules: [
