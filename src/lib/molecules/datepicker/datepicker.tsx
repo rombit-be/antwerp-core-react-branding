@@ -1,5 +1,6 @@
-import * as classNames from "classnames";
 import * as React from "react";
+
+import * as classNames from "classnames";
 
 import { Button } from "../../atoms/button";
 import { IconButton } from "../../atoms/iconbutton";
@@ -94,7 +95,17 @@ export class DatePicker extends React.Component<DatePickerProperties, DatePicker
     }
 
     public componentWillReceiveProps(nextProps: DatePickerProperties): void {
-        this.setState({ visible: nextProps.visible });
+        if (nextProps.value) {
+            this.setState({
+                value: nextProps.value,
+                viewDate: this.calculateViewDate(nextProps.value),
+                visible: nextProps.visible,
+            });
+        } else {
+            this.setState({
+                visible: nextProps.visible,
+            });
+        }
     }
 
     // Navigation methods
@@ -150,6 +161,7 @@ export class DatePicker extends React.Component<DatePickerProperties, DatePicker
      * Compile the grid as @see DatePickerElementProperties.
      */
     private compileGrid(): DatePickerElementProperties[][] {
+
         const viewDate = this.state.viewDate;
         const gridStartDate = this.gridStartDate(viewDate);
 

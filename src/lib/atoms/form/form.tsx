@@ -15,6 +15,7 @@ export class Form extends React.Component<FormProperties, {}> {
             <form
                 className={Form.className}
                 {...this.props}
+                noValidate
             >
                 {this.props.children}
             </form>

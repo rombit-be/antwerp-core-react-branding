@@ -38,6 +38,8 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
     public static DefaultDisplayDateFormat = "DD-MM-YYYY";
     private static eventName: string = "a-datepicker";
     private static registeredComponents: number = 1;
+    private static onChangeTimerId: number = -1;
+    private static onChangeDeferredTimeout: number = 555;
 
     public constructor(props: DatePickerInputProperties) {
         super(props);
@@ -118,18 +120,32 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
     // #region private handlers
 
     private onChange = (e: React.SyntheticEvent<HTMLInputElement>): void => {
-        const displayValue = e.currentTarget.value;
-        const value = this.convertDisplayValueToValue(displayValue);
+        let displayValue = e.currentTarget.value;
+        if (moment(e.currentTarget.value, this.state.displayDateFormat, true).isValid()) {
+            displayValue = moment(e.currentTarget.value, this.state.displayDateFormat, true).format(this.state.displayDateFormat);
+            const value = this.convertDisplayValueToValue(displayValue);
 
-        this.setState({
-            displayValue,
-            value,
-        });
+            this.setState({
+                displayValue,
+                value,
+            });
 
-        if (this.props.onChange) {
-            this.props.onChange(value as any);
+            if (this.props.onChange) {
+                if (DatePickerInput.onChangeTimerId) {
+                    clearTimeout(DatePickerInput.onChangeTimerId);
+                }
+
+                DatePickerInput.onChangeTimerId = setTimeout(() => {
+                    if (moment(value, this.state.dateFormat, true).isValid()) {
+                        this.props.onChange(value as any);
+                    }
+                }, DatePickerInput.onChangeDeferredTimeout) as any;
+            }
+        } else {
+            this.setState({
+                displayValue,
+            });
         }
-
     }
 
     private onSelect = (date: Date): void => {
@@ -181,7 +197,6 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
             if (value) {
                 const date = moment(value, format)
                     .toDate();
-                // tslint:disable-next-line:no-console
                 return date;
             }
             return undefined;
