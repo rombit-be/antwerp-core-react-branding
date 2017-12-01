@@ -1,7 +1,7 @@
 {
   "name": "antwerp-core-react-branding",
   "description": "React port of the Antwerpen.be Core Branding",
-  "version": "0.0.46",
+  "version": "0.0.48",
   "main": "./dist/index.js",
   "types": "./dist/typings/lib/index.d.ts",
   "repository": {
@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --content-base src/test",
-    "prepublish": "NODE_ENV=production webpack --config webpack.prod.js",
+    "prepublishOnly": "NODE_ENV=production webpack --config webpack.prod.js",
     "test": "jest --config jest.config.json",
     "deploy": "./quick-deploy.sh",
     "clean-publish": "rm -rf ./dist"

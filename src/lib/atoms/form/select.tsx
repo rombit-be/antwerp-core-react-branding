@@ -19,7 +19,7 @@ export class Select extends React.Component<SelectProperties, SelectState> {
 
     public constructor(props: SelectProperties) {
         super(props);
-        this.state = { value: props.value };
+        this.state = { value: props.value || "" };
     }
 
     public render(): any {
@@ -47,6 +47,12 @@ export class Select extends React.Component<SelectProperties, SelectState> {
         );
     }
 
+    public componentWillReceiveProps(next: SelectProperties) {
+        if (next) {
+            this.setState({ value: next.value });
+        }
+    }
+
     private renderOptions(): JSX.Element[] {
         const options = this.props.options
             .map((x, i) => (
@@ -59,7 +65,10 @@ export class Select extends React.Component<SelectProperties, SelectState> {
                     {x.label}
                 </option>
             ));
-        return [<option key={-1}></option>, ...options];
+        return [
+            <option value="" key={-1}></option>,
+            ...options,
+        ];
     }
 
     private onChange(e: React.SyntheticEvent<HTMLSelectElement>) {
