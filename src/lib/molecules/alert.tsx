@@ -1,7 +1,8 @@
 import "./alert.scss";
 
-import * as classNames from "classnames";
 import * as React from "react";
+
+import * as classNames from "classnames";
 
 import { Button, ButtonType } from "../atoms/button";
 import { Levels } from "../common/levels";
@@ -9,14 +10,14 @@ import { Sizes } from "../common/sizes";
 import { Overlay } from "../utilities/overlay";
 
 export type AlertProperties = {
+    cancelText?: string;
     level?: Levels,
     message: string,
+    okText?: string;
+    onCancel?: () => void;
+    onOk?: () => void;
     title: string,
     visible?: boolean,
-    cancelText?: string;
-    okText?: string;
-    onOk?: () => void;
-    onCancel?: () => void;
 };
 
 export type AlertState = { visible?: boolean };
@@ -36,16 +37,15 @@ export class Alert extends React.Component<AlertProperties, AlertState> {
             <Overlay dark visible={this.state.visible}>
                 <div className={this.className()}>
                     {
-                        this.props.onCancel ?
-                            (<Button
-                                className="m-alert__close has-icon"
-                                level={this.props.level}
-                                onClick={() => this.onCancel()}
-                                type={ButtonType.Transparent}
-                            >
-                                <i className="fa fa-close"></i>
-                            </Button>) : null
-
+                        this.props.onCancel &&
+                        (<Button
+                            className="m-alert__close has-icon"
+                            level={this.props.level}
+                            onClick={() => this.onCancel()}
+                            type={ButtonType.Transparent}
+                        >
+                            <i className="fa fa-close"></i>
+                        </Button>)
                     }
                     <h5 className="u-margin-bottom-xs">{this.props.title}</h5>
                     <p className="u-margin-bottom">{this.props.message}</p>
