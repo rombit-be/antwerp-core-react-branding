@@ -29,7 +29,6 @@
   "author": "Gie Spaepen <gie.spaepen@rombit.be>",
   "homepage": "https://rombit.be",
   "dependencies": {
-    "antwerp-core-react-branding": "0.0.50",
     "classnames": "^2.2.5",
     "moment": "^2.18.1",
     "react": "^16.0.0",
