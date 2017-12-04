@@ -197,6 +197,15 @@ ansi-styles@^3.1.0, ansi-styles@^3.2.0:
   dependencies:
     color-convert "^1.9.0"
 
+antwerp-core-react-branding@0.0.50:
+  version "0.0.49"
+  resolved "https://registry.yarnpkg.com/antwerp-core-react-branding/-/antwerp-core-react-branding-0.0.49.tgz#44f4e5ee77422ef46638d9b614ca3ddcb5128f2e"
+  dependencies:
+    classnames "^2.2.5"
+    moment "^2.18.1"
+    react "^16.0.0"
+    react-dom "^16.0.0"
+
 anymatch@^1.3.0:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/anymatch/-/anymatch-1.3.2.tgz#553dcb8f91e3c889845dfdba34c77721b90b9d7a"

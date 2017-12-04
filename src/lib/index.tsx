@@ -41,6 +41,7 @@ export * from "./molecules/alert";
 export * from "./molecules/buttonGroup";
 export * from "./molecules/datepicker/datepicker";
 export * from "./molecules/datepicker/datepickerInput";
+export * from "./molecules/modal";
 export * from "./molecules/stepper";
 export * from "./molecules/tabNavigation";
 export * from "./molecules/tag";
