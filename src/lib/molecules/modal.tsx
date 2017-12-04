@@ -2,10 +2,9 @@ import * as React from "react";
 
 import * as classNames from "classnames";
 
-import { Button, Spacing } from "../../../dist/typings/lib/index";
-import { ButtonType } from "../atoms/button";
+import { Button, ButtonType } from "../atoms/button";
 import { Overlay } from "../utilities/overlay";
-import { SpacingStyle } from "../utilities/spacing";
+import { Spacing, SpacingStyle } from "../utilities/spacing";
 
 export type ModalProperties = {
     className?: string;
