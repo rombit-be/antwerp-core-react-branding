@@ -21,7 +21,7 @@ export type ModalState = { visible?: boolean };
 /**
  * Molecule: Modal
  */
-export default class Modal extends React.Component<ModalProperties, ModalState> {
+export class Modal extends React.Component<ModalProperties, ModalState> {
 
     public constructor(props: ModalProperties) {
         super(props);
