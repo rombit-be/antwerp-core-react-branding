@@ -118,7 +118,7 @@ exports[`Alert Renders visible, danger, with onOk and onCancel 1`] = `
     className="m-alert m-alert--danger"
   >
     <button
-      autoFocus={true}
+      autoFocus={undefined}
       className="a-button a-button-transparent a-button--danger m-alert__close has-icon"
       disabled={undefined}
       onClick={[Function]}
@@ -144,7 +144,7 @@ exports[`Alert Renders visible, danger, with onOk and onCancel 1`] = `
       className="m-alert__actions"
     >
       <button
-        autoFocus={true}
+        autoFocus={undefined}
         className="a-button a-button-outline a-button--danger a-button--small m-alert__cancel"
         disabled={undefined}
         onClick={[Function]}
