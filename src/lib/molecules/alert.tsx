@@ -63,6 +63,7 @@ export class Alert extends React.Component<AlertProperties, AlertState> {
                                 </Button>) : null
                         }
                         <Button
+                            autoFocus
                             className={"m-alert__ok"}
                             focus
                             level={this.props.level}

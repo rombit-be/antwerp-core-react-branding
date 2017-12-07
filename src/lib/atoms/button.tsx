@@ -14,6 +14,7 @@ export enum ButtonType {
 }
 
 export type ButtonProperties = {
+    autoFocus?: boolean;
     className?: string;
     disabled?: boolean;
     focus?: boolean;
@@ -38,6 +39,7 @@ export class Button extends React.Component<ButtonProperties, {}> {
     public render(): any {
         return (
             <button
+                autoFocus={this.props.autoFocus}
                 className={this.className()}
                 disabled={this.props.disabled}
                 onClick={(e) => this.onClick(e)}
@@ -45,7 +47,6 @@ export class Button extends React.Component<ButtonProperties, {}> {
                 style={this.props.style}
                 tabIndex={this.props.tabIndex}
                 type={this.buttonType()}
-                autoFocus
             >
                 {this.props.children || this.props.text}
             </button>

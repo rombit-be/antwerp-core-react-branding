@@ -131,13 +131,16 @@ export class Upload extends React.Component<UploadProperties, UploadState> {
                             <li key={`uploaded-${i}`}>
                                 <span className="fa fa-file-o"></span>
                                 <span className="m-upload__filename">{x.name}</span>
-                                <IconButton
-                                    className="m-upload__delete"
-                                    icon="close"
-                                    onClick={() => this.onDelete(x)}
-                                    size={Sizes.Small}
-                                    type={ButtonType.Transparent}
-                                />
+                                {
+                                    this.props.deleteFile &&
+                                    <IconButton
+                                        className="m-upload__delete"
+                                        icon="close"
+                                        onClick={() => this.onDelete(x)}
+                                        size={Sizes.Small}
+                                        type={ButtonType.Transparent}
+                                    />
+                                }
                             </li>
                         ))
                     }
