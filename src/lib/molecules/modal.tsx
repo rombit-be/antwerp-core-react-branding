@@ -7,13 +7,14 @@ import { Overlay } from "../utilities/overlay";
 import { Spacing, SpacingStyle } from "../utilities/spacing";
 
 export type ModalProperties = {
+    cancelText?: string;
     className?: string;
-    title: string | JSX.Element;
-    onCancel?: () => void;
-    visible?: boolean;
     footer?: JSX.Element;
     okText?: string | JSX.Element;
-    onOk: () => {};
+    onCancel?: () => void;
+    onOk: () => void;
+    title: string | JSX.Element;
+    visible?: boolean;
 };
 
 export type ModalState = { visible?: boolean };
@@ -31,25 +32,27 @@ export class Modal extends React.Component<ModalProperties, ModalState> {
     public render(): any {
         return (
             <Overlay dark visible={this.state.visible}>
-                <div className={this.className()}>
-                    <div className="m-modal__header u-margin-bottom-xs">
-                        {this.props.onCancel &&
-                            (<Button
-                                className="m-modal__close has-icon"
-                                onClick={() => this.onCancel()}
-                                type={ButtonType.Transparent}
-                            >
-                                <i className="fa fa-close"></i>
-                            </Button>)
+                <div className="m-overlay__inner">
+                    <div className={this.className()}>
+                        <div className="m-modal__header u-margin-bottom-xs">
+                            {this.props.onCancel &&
+                                (<Button
+                                    className="m-modal__close has-icon"
+                                    onClick={() => this.onCancel()}
+                                    type={ButtonType.Transparent}
+                                >
+                                    <i className="fa fa-close"></i>
+                                </Button>)
 
-                        }
-                        <h6>{this.props.title}</h6>
-                    </div>
-                    <Spacing type={SpacingStyle.MarginBottom}>
-                        {this.props.children}
-                    </Spacing>
-                    <div className="m-modal__footer">
-                        {this.renderFooter()}
+                            }
+                            <h6>{this.props.title}</h6>
+                        </div>
+                        <Spacing type={SpacingStyle.MarginBottom}>
+                            {this.props.children}
+                        </Spacing>
+                        <div className="m-modal__footer">
+                            {this.renderFooter()}
+                        </div>
                     </div>
                 </div>
             </Overlay>
@@ -67,10 +70,22 @@ export class Modal extends React.Component<ModalProperties, ModalState> {
         if (this.props.footer) {
             return this.props.footer;
         } else {
-            return (<Button
-                text={this.props.okText}
-                onClick={this.onOk}
-            />);
+            return (
+                <section>
+                    {
+                        this.props.onCancel ?
+                            (<Button
+                                className="m-alert__cancel"
+                                onClick={() => this.onCancel()}
+                            >
+                                {this.props.cancelText || "Cancel"}
+                            </Button>) : null
+                    }
+                    <Button
+                        text={this.props.okText}
+                        onClick={this.onOk}
+                    />
+                </section>);
         }
     }
 
