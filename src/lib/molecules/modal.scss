@@ -1,0 +1,5 @@
+@import '../_variables.scss';
+
+.m-modal__overlaymodal {
+    z-index: $overlay-zindex - 1;
+}

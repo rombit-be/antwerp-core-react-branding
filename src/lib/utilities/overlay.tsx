@@ -1,9 +1,16 @@
 import "./overlay.scss";
 
-import * as classNames from "classnames";
 import * as React from "react";
 
-export type OverlayProperties = { visible?: boolean, dark?: boolean, light?: boolean };
+import * as classNames from "classnames";
+
+export type OverlayProperties = {
+    className?: string,
+    dark?: boolean,
+    light?: boolean,
+    visible?: boolean,
+    zIndex?: number,
+};
 
 /**
  * React Component Overlay
@@ -14,7 +21,7 @@ export class Overlay extends React.Component<OverlayProperties, {}> {
         this.handleBodyClass();
         if (this.props.visible) {
             return (
-                <div className={this.className()}>
+                <div className={this.className()} style={{ zIndex: this.props.zIndex }}>
                     {this.props.children}
                 </div>
             );
@@ -25,7 +32,7 @@ export class Overlay extends React.Component<OverlayProperties, {}> {
     private handleBodyClass() {
         if (window && window.document && window.document.body) {
             const hasOverflow = window.innerHeight < window.document.body.clientHeight;
-            const className = classNames(hasOverflow ? "a-overlay--open--overflow" : "a-overlay--open");
+            const className = classNames(hasOverflow ? "a-overlay--overflow" : "a-overlay--open");
 
             if (this.props.visible) {
                 if (!window.document.body.classList.contains(className)) {
@@ -42,6 +49,7 @@ export class Overlay extends React.Component<OverlayProperties, {}> {
             "a-overlay",
             { "a-overlay--light": this.props.light },
             { "a-overlay--dark": this.props.dark || (!this.props.dark && !this.props.light) },
+            this.props.className,
         );
     }
 }

@@ -1,7 +1,7 @@
 {
   "name": "antwerp-core-react-branding",
   "description": "React port of the Antwerpen.be Core Branding",
-  "version": "0.0.58",
+  "version": "0.0.60",
   "main": "./dist/index.js",
   "types": "./dist/typings/lib/index.d.ts",
   "repository": {
@@ -14,10 +14,10 @@
     "test": "jest"
   },
   "scripts": {
-    "start": "webpack-dev-server --content-base src/test",
+    "start": "webpack-dev-server --content-base src/example",
     "prepublishOnly": "NODE_ENV=production webpack --config webpack.prod.js",
     "test": "jest --config jest.config.json",
-    "deploy": "./quick-deploy.sh",
+    "test-watch": "jest --config jest.config.json --watch",
     "clean-publish": "rm -rf ./dist"
   },
   "keywords": [
@@ -64,7 +64,7 @@
     "tslint": "^5.7.0",
     "tslint-loader": "^3.5.3",
     "tslint-microsoft-contrib": "^5.0.1",
-    "typescript": "2.6.1",
+    "typescript": "^2.6.2",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.8.2",
     "webpack-hot-middleware": "^2.19.1"

@@ -31,10 +31,10 @@ ReactDOM.render((
         </Hero>
         <article>
             <div>
+                <DatepickerComponent />
                 <TableComponents />
                 <TagComponents />
                 <UploadComponent />
-                <DatepickerComponent />
                 <TabNavigationComponent />
                 <AccordeonComponents />
                 <LabelComponents />

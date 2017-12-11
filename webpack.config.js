@@ -21,7 +21,7 @@ var config = {
             "react-dom",
         ],
         app: [
-            "./src/test/index.tsx",
+            "./src/example/index.tsx",
         ]
     },
     output: {
@@ -95,6 +95,7 @@ var config = {
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new ExtractTextPlugin("style.css"),
+
         // Define the environment variables
         new webpack.DefinePlugin({
             "Config": {

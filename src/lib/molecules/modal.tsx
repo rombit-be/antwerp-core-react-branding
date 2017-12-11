@@ -1,3 +1,5 @@
+import "./modal.scss";
+
 import * as React from "react";
 
 import * as classNames from "classnames";
@@ -31,9 +33,9 @@ export class Modal extends React.Component<ModalProperties, ModalState> {
 
     public render(): any {
         return (
-            <Overlay dark visible={this.state.visible}>
+            <Overlay dark visible={this.state.visible} className={classNames("m-modal__overlay", this.props.className)}>
                 <div className="m-overlay__inner">
-                    <div className={this.className()}>
+                    <div className="m-modal">
                         <div className="m-modal__header u-margin-bottom-xs">
                             {this.props.onCancel &&
                                 (<Button
@@ -50,9 +52,7 @@ export class Modal extends React.Component<ModalProperties, ModalState> {
                         <Spacing type={SpacingStyle.MarginBottom}>
                             {this.props.children}
                         </Spacing>
-                        <div className="m-modal__footer">
-                            {this.renderFooter()}
-                        </div>
+                        {this.renderFooter()}
                     </div>
                 </div>
             </Overlay>
@@ -71,7 +71,7 @@ export class Modal extends React.Component<ModalProperties, ModalState> {
             return this.props.footer;
         } else {
             return (
-                <section>
+                <div className="m-modal__footer">
                     {
                         this.props.onCancel ?
                             (<Button
@@ -85,15 +85,8 @@ export class Modal extends React.Component<ModalProperties, ModalState> {
                         text={this.props.okText}
                         onClick={this.onOk}
                     />
-                </section>);
+                </div>);
         }
-    }
-
-    private className(): string {
-        return classNames(
-            "m-modal",
-            this.props.className,
-        );
     }
 
     private hideOverlay(): void {

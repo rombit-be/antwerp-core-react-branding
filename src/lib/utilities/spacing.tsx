@@ -1,5 +1,6 @@
-import * as classNames from "classnames";
 import * as React from "react";
+
+import * as classNames from "classnames";
 
 import { StyleProperties } from "../common/properties";
 
@@ -29,7 +30,7 @@ export enum SpacingStyle {
 }
 
 export type SpacingProperties = {
-    type: SpacingStyle;
+    type: SpacingStyle | SpacingStyle[];
     className?: string;
 } & StyleProperties;
 
@@ -39,16 +40,17 @@ export type SpacingProperties = {
 export class Spacing extends React.Component<SpacingProperties, {}> {
 
     public render(): any {
-        // Compile the classnames
-        const className = classNames(
-            this.props.type,
-            this.props.className,
-        );
-
         return (
-            <div className={className} style={this.props.style}>
+            <div className={this.className()} style={this.props.style}>
                 {this.props.children}
             </div>
+        );
+    }
+
+    private className(): string {
+        return classNames(
+            this.props.type,
+            this.props.className,
         );
     }
 }

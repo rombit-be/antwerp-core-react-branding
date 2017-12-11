@@ -1,13 +1,13 @@
-import * as classNames from "classnames";
 import * as React from "react";
+
+import * as classNames from "classnames";
 
 export type DatePickerElementProperties = {
     current: boolean,
-    currentMonth: boolean,
-    date: Date,
     disabled?: boolean,
-    onClick?: (date: Date) => void;
+    onClick?: (date: Date | number) => void;
     selected: boolean,
+    value: Date | number,
 };
 
 /**
@@ -22,27 +22,31 @@ export class DatePickerElement extends React.Component<DatePickerElementProperti
                     className={this.className()}
                     onClick={() => this.onClick()}
                 >
-                    {this.props.date.getDate()}
+                    {this.renderDate()}
                 </button>
             </td>
         );
     }
 
+    private renderDate(): string {
+        if (this.props.value instanceof Date) {
+            return (this.props.value as Date).getDate().toString();
+        } else {
+            return this.props.value.toString();
+        }
+    }
+
     private className(): string {
         return classNames(
-            { "is-faded": this.isDisabled() },
             { "is-current": this.props.current },
+            { "is-faded": this.props.disabled },
             { "is-selected": this.props.selected },
         );
     }
 
     private onClick(): void {
-        if (this.props.onClick && !this.isDisabled()) {
-            this.props.onClick(this.props.date);
+        if (this.props.onClick && !this.props.disabled) {
+            this.props.onClick(this.props.value);
         }
-    }
-
-    private isDisabled(): boolean {
-        return !this.props.currentMonth || this.props.disabled;
     }
 }

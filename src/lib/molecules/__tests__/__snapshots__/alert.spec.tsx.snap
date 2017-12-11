@@ -5,6 +5,11 @@ exports[`Alert Renders default 1`] = `null`;
 exports[`Alert Renders visible 1`] = `
 <div
   className="a-overlay a-overlay--dark"
+  style={
+    Object {
+      "zIndex": undefined,
+    }
+  }
 >
   <div
     className="m-alert"
@@ -41,6 +46,11 @@ exports[`Alert Renders visible 1`] = `
 exports[`Alert Renders visible, danger 1`] = `
 <div
   className="a-overlay a-overlay--dark"
+  style={
+    Object {
+      "zIndex": undefined,
+    }
+  }
 >
   <div
     className="m-alert m-alert--danger"
@@ -77,6 +87,11 @@ exports[`Alert Renders visible, danger 1`] = `
 exports[`Alert Renders visible, danger, with onOk 1`] = `
 <div
   className="a-overlay a-overlay--dark"
+  style={
+    Object {
+      "zIndex": undefined,
+    }
+  }
 >
   <div
     className="m-alert m-alert--danger"
@@ -113,6 +128,11 @@ exports[`Alert Renders visible, danger, with onOk 1`] = `
 exports[`Alert Renders visible, danger, with onOk and onCancel 1`] = `
 <div
   className="a-overlay a-overlay--dark"
+  style={
+    Object {
+      "zIndex": undefined,
+    }
+  }
 >
   <div
     className="m-alert m-alert--danger"
@@ -173,6 +193,11 @@ exports[`Alert Renders visible, danger, with onOk and onCancel 1`] = `
 exports[`Alert Renders visible, primary 1`] = `
 <div
   className="a-overlay a-overlay--dark"
+  style={
+    Object {
+      "zIndex": undefined,
+    }
+  }
 >
   <div
     className="m-alert m-alert--primary"
@@ -209,6 +234,11 @@ exports[`Alert Renders visible, primary 1`] = `
 exports[`Alert Renders visible, warning 1`] = `
 <div
   className="a-overlay a-overlay--dark"
+  style={
+    Object {
+      "zIndex": undefined,
+    }
+  }
 >
   <div
     className="m-alert m-alert--warning"

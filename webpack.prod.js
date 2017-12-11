@@ -15,12 +15,6 @@ config.entry = {
 
 config.target = "web";
 
-// config.externals = {
-//     react: "react",
-//     reactDom: "react-dom",
-//     moment: "moment",
-// };
-
 config.output = {
     filename: "index.js",
     path: __dirname + "/dist/",
@@ -42,26 +36,6 @@ config.plugins.push(new CopyWebpackPlugin([{
     from: "./src/base/src/styles",
     to: "./styles",
 }]));
-
-// Doesn't work as intended
-// config.plugins.push(new DtsBundlePlugin());
-
-// Taken from: https://medium.com/@vladimirtolstikov/how-to-merge-d-ts-typings-with-dts-bundle-and-webpack-e8903d699576
-function DtsBundlePlugin() { }
-DtsBundlePlugin.prototype.apply = function (compiler) {
-    compiler.plugin('done', function () {
-        var dts = require('dts-bundle');
-
-        dts.bundle({
-            name: libraryName,
-            main: './dist/lib/index.d.ts',
-            out: '../index.d.ts',
-            removeSource: true,
-            outputAsModuleFolder: true // to use npm in-package typings
-        });
-    });
-};
-
 
 module.exports = config;
 

@@ -3,10 +3,11 @@
     .has-warning,
     .has-error {
         .a-input__wrapper {
-                &::before {
+            &::before {
                 display: none;
             }
         }
+
         .fa {
             &.is-clickable {
                 display: block !important;

@@ -1,3 +1,5 @@
+import "./datepicker.scss";
+
 import * as React from "react";
 
 import * as classNames from "classnames";
@@ -6,6 +8,13 @@ import { Button } from "../../atoms/button";
 import { IconButton } from "../../atoms/iconbutton";
 import { Location } from "../../common/locations";
 import { DatePickerElement, DatePickerElementProperties } from "./datepickerElement";
+import {
+    DatePickerGridType,
+    DatePickerLocale,
+    defaultDatePickerLocale,
+    updateGridDateFromDelta,
+    updateGridDateFromValue,
+} from "./datePickerUtils";
 
 export type DatePickerProperties = {
     locale?: DatePickerLocale,
@@ -15,12 +24,12 @@ export type DatePickerProperties = {
     value?: Date,
     visible?: boolean,
 };
-export type DatePickerState = { viewDate: Date, visible?: boolean } & DatePickerProperties;
+export type DatePickerState = {
+    viewDate: Date,
+    visible?: boolean,
+    gridType: DatePickerGridType;
 
-export type DatePickerLocale = {
-    months: DatePickerMonth[],
-    weekdays: DatePickerWeekDay[],
-};
+} & DatePickerProperties;
 
 export type DatePickerMonth = string;
 export type DatePickerWeekDay = string;
@@ -30,13 +39,16 @@ export type DatePickerWeekDay = string;
  */
 export class DatePicker extends React.Component<DatePickerProperties, DatePickerState> {
 
-    private static days: number = 7;
-    private static weeks: number = 5;
+    private static gridDateCols: number = 7;
+    private static gridDateRows: number = 5;
+    private static gridYearRows: number = 3;
+    private static gridYearCols: number = 4;
 
     public constructor(props: DatePickerProperties) {
         super(props);
         this.state = {
-            locale: props.locale || this.defaultLocale(),
+            gridType: "d",
+            locale: props.locale || defaultDatePickerLocale(),
             value: props.value,
             viewDate: this.calculateViewDate(props.value),
             visible: props.visible === undefined ? false : props.visible,
@@ -44,50 +56,32 @@ export class DatePicker extends React.Component<DatePickerProperties, DatePicker
     }
 
     public render(): any {
-        const style: any = Object.assign({ position: "absolute", zIndex: 9999 }, this.props.position || {});
-
         return (
             <div
                 role="datepicker"
-                style={style} className={this.className()}
+                style={this.props.position || {}} className={this.className()}
             >
                 <div className="m-datepicker__nav">
                     <IconButton
                         icon="angle-left"
                         location={Location.Left}
-                        onClick={() => this.previousViewMonth()}
+                        onClick={this.onPrevious}
                     />
                     <Button
                         className="m-datepicker__title a-button"
-                        onClick={() => this.setCurrentMonth()}
-                        text={this.title()}
+                        onClick={this.onToggleGridType}
+                        text={this.renderTitle()}
                     />
                     <IconButton
                         icon="angle-right"
                         location={Location.Right}
-                        onClick={() => this.nextViewMonth()}
+                        onClick={this.onNext}
                     />
                 </div>
                 <table>
-                    <thead>
-                        <tr className="m-datepicker__days">
-                            {this.state.locale.weekdays.map((x, i) => (<th key={`weekday-${i}`}>{x}</th>))}
-                        </tr>
-                    </thead>
+                    {this.renderTableHeader()}
                     <tbody className="m-datepicker__calendar">
-                        {
-                            this.compileGrid().map((x, i) => (
-                                <tr key={i}>
-                                    {x.map((y, j) => (
-                                        <DatePickerElement
-                                            key={j}
-                                            onClick={(date: Date) => this.onSelect(date)}
-                                            {...y}
-                                        />
-                                    ))}
-                                </tr>
-                            ))
-                        }
+                        {this.renderTableGrid()}
                     </tbody>
                 </table>
             </div>
@@ -108,38 +102,7 @@ export class DatePicker extends React.Component<DatePickerProperties, DatePicker
         }
     }
 
-    // Navigation methods
-
-    private previousViewMonth(): void {
-        this.setViewMonth(-1);
-    }
-
-    private nextViewMonth(): void {
-        this.setViewMonth(1);
-    }
-
-    private setCurrentMonth(): void {
-        this.setState({ viewDate: this.calculateViewDate(this.props.value) });
-    }
-
-    private onSelect(date: Date): void {
-        if (this.props.onSelect) {
-            this.props.onSelect(date);
-        }
-        this.setState({ value: date, visible: false });
-    }
-
-    private setViewMonth(delta: number) {
-        this.setState({
-            viewDate: new Date(
-                this.state.viewDate.getFullYear(),
-                this.state.viewDate.getMonth() + delta,
-                1,
-            ),
-        });
-    }
-
-    // Rendering utils
+    // #region rendering utils
 
     private className(): string {
         return classNames(
@@ -149,18 +112,153 @@ export class DatePicker extends React.Component<DatePickerProperties, DatePicker
         );
     }
 
-    /**
-     * The title of the datepicker
-     */
-    private title(): string {
-        return this.state.locale.months[this.state.viewDate.getMonth()] +
-            " " + this.state.viewDate.getFullYear();
+    private renderTitle(): string {
+        switch (this.state.gridType) {
+            case "d":
+                return this.state.locale.months[this.state.viewDate.getMonth()] +
+                    " " + this.state.viewDate.getFullYear();
+            case "m":
+            case "y":
+            default:
+                return this.state.viewDate.getFullYear().toString();
+        }
+
     }
 
-    /**
-     * Compile the grid as @see DatePickerElementProperties.
-     */
+    private renderTableHeader(): JSX.Element {
+        switch (this.state.gridType) {
+            case "d":
+                return (
+                    <thead>
+                        <tr className="m-datepicker__days">
+                            {this.state.locale.weekdays.map((x, i) => (<th key={`weekday-${i}`}>{x}</th>))}
+                        </tr>
+                    </thead>
+                );
+            default:
+                return null!;
+        }
+    }
+
+    private renderTableGrid(): JSX.Element[] {
+        return this.compileGrid().map((x, i) => (
+            <tr key={i}>
+                {x.map((y, j) => (
+                    <DatePickerElement
+                        key={j}
+                        {...y}
+                    />
+                ))}
+            </tr>
+        ));
+    }
+
+    // #endregion
+
+    // #region handlers
+
+    private onPrevious: () => void = () => {
+        this.onNavigate("previous");
+    }
+
+    private onNext: () => void = () => {
+        this.onNavigate("next");
+    }
+
+    private onNavigate(direction: "next" | "previous") {
+        const factor = direction === "next" ? 1 : -1;
+        switch (this.state.gridType) {
+            case "y":
+                this.setViewDateRelative(4 * factor, "y");
+                break;
+            case "m":
+                this.setViewDateRelative(1 * factor, "y");
+                break;
+            case "d":
+            default:
+                this.setViewDateRelative(1 * factor, "m");
+                break;
+
+        }
+    }
+
+    private onToggleGridType: () => void = () => {
+        this.setState({
+            gridType: this.state.gridType === "d" ? "y" : "d",
+        });
+    }
+
+    private onSelectDate: (value: Date) => void = (value: Date) => {
+        this.setState({ value, visible: false });
+        if (this.props.onSelect) {
+            this.props.onSelect(value);
+        }
+    }
+
+    private onSelectYear: (year: number) => void = (year: number) => {
+        const value = updateGridDateFromValue(this.state.value || new Date(), year, "y");
+        // tslint:disable-next-line:no-console
+        console.log(value);
+        this.setState({
+            gridType: "d",
+            value,
+            viewDate: this.calculateViewDate(value),
+        });
+
+    }
+
+    private setViewDateRelative(delta: number, type: DatePickerGridType) {
+        this.setState({
+            viewDate: updateGridDateFromDelta(this.state.viewDate, delta, type),
+        });
+    }
+
+    // #endregion
+
+    // #region grid methods
+
     private compileGrid(): DatePickerElementProperties[][] {
+        switch (this.state.gridType) {
+            case "y":
+                return this.compileYearGrid();
+            case "d":
+            default:
+                return this.compileDateGrid();
+        }
+    }
+
+    private compileYearGrid(): DatePickerElementProperties[][] {
+        const viewDate = this.state.viewDate;
+        const gridStartDate = viewDate.getFullYear() - 5;
+
+        // Initialize a two dimensional array
+        const grid: DatePickerElementProperties[][] = [[]];
+
+        // Loop through the number of weeks and initialize the row
+        for (let i = 0; i < DatePicker.gridYearRows; i++) {
+            grid[i] = [];
+
+            // Loop through the days
+            for (let j = 0; j < DatePicker.gridYearCols; j++) {
+
+                // Calculate the index and the current index data
+                const value = ((i * DatePicker.gridYearCols) + j) + gridStartDate;
+                const disabled = this.props.minDate ? this.dateLowerThan(new Date(value, 1, 365), this.props.minDate) : false;
+
+                grid[i][j] = {
+                    current: (new Date().getFullYear()) === value,
+                    disabled,
+                    onClick: this.onSelectYear,
+                    selected: this.yearEquals(new Date(value, 1, 1), this.state.value),
+                    value,
+                };
+            }
+        }
+
+        return grid;
+    }
+
+    private compileDateGrid(): DatePickerElementProperties[][] {
 
         const viewDate = this.state.viewDate;
         const gridStartDate = this.gridStartDate(viewDate);
@@ -169,22 +267,24 @@ export class DatePicker extends React.Component<DatePickerProperties, DatePicker
         const grid: DatePickerElementProperties[][] = [[]];
 
         // Loop through the number of weeks and initialize the row
-        for (let i = 0; i < DatePicker.weeks; i++) {
+        for (let i = 0; i < DatePicker.gridDateRows; i++) {
             grid[i] = [];
 
             // Loop through the days
-            for (let j = 0; j < DatePicker.days; j++) {
+            for (let j = 0; j < DatePicker.gridDateCols; j++) {
 
                 // Calculate the index and the current index data
-                const index = (i * DatePicker.days) + j;
-                const date = this.gridDateFromIndex(gridStartDate, index);
+                const index = (i * DatePicker.gridDateCols) + j;
+                const value = this.gridDateFromIndex(gridStartDate, index);
+                const disabled = !(viewDate.getMonth() === value.getMonth())
+                    || (this.props.minDate ? this.dateLowerThan(value, this.props.minDate) : false);
 
                 grid[i][j] = {
-                    current: this.dateEqualsNow(date),
-                    currentMonth: viewDate.getMonth() === date.getMonth(),
-                    date,
-                    disabled: this.props.minDate ? this.dateLowerThan(date, this.props.minDate) : false,
-                    selected: this.dateEquals(date, this.state.value),
+                    current: this.dateEqualsNow(value),
+                    disabled,
+                    onClick: this.onSelectDate,
+                    selected: this.dateEquals(value, this.state.value),
+                    value,
                 };
             }
         }
@@ -203,6 +303,13 @@ export class DatePicker extends React.Component<DatePickerProperties, DatePicker
             return a.getFullYear() === b.getFullYear() &&
                 a.getMonth() === b.getMonth() &&
                 a.getDate() === b.getDate();
+        }
+        return false;
+    }
+
+    private yearEquals(a: Date, b: Date): boolean {
+        if (a && b) {
+            return a.getFullYear() === b.getFullYear();
         }
         return false;
     }
@@ -251,13 +358,5 @@ export class DatePicker extends React.Component<DatePickerProperties, DatePicker
         return new Date(date.getFullYear(), date.getMonth(), 1);
     }
 
-    private defaultLocale(): DatePickerLocale {
-        return {
-            months: [
-                "Jan", "Feb", "Maa", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec",
-            ], weekdays: [
-                "Ma", "Di", "Woe", "Do", "Vr", "Za", "Zo",
-            ],
-        };
-    }
+    // #endregion
 }

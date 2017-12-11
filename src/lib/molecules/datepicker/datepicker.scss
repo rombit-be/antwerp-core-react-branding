@@ -1,0 +1,6 @@
+@import '../../_variables.scss';
+
+.m-datepicker {
+    position: absolute;
+    z-index: $overlay-zindex - 1;
+}
