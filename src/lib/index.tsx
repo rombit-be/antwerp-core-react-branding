@@ -26,6 +26,7 @@ export * from "./atoms/form/checkboxes";
 export * from "./atoms/form/confirm";
 export * from "./atoms/form/fieldset";
 export * from "./atoms/form/form";
+export * from "./atoms/form/formlabel";
 export * from "./atoms/form/input";
 export * from "./atoms/form/inputProperties";
 export * from "./atoms/form/radiobuttons";
@@ -54,8 +55,10 @@ export * from "./organisms/tagList";
 export * from "./organisms/upload";
 
 // Utilities
+export * from "./utilities/avatar";
 export * from "./utilities/background";
+export * from "./utilities/icon";
 export * from "./utilities/layout";
 export * from "./utilities/logo";
-export * from "./utilities/spacing";
 export * from "./utilities/overlay";
+export * from "./utilities/spacing";

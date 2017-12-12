@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logo Renders absolute 1`] = `
+<div
+  style={
+    Object {
+      "left": 0,
+      "position": "absolute",
+      "top": 0,
+      "zIndex": 1000,
+    }
+  }
+>
+  <img
+    alt="Officiëel logo Stad Antwerpen"
+    src={Object {}}
+  />
+</div>
+`;
+
+exports[`Logo Renders default 1`] = `
+<div
+  style={Object {}}
+>
+  <img
+    alt="Officiëel logo Stad Antwerpen"
+    src={Object {}}
+  />
+</div>
+`;

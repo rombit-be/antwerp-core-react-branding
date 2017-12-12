@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Renders default icon button 1`] = `
+<button
+  autoFocus={undefined}
+  className="a-button has-icon-left"
+  disabled={undefined}
+  onClick={[Function]}
+  style={undefined}
+  tabIndex={undefined}
+  type="button"
+>
+  <i
+    className="fa fa-check"
+    onClick={[Function]}
+    style={undefined}
+  />
+  testbutton
+</button>
+`;
+
+exports[`Button Renders default icon button, icon on the left when location not specified 1`] = `
+<button
+  autoFocus={undefined}
+  className="a-button has-icon-left"
+  disabled={undefined}
+  onClick={[Function]}
+  style={undefined}
+  tabIndex={undefined}
+  type="button"
+>
+  <i
+    className="fa fa-check"
+    onClick={[Function]}
+    style={undefined}
+  />
+  testbutton
+</button>
+`;
+
+exports[`Button Renders default icon button, icon on the right 1`] = `
+<button
+  autoFocus={undefined}
+  className="a-button has-icon-right"
+  disabled={undefined}
+  onClick={[Function]}
+  style={undefined}
+  tabIndex={undefined}
+  type="button"
+>
+  <i
+    className="fa fa-check"
+    onClick={[Function]}
+    style={undefined}
+  />
+  testbutton
+</button>
+`;
+
+exports[`Button Renders default icon button, icon on the right 2`] = `
+<button
+  autoFocus={undefined}
+  className="a-button has-icon-right"
+  disabled={undefined}
+  onClick={[Function]}
+  style={undefined}
+  tabIndex={undefined}
+  type="button"
+>
+  <i
+    className="fa fa-check"
+    onClick={[Function]}
+    style={undefined}
+  />
+</button>
+`;

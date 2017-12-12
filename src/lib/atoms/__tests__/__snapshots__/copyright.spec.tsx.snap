@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Copyright Renders default 1`] = `
+<div
+  className="a-copyright"
+>
+  <div
+    className="a-copyright__sign"
+  >
+    <span
+      className="fa fa-copyright"
+    />
+    2017
+  </div>
+  <span
+    className="a-copyright__label"
+  >
+    Rombit
+  </span>
+</div>
+`;

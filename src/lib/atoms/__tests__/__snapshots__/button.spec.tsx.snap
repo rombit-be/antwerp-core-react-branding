@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Renders button with type and level 1`] = `
+<button
+  autoFocus={undefined}
+  className="a-button a-button-outline a-button--danger"
+  disabled={undefined}
+  onClick={[Function]}
+  style={undefined}
+  tabIndex={undefined}
+  type="button"
+>
+  testbutton
+</button>
+`;
+
+exports[`Button Renders button with type and level 2`] = `
+<button
+  autoFocus={undefined}
+  className="a-button a-button-outline a-button--danger"
+  disabled={undefined}
+  onClick={[Function]}
+  style={undefined}
+  tabIndex={undefined}
+  type="button"
+>
+  testbutton
+</button>
+`;
+
+exports[`Button Renders button with type and level, default should not be added 1`] = `
+<button
+  autoFocus={undefined}
+  className="a-button a-button--danger"
+  disabled={undefined}
+  onClick={[Function]}
+  style={undefined}
+  tabIndex={undefined}
+  type="button"
+>
+  testbutton
+</button>
+`;
+
+exports[`Button Renders button with type and level, default should not be added 2`] = `
+<button
+  autoFocus={undefined}
+  className="a-button a-button--danger"
+  disabled={undefined}
+  onClick={[Function]}
+  style={undefined}
+  tabIndex={undefined}
+  type="button"
+>
+  testbutton
+</button>
+`;
+
+exports[`Button Renders default button, test in prop 1`] = `
+<button
+  autoFocus={undefined}
+  className="a-button"
+  disabled={undefined}
+  onClick={[Function]}
+  style={undefined}
+  tabIndex={undefined}
+  type="button"
+>
+  testbutton
+</button>
+`;
+
+exports[`Button Renders default button, text as child 1`] = `
+<button
+  autoFocus={undefined}
+  className="a-button"
+  disabled={undefined}
+  onClick={[Function]}
+  style={undefined}
+  tabIndex={undefined}
+  type="button"
+>
+  testbutton
+</button>
+`;

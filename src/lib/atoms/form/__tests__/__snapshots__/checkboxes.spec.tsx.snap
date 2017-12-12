@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkboxes Renders default 1`] = `
+<div
+  className="a-input"
+>
+  <div
+    className="a-input__checkbox"
+  >
+    <input
+      checked={false}
+      disabled={undefined}
+      id="checkbox-checkbox-0"
+      name="checkbox"
+      onChange={[Function]}
+      type="checkbox"
+      value="a"
+    />
+    <label
+      className=""
+      htmlFor="checkbox-checkbox-0"
+    >
+      a
+    </label>
+  </div>
+  <div
+    className="a-input__checkbox"
+  >
+    <input
+      checked={false}
+      disabled={undefined}
+      id="checkbox-checkbox-1"
+      name="checkbox"
+      onChange={[Function]}
+      type="checkbox"
+      value="b"
+    />
+    <label
+      className=""
+      htmlFor="checkbox-checkbox-1"
+    >
+      b
+    </label>
+  </div>
+  <div
+    className="a-input__checkbox"
+  >
+    <input
+      checked={false}
+      disabled={undefined}
+      id="checkbox-checkbox-2"
+      name="checkbox"
+      onChange={[Function]}
+      type="checkbox"
+      value="c"
+    />
+    <label
+      className=""
+      htmlFor="checkbox-checkbox-2"
+    >
+      c
+    </label>
+  </div>
+  <small
+    className=""
+  >
+     
+  </small>
+</div>
+`;

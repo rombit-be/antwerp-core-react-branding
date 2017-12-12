@@ -1,7 +1,8 @@
-import * as classNames from "classnames";
 import * as React from "react";
 
-import Icon from "../utilities/icon";
+import * as classNames from "classnames";
+
+import { Icon } from "../utilities/icon";
 
 export type TabNavigationItem = {
     active?: boolean;

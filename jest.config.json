@@ -9,12 +9,16 @@
     "collectCoverageFrom": [
         "**/*.{ts,tsx}",
         "!**/node_modules/**",
-        "!dist/**"
+        "!dist/**",
+        "!src/example/**"
     ],
     "coverageDirectory": "coverage",
     "coveragePathIgnorePatterns": [
         "/node_modules/",
         "__fixtures__"
+    ],
+    "setupFiles": [
+        "<rootDir>/src/__tests__/__fixtures__/setup.js"
     ],
     "transform": {
         ".(scss)": "<rootDir>/src/__tests__/__processors__/SassImportProcessor.js",

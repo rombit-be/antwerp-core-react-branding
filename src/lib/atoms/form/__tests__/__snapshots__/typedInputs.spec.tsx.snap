@@ -1,0 +1,295 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TypedInputs ColorInput renders default 1`] = `
+<div
+  className="a-input"
+>
+  <div
+    className="a-input__wrapper"
+  >
+    <input
+      id="-color-input"
+      name="input"
+      type="color"
+    />
+  </div>
+  <small
+    className=""
+  >
+     
+  </small>
+</div>
+`;
+
+exports[`TypedInputs DateInput renders default 1`] = `
+<div
+  className="a-input"
+>
+  <div
+    className="a-input__wrapper"
+  >
+    <input
+      id="-date-input"
+      name="input"
+      type="date"
+    />
+  </div>
+  <small
+    className=""
+  >
+     
+  </small>
+</div>
+`;
+
+exports[`TypedInputs DateTimeInput renders default 1`] = `
+<div
+  className="a-input"
+>
+  <div
+    className="a-input__wrapper"
+  >
+    <input
+      id="-datetime-input"
+      name="input"
+      type="datetime"
+    />
+  </div>
+  <small
+    className=""
+  >
+     
+  </small>
+</div>
+`;
+
+exports[`TypedInputs DateTimeInput renders default 2`] = `
+<div
+  className="a-input"
+>
+  <div
+    className="a-input__wrapper"
+  >
+    <input
+      id="-datetime-input"
+      name="input"
+      type="datetime"
+    />
+  </div>
+  <small
+    className=""
+  >
+     
+  </small>
+</div>
+`;
+
+exports[`TypedInputs DatetimeLocal renders default 1`] = `
+<div
+  className="a-input"
+>
+  <div
+    className="a-input__wrapper"
+  >
+    <input
+      id="-datetime-local-input"
+      name="input"
+      type="datetime-local"
+    />
+  </div>
+  <small
+    className=""
+  >
+     
+  </small>
+</div>
+`;
+
+exports[`TypedInputs EmailInput renders default 1`] = `
+<div
+  className="a-input"
+>
+  <div
+    className="a-input__wrapper"
+  >
+    <input
+      id="-email-input"
+      name="input"
+      type="email"
+    />
+  </div>
+  <small
+    className=""
+  >
+     
+  </small>
+</div>
+`;
+
+exports[`TypedInputs NumberInput renders default 1`] = `
+<div
+  className="a-input"
+>
+  <div
+    className="a-input__wrapper"
+  >
+    <input
+      id="-number-input"
+      name="input"
+      type="number"
+    />
+  </div>
+  <small
+    className=""
+  >
+     
+  </small>
+</div>
+`;
+
+exports[`TypedInputs PasswordInput renders default 1`] = `
+<div
+  className="a-input"
+>
+  <div
+    className="a-input__wrapper"
+  >
+    <input
+      id="-password-input"
+      name="input"
+      type="password"
+    />
+  </div>
+  <small
+    className=""
+  >
+     
+  </small>
+</div>
+`;
+
+exports[`TypedInputs TelInput renders default 1`] = `
+<div
+  className="a-input"
+>
+  <div
+    className="a-input__wrapper"
+  >
+    <input
+      id="-tel-input"
+      name="input"
+      type="tel"
+    />
+  </div>
+  <small
+    className=""
+  >
+     
+  </small>
+</div>
+`;
+
+exports[`TypedInputs TextArea renders default 1`] = `
+<div
+  className="a-input"
+>
+  <div
+    className="a-input__wrapper"
+  >
+    <textarea
+      id="-textarea-input"
+      name="input"
+      type="textarea"
+    />
+  </div>
+  <small
+    className=""
+  >
+     
+  </small>
+</div>
+`;
+
+exports[`TypedInputs TextInput renders default 1`] = `
+<div
+  className="a-input"
+>
+  <div
+    className="a-input__wrapper"
+  >
+    <input
+      id="-text-input"
+      name="input"
+      type="text"
+    />
+  </div>
+  <small
+    className=""
+  >
+     
+  </small>
+</div>
+`;
+
+exports[`TypedInputs TimeInput renders default 1`] = `
+<div
+  className="a-input"
+>
+  <div
+    className="a-input__wrapper"
+  >
+    <input
+      id="-time-input"
+      name="input"
+      type="time"
+    />
+  </div>
+  <small
+    className=""
+  >
+     
+  </small>
+</div>
+`;
+
+exports[`TypedInputs UrlInput renders default 1`] = `
+<div
+  className="a-input"
+>
+  <div
+    className="a-input__wrapper"
+  >
+    <input
+      id="-url-input"
+      name="input"
+      type="url"
+    />
+  </div>
+  <small
+    className=""
+  >
+     
+  </small>
+</div>
+`;
+
+exports[`TypedInputs WeekInput renders default 1`] = `
+<div
+  className="a-input"
+>
+  <div
+    className="a-input__wrapper"
+  >
+    <input
+      id="-week-input"
+      name="input"
+      type="week"
+    />
+  </div>
+  <small
+    className=""
+  >
+     
+  </small>
+</div>
+`;

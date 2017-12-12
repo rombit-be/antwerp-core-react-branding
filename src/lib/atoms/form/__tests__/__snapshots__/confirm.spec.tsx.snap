@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Confirm Renders default 1`] = `
+<div
+  className="a-input"
+>
+  <div
+    className="a-input__checkbox"
+  >
+    <input
+      checked={false}
+      disabled={undefined}
+      id="checkbox-confirm-0"
+      name="confirm"
+      onChange={[Function]}
+      type="checkbox"
+      value="true"
+    />
+  </div>
+  <small
+    className=""
+  >
+     
+  </small>
+</div>
+`;

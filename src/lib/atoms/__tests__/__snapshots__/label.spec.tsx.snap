@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label Renders Label with level danger 1`] = `
+<span
+  className="a-label a-label--danger"
+>
+  10
+</span>
+`;
+
+exports[`Label Renders Label with level warning 1`] = `
+<span
+  className="a-label a-label--warning"
+>
+  10
+</span>
+`;
+
+exports[`Label Renders default, number 1`] = `
+<span
+  className="a-label a-label--"
+>
+  10
+</span>
+`;
+
+exports[`Label Renders default, string 1`] = `
+<span
+  className="a-label a-label--"
+>
+  value
+</span>
+`;

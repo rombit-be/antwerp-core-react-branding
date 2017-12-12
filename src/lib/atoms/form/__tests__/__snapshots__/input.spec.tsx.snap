@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Renders default 1`] = `
+<div
+  className="a-input"
+>
+  <div
+    className="a-input__wrapper"
+  >
+    <input
+      id="-text-input"
+      name="input"
+      type="text"
+    />
+  </div>
+  <small
+    className=""
+  >
+     
+  </small>
+</div>
+`;

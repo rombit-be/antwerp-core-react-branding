@@ -3,7 +3,7 @@ import * as renderer from "react-test-renderer";
 
 import * as A from "../..";
 
-describe("accordeon", () => {
+describe("Accordeon", () => {
     it("Renders accordeon", () => {
         // Act
         const component: any = renderer.create(

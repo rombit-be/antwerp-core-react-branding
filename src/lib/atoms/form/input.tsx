@@ -1,10 +1,11 @@
 import "./input.scss";
 
-import * as classNames from "classnames";
 import * as React from "react";
 
+import * as classNames from "classnames";
+
 import { Location } from "../../common/locations";
-import Icon from "../../utilities/icon";
+import { Icon } from "../../utilities/icon";
 import Description from "./description";
 import { FormLabel } from "./formlabel";
 import { inputElementId } from "./id";

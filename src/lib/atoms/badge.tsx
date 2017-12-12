@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import * as classNames from "classnames";
+
 import { Levels } from "../common/levels";
 
 export type BadgeProperties = {
@@ -21,7 +23,9 @@ export class Badge extends React.Component<BadgeProperties, {}> {
     }
 
     private className(): string {
-        const type = this.props.level || Levels.None;
-        return `a-badge a-badge--${type}`;
+        return classNames(
+            "a-badge",
+            this.props.level ? `a-badge--${this.props.level}` : "",
+        );
     }
 }

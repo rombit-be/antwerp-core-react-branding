@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select Renders default 1`] = `
+<div
+  className="a-input has-icon-right"
+>
+  <div
+    className="a-input__wrapper"
+  >
+    <select
+      id="-undefined-select"
+      name="select"
+      onChange={[Function]}
+      value=""
+    >
+      <option
+        value=""
+      />
+      <option
+        disabled={undefined}
+        id="-checkbox-select-0"
+        value="a"
+      >
+        a
+      </option>
+      <option
+        disabled={undefined}
+        id="-checkbox-select-1"
+        value="b"
+      >
+        b
+      </option>
+      <option
+        disabled={undefined}
+        id="-checkbox-select-2"
+        value="c"
+      >
+        c
+      </option>
+    </select>
+    <span
+      className="fa fa-angle-down"
+      onClick={[Function]}
+      style={undefined}
+    />
+  </div>
+  <small
+    className=""
+  >
+     
+  </small>
+</div>
+`;

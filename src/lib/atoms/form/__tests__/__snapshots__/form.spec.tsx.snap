@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form Renders default 1`] = `
+<form
+  className="a-form"
+  noValidate={true}
+/>
+`;

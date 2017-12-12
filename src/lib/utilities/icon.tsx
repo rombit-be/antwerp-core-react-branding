@@ -1,5 +1,6 @@
-import * as classNames from "classnames";
 import * as React from "react";
+
+import * as classNames from "classnames";
 
 export type IconProperties = {
     className?: string;
@@ -12,7 +13,7 @@ export type IconProperties = {
 /**
  * Utilities: Icon component, wrapper around font-awesome
  */
-export default class Icon extends React.Component<IconProperties, {}> {
+export class Icon extends React.Component<IconProperties, {}> {
     public render(): any {
         if (this.props.span) {
             return (

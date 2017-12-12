@@ -1,8 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Paragraph 1`] = `
+exports[`Paragraph Don't render alert when the type is not alert 1`] = `
+<p
+  className=""
+  style={undefined}
+>
+  test
+</p>
+`;
+
+exports[`Paragraph Renders alerts when the type is alert 1`] = `
+<p
+  className="m-alert m-alert--danger"
+  style={undefined}
+>
+  test
+</p>
+`;
+
+exports[`Paragraph Renders bold 1`] = `
 <div
   className="u-text-bold"
+  style={undefined}
+>
+  test
+</div>
+`;
+
+exports[`Paragraph Renders italics 1`] = `
+<div
+  className="u-text-italic"
   style={undefined}
 >
   test

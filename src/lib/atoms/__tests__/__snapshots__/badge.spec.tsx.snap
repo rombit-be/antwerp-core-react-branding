@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge Renders badge with level danger 1`] = `
+<span
+  className="a-badge a-badge--danger"
+>
+  10
+</span>
+`;
+
+exports[`Badge Renders badge with level danger 2`] = `
+<span
+  className="a-badge a-badge--danger"
+>
+  10
+</span>
+`;
+
+exports[`Badge Renders badge with level warning 1`] = `
+<span
+  className="a-badge a-badge--warning"
+>
+  10
+</span>
+`;
+
+exports[`Badge Renders badge with level warning 2`] = `
+<span
+  className="a-badge a-badge--warning"
+>
+  10
+</span>
+`;
+
+exports[`Badge Renders default, number 1`] = `
+<span
+  className="a-badge"
+>
+  10
+</span>
+`;
+
+exports[`Badge Renders default, string 1`] = `
+<span
+  className="a-badge"
+>
+  value
+</span>
+`;

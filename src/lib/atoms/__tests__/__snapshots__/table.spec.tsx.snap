@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table Renders default 1`] = `
+<table
+  className="a-table"
+>
+  <tr>
+    <td>
+      blabla
+    </td>
+  </tr>
+</table>
+`;
+
+exports[`Table Renders small table 1`] = `
+<table
+  className="a-table a-table--small"
+>
+  <tr>
+    <td>
+      blabla
+    </td>
+  </tr>
+</table>
+`;
+
+exports[`Table Renders striped table 1`] = `
+<table
+  className="a-table a-table--striped"
+>
+  <tr>
+    <td>
+      blabla
+    </td>
+  </tr>
+</table>
+`;
+
+exports[`Table Renders with level Primary 1`] = `
+<table
+  className="a-table a-table--primary"
+>
+  <tr>
+    <td>
+      blabla
+    </td>
+  </tr>
+</table>
+`;
+
+exports[`Table Renders with level Success 1`] = `
+<table
+  className="a-table a-table--success"
+>
+  <tr>
+    <td>
+      blabla
+    </td>
+  </tr>
+</table>
+`;

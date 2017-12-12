@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Background Renders default 1`] = `
+<i
+  className="fa fa-check"
+  onClick={[Function]}
+  style={undefined}
+/>
+`;
+
+exports[`Background Renders icon as span 1`] = `
+<span
+  className="fa fa-check"
+  onClick={[Function]}
+  style={undefined}
+/>
+`;
+
+exports[`Background Renders icon with extra classname 1`] = `
+<i
+  className="fa fa-check blabla"
+  onClick={[Function]}
+  style={undefined}
+/>
+`;
+
+exports[`Background Renders icon with onclick 1`] = `
+<i
+  className="fa fa-check"
+  onClick={[Function]}
+  style={undefined}
+/>
+`;

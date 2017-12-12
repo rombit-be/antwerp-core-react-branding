@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`accordeon Doesn't render non AccordeonItem items 1`] = `
+exports[`Accordeon Doesn't render non AccordeonItem items 1`] = `
 <div
   className="m-accordion"
 >
@@ -45,7 +45,7 @@ exports[`accordeon Doesn't render non AccordeonItem items 1`] = `
 </div>
 `;
 
-exports[`accordeon Renders accordeon 1`] = `
+exports[`Accordeon Renders accordeon 1`] = `
 <div
   className="m-accordion"
 >
@@ -70,70 +70,6 @@ exports[`accordeon Renders accordeon 1`] = `
   </div>
   <div
     className="m-accordion__tab"
-    style={undefined}
-  >
-    <div
-      className="m-accordion__header"
-      onClick={[Function]}
-    >
-      Acc 2
-    </div>
-    <div
-      className="m-accordion__content"
-    >
-      <div
-        className="u-margin"
-        style={undefined}
-      />
-    </div>
-  </div>
-  <div
-    className="m-accordion__tab"
-    style={undefined}
-  >
-    <div
-      className="m-accordion__header"
-      onClick={[Function]}
-    >
-      Acc 3
-    </div>
-    <div
-      className="m-accordion__content"
-    >
-      <div
-        className="u-margin"
-        style={undefined}
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`accordeon Renders accordeon with active index 1`] = `
-<div
-  className="m-accordion"
->
-  <div
-    className="m-accordion__tab"
-    style={undefined}
-  >
-    <div
-      className="m-accordion__header"
-      onClick={[Function]}
-    >
-      Acc 1
-    </div>
-    <div
-      className="m-accordion__content"
-    >
-      <div
-        className="u-margin"
-        style={undefined}
-      />
-    </div>
-  </div>
-  <div
-    className="m-accordion__tab is-open"
     style={undefined}
   >
     <div
@@ -173,7 +109,71 @@ exports[`accordeon Renders accordeon with active index 1`] = `
 </div>
 `;
 
-exports[`accordeon Renders accordeon without items 1`] = `
+exports[`Accordeon Renders accordeon with active index 1`] = `
+<div
+  className="m-accordion"
+>
+  <div
+    className="m-accordion__tab"
+    style={undefined}
+  >
+    <div
+      className="m-accordion__header"
+      onClick={[Function]}
+    >
+      Acc 1
+    </div>
+    <div
+      className="m-accordion__content"
+    >
+      <div
+        className="u-margin"
+        style={undefined}
+      />
+    </div>
+  </div>
+  <div
+    className="m-accordion__tab is-open"
+    style={undefined}
+  >
+    <div
+      className="m-accordion__header"
+      onClick={[Function]}
+    >
+      Acc 2
+    </div>
+    <div
+      className="m-accordion__content"
+    >
+      <div
+        className="u-margin"
+        style={undefined}
+      />
+    </div>
+  </div>
+  <div
+    className="m-accordion__tab"
+    style={undefined}
+  >
+    <div
+      className="m-accordion__header"
+      onClick={[Function]}
+    >
+      Acc 3
+    </div>
+    <div
+      className="m-accordion__content"
+    >
+      <div
+        className="u-margin"
+        style={undefined}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Accordeon Renders accordeon without items 1`] = `
 <div
   className="m-accordion"
 />

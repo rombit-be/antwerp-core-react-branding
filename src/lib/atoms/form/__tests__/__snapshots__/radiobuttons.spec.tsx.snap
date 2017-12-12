@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radiobuttons Renders default 1`] = `
+<div
+  className="a-input"
+>
+  <div
+    className="a-input__radio"
+  >
+    <input
+      checked={false}
+      disabled={undefined}
+      id="radiobutton-radiobuttons-0"
+      name="radiobuttons"
+      onChange={[Function]}
+      type="radio"
+      value="a"
+    />
+    <label
+      className=""
+      htmlFor="radiobutton-radiobuttons-0"
+    >
+      a
+    </label>
+  </div>
+  <div
+    className="a-input__radio"
+  >
+    <input
+      checked={false}
+      disabled={undefined}
+      id="radiobutton-radiobuttons-1"
+      name="radiobuttons"
+      onChange={[Function]}
+      type="radio"
+      value="b"
+    />
+    <label
+      className=""
+      htmlFor="radiobutton-radiobuttons-1"
+    >
+      b
+    </label>
+  </div>
+  <div
+    className="a-input__radio"
+  >
+    <input
+      checked={false}
+      disabled={undefined}
+      id="radiobutton-radiobuttons-2"
+      name="radiobuttons"
+      onChange={[Function]}
+      type="radio"
+      value="c"
+    />
+    <label
+      className=""
+      htmlFor="radiobutton-radiobuttons-2"
+    >
+      c
+    </label>
+  </div>
+  <small
+    className=""
+  >
+     
+  </small>
+</div>
+`;

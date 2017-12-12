@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Background Renders black 1`] = `
+<div
+  className="u-bg-black u-bg-white-text"
+  style={undefined}
+/>
+`;
+
+exports[`Background Renders danger 1`] = `
+<div
+  className="u-bg-danger u-bg-white-text"
+  style={undefined}
+/>
+`;

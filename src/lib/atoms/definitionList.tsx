@@ -25,21 +25,24 @@ export class DefinitionList extends React.Component<DefinitionListProperties, {}
             const list: DefinitionListItems = this.props.list;
             return Object.keys(list)
                 .map((x, i) => [
-                    <dt key={(i * 2)}>{this.key(x)}</dt>,
+                    <dt key={(i * 2)}>{this.renderKey(x)}</dt>,
                     <dd key={(i * 2) + 1}>{list[x]}</dd>,
                 ]).reduce((p, c) => p.concat(c), []);
         }
         return null;
     }
 
-    private colon(): string {
-        return this.props.colon ? ":" : "";
+    private renderKey(key: string): string {
+        if (this.props.capitalize && key && key.length > 1) {
+            return `${key.slice(0, 1).toUpperCase()}${key.slice(1)}${this.colon()}`;
+        }
+        if (this.props.capitalize) {
+            return `${key.toUpperCase()}${this.colon()}`;
+        }
+        return `${key}${this.colon()}`;
     }
 
-    private key(value: string): string {
-        if (this.props.capitalize && value && value.length > 1) {
-            return `${value.slice(0, 1).toUpperCase()}${value.slice(1)}${this.colon()}`;
-        }
-        return `${value}${this.colon()}`;
+    private colon(): string {
+        return this.props.colon ? ":" : "";
     }
 }

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar Renders default 1`] = `
+<div
+  className="a-avatar"
+>
+  <img
+    alt=""
+    src="test"
+  />
+</div>
+`;
+
+exports[`Avatar Renders small and with name 1`] = `
+<div
+  className="a-avatar a-avatar--small"
+>
+  <img
+    alt="me"
+    src="test"
+  />
+</div>
+`;

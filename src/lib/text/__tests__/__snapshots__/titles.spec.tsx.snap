@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Titles Renders H1 1`] = `
+<div
+  className="u-margin-bottom-lg"
+  style={undefined}
+>
+  <h1>
+    a title
+  </h1>
+</div>
+`;
+
+exports[`Titles Renders H2 1`] = `
+<div
+  className="u-margin-bottom"
+  style={undefined}
+>
+  <h2>
+    a title
+  </h2>
+</div>
+`;
+
+exports[`Titles Renders H3 1`] = `
+<div
+  className="u-margin-bottom"
+  style={undefined}
+>
+  <h3>
+    a title
+  </h3>
+</div>
+`;
+
+exports[`Titles Renders H4 1`] = `
+<div
+  className="u-margin-bottom-xs"
+  style={undefined}
+>
+  <h4>
+    a title
+  </h4>
+</div>
+`;
+
+exports[`Titles Renders H5 1`] = `
+<div
+  className="u-margin-bottom-xx"
+  style={undefined}
+>
+  <h5>
+    a title
+  </h5>
+</div>
+`;

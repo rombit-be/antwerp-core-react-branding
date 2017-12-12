@@ -19,7 +19,6 @@ export type ButtonProperties = {
     disabled?: boolean;
     focus?: boolean;
     level?: Levels;
-    negative?: boolean;
     onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
     reset?: boolean;
     size?: Sizes;

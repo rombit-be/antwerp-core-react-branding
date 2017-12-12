@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Copyright Renders capitalized 1`] = `
+<dl
+  className="a-definition-list"
+>
+  <dt>
+    Abrac-adabra
+  </dt>
+  <dd>
+    some word
+  </dd>
+  <dt>
+    Aya sofia
+  </dt>
+  <dd>
+    some building
+  </dd>
+  <dt>
+    Rubicon
+  </dt>
+  <dd>
+    some river
+  </dd>
+</dl>
+`;
+
+exports[`Copyright Renders capitalized and with colon 1`] = `
+<dl
+  className="a-definition-list"
+>
+  <dt>
+    Abrac-adabra:
+  </dt>
+  <dd>
+    some word
+  </dd>
+  <dt>
+    Aya sofia:
+  </dt>
+  <dd>
+    some building
+  </dd>
+  <dt>
+    Rubicon:
+  </dt>
+  <dd>
+    some river
+  </dd>
+</dl>
+`;
+
+exports[`Copyright Renders default 1`] = `
+<dl
+  className="a-definition-list"
+>
+  <dt>
+    abrac-adabra
+  </dt>
+  <dd>
+    some word
+  </dd>
+  <dt>
+    aya sofia
+  </dt>
+  <dd>
+    some building
+  </dd>
+  <dt>
+    rubicon
+  </dt>
+  <dd>
+    some river
+  </dd>
+</dl>
+`;
+
+exports[`Copyright Renders null list without error 1`] = `
+<dl
+  className="a-definition-list"
+/>
+`;
