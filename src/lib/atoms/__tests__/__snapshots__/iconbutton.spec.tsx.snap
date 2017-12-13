@@ -74,3 +74,21 @@ exports[`Button Renders default icon button, icon on the right 2`] = `
   />
 </button>
 `;
+
+exports[`Button Renders default icon button, no location specified 1`] = `
+<button
+  autoFocus={undefined}
+  className="a-button has-icon"
+  disabled={undefined}
+  onClick={[Function]}
+  style={undefined}
+  tabIndex={undefined}
+  type="button"
+>
+  <i
+    className="fa fa-check"
+    onClick={[Function]}
+    style={undefined}
+  />
+</button>
+`;

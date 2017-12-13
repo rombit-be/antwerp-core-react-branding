@@ -37,7 +37,7 @@ export class IconButton extends React.Component<IconButtonProperties, {}> {
         return classNames(
             this.props.className,
             this.props.location ? `has-icon-${this.props.location}` :
-                this.hasText ? `has-icon-${Location.Left}` : "has-icon",
+                this.hasText() ? `has-icon-${Location.Left}` : "has-icon",
         );
     }
 
