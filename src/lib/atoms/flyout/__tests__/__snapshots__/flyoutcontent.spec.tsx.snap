@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FlyoutContent Renders default 1`] = `
+<div
+  className="m-flyout__content"
+/>
+`;
+
+exports[`FlyoutContent Renders with child 1`] = `
+<div
+  className="m-flyout__content"
+/>
+`;
+
+exports[`FlyoutContent Renders with children 1`] = `
+<div
+  className="m-flyout__content"
+>
+  <p>
+    Child 1
+  </p>
+  <p>
+    Child 2
+  </p>
+</div>
+`;
+
+exports[`FlyoutContent Visible and non visible should be different 1`] = `
+<div
+  className="m-flyout__content"
+>
+  <p>
+    child
+  </p>
+</div>
+`;
+
+exports[`FlyoutContent Visible and non visible should be different 2`] = `<span />`;

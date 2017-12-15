@@ -6,7 +6,7 @@ import * as moment from "moment";
 
 import { InputProperties } from "../../atoms/form/inputProperties";
 import { TextInput } from "../../atoms/form/typedInputs";
-import { Location } from "../../common/locations";
+import { Locations } from "../../common/locations";
 import { DatePicker } from "./datepicker";
 
 export type DatePickerInputProperties = {
@@ -37,9 +37,9 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
     public static DefaultDateFormat = "YYYY-MM-DD";
     public static DefaultDisplayDateFormat = "DD-MM-YYYY";
     private static eventName: string = "a-datepicker";
-    private static registeredComponents: number = 1;
-    private static onChangeTimerId: number = -1;
     private static onChangeDeferredTimeout: number = 555;
+    private static onChangeTimerId: number = -1;
+    private static registeredComponents: number = 1;
 
     public constructor(props: DatePickerInputProperties) {
         super(props);
@@ -70,7 +70,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
             <div className="a-datepicker" style={{ position: "relative" }}>
                 <TextInput
                     icon="calendar"
-                    iconLocation={Location.Right}
+                    iconLocation={Locations.Right}
                     onBlur={this.onBlur}
                     onChange={this.onChange}
                     onFocus={this.onFocus}

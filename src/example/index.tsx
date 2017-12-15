@@ -10,6 +10,7 @@ import BackgroundComponents from "./components/background";
 import BadgeComponents from "./components/badge";
 import ButtonComponents from "./components/button";
 import DatepickerComponent from "./components/datePicker";
+import FlyoutComponents from "./components/flyout";
 import FormComponents from "./components/form";
 import LabelComponents from "./components/label";
 import LayoutComponents from "./components/layout";
@@ -31,6 +32,7 @@ ReactDOM.render((
         </Hero>
         <article>
             <div>
+                <FlyoutComponents />
                 <DatepickerComponent />
                 <TableComponents />
                 <TagComponents />

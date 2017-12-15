@@ -4,7 +4,7 @@ import * as React from "react";
 
 import * as classNames from "classnames";
 
-import { Location } from "../../common/locations";
+import { Locations } from "../../common/locations";
 import { Icon } from "../../utilities/icon";
 import Description from "./description";
 import { FormLabel } from "./formlabel";
@@ -23,11 +23,11 @@ export class Input extends React.Component<TypedInputProperties, {}> {
             <div className={this.className()}>
                 <FormLabel {...this.props} />
                 <div className="a-input__wrapper">
-                    {this.renderAddon(Location.Left)}
-                    {this.renderIcon(Location.Left)}
+                    {this.renderAddon(Locations.Left)}
+                    {this.renderIcon(Locations.Left)}
                     {this.renderInput()}
-                    {this.renderIcon(Location.Right)}
-                    {this.renderAddon(Location.Right)}
+                    {this.renderIcon(Locations.Right)}
+                    {this.renderAddon(Locations.Right)}
                 </div>
                 <Description {...this.props} />
             </div>
@@ -58,13 +58,13 @@ export class Input extends React.Component<TypedInputProperties, {}> {
             />);
     }
 
-    private renderAddon(location: Location): JSX.Element {
+    private renderAddon(location: Locations): JSX.Element {
         if (this.props.addon && this.props.addonLocation === location) {
             return (<div className="a-input__addon">{this.props.addon}</div>);
         }
     }
 
-    private renderIcon(location: Location): JSX.Element {
+    private renderIcon(location: Locations): JSX.Element {
         if (this.props.icon && this.props.iconLocation === location) {
             return (<Icon
                 className={this.props.onIconClick ? "is-clickable" : ""}

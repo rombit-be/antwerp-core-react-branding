@@ -38,7 +38,7 @@ describe("Button", () => {
             <A.IconButton
                 icon="check"
                 text="testbutton"
-                location={A.Location.Right}
+                location={A.Locations.Right}
             />);
 
         // Act and assert
@@ -52,7 +52,7 @@ describe("Button", () => {
         const element = (
             <A.IconButton
                 icon="check"
-                location={A.Location.Right}
+                location={A.Locations.Right}
             />);
 
         // Act and assert

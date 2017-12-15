@@ -15,6 +15,7 @@ export * from "./text/titles";
 export * from "./atoms/badge";
 export * from "./atoms/button";
 export * from "./atoms/copyright";
+export * from "./atoms/flyout";
 export * from "./atoms/iconbutton";
 export * from "./atoms/label";
 export * from "./atoms/spinner";
@@ -22,6 +23,7 @@ export * from "./atoms/table";
 
 // Atoms / form
 export * from "./atoms/definitionList";
+export * from "./atoms/form/autocomplete";
 export * from "./atoms/form/checkboxes";
 export * from "./atoms/form/confirm";
 export * from "./atoms/form/fieldset";

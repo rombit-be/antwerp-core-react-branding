@@ -1,2 +1,9 @@
-src/
 .vscode/
+coverage/
+jest*
+quick-deploy.sh
+src/
+tsconfig.json
+tslint.json
+webpack*
+yarn.lock

@@ -6,7 +6,7 @@ import * as classNames from "classnames";
 
 import { Button } from "../../atoms/button";
 import { IconButton } from "../../atoms/iconbutton";
-import { Location } from "../../common/locations";
+import { Locations } from "../../common/locations";
 import { DatePickerElement, DatePickerElementProperties } from "./datepickerElement";
 import {
     DatePickerGridType,
@@ -26,7 +26,6 @@ export type DatePickerProperties = {
 };
 export type DatePickerState = {
     viewDate: Date,
-    visible?: boolean,
     gridType: DatePickerGridType;
 
 } & DatePickerProperties;
@@ -41,8 +40,8 @@ export class DatePicker extends React.Component<DatePickerProperties, DatePicker
 
     private static gridDateCols: number = 7;
     private static gridDateRows: number = 5;
-    private static gridYearRows: number = 3;
     private static gridYearCols: number = 4;
+    private static gridYearRows: number = 3;
 
     public constructor(props: DatePickerProperties) {
         super(props);
@@ -58,13 +57,14 @@ export class DatePicker extends React.Component<DatePickerProperties, DatePicker
     public render(): any {
         return (
             <div
+                className={this.className()}
                 role="datepicker"
-                style={this.props.position || {}} className={this.className()}
+                style={this.props.position || {}}
             >
                 <div className="m-datepicker__nav">
                     <IconButton
                         icon="angle-left"
-                        location={Location.Left}
+                        location={Locations.Left}
                         onClick={this.onPrevious}
                     />
                     <Button
@@ -74,7 +74,7 @@ export class DatePicker extends React.Component<DatePickerProperties, DatePicker
                     />
                     <IconButton
                         icon="angle-right"
-                        location={Location.Right}
+                        location={Locations.Right}
                         onClick={this.onNext}
                     />
                 </div>

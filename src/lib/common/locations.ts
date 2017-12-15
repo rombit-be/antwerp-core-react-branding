@@ -1,4 +1,4 @@
-export enum Location {
+export enum Locations {
     Left = "left",
     Right = "right",
 }

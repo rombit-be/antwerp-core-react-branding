@@ -64,12 +64,12 @@ export default class ButtonComponents extends React.Component<{}, {}> {
     }
 
     private renderByIconLocation(): JSX.Element[] {
-        return mapEnum(A.Location)
+        return mapEnum(A.Locations)
             .map((x, i) => {
                 if (!x) { x = "default"; }
                 return (
                     <div key={i}>
-                        <pre>location: {lookupEnumValue(A.Location, x)}</pre>
+                        <pre>location: {lookupEnumValue(A.Locations, x)}</pre>
                         <A.IconButton location={x} icon="download" text="download" />
                     </div>
                 );
