@@ -1,7 +1,7 @@
 {
   "name": "antwerp-core-react-branding",
   "description": "React port of the Antwerpen.be Core Branding",
-  "version": "0.0.65",
+  "version": "0.0.66",
   "main": "./dist/index.js",
   "types": "./dist/typings/lib/index.d.ts",
   "repository": {
@@ -18,7 +18,8 @@
     "prepublishOnly": "NODE_ENV=production webpack --config webpack.prod.js",
     "test": "jest --config jest.config.json",
     "test-watch": "jest --config jest.config.json --watch",
-    "clean-publish": "rm -rf ./dist"
+    "clean-publish": "rm -rf ./dist",
+    "generate-flowtypings": "yarn flowgen ./dist/typings/lib/index.d.ts -o ./flow-typed/index.flow.js"
   },
   "keywords": [
     "antwerp",
@@ -30,6 +31,7 @@
   "homepage": "https://rombit.be",
   "dependencies": {
     "classnames": "^2.2.5",
+    "flexboxgrid": "https://github.com/kristoferjoseph/flexboxgrid.git",
     "moment": "^2.18.1",
     "react": "^16.2.0",
     "react-dom": "^16.0.0"
@@ -49,6 +51,7 @@
     "enzyme-adapter-react-16": "^1.1.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
+    "flowgen": "^1.2.0",
     "image-loader": "^0.0.1",
     "jest": "^21.1.0",
     "jest-cli": "^21.1.0",
