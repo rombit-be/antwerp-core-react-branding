@@ -33,13 +33,18 @@ export default class FormComponents extends React.Component<{}, {}> {
                     <A.DateTimeInput name="datetime" label="Date/Time input" />
                 </A.Fieldset>
                 <A.Fieldset legend="Complex types">
-                    <A.Select options={this.options()} value="2" name="select" label="A dropdown" />
+                    <A.Select options={this.options()} onChange={this.dumpChange} value="2" name="select" label="A dropdown" />
                     <A.Checkboxes options={this.options()} name="checkboxes" label="A checkbox group" />
                     <A.Radiobuttons options={this.options()} name="radiobuttons" label="A radio group" />
                     <A.TextArea label="Textarea" name="textarea" />
                 </A.Fieldset>
             </StyleSection >
         );
+    }
+
+    private dumpChange(v: any) {
+        // tslint:disable-next-line:no-console
+        console.log(v.target.value);
     }
 
     private options(): SelectOption[] {

@@ -29,6 +29,8 @@ export type DatePickerInputState = {
     value?: string,
 };
 
+type Event = React.SyntheticEvent<HTMLInputElement>;
+
 /**
  * Molecules: DatePicker element with input
  */
@@ -94,7 +96,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
         this.registerDatepickerOpenEventHandler();
     }
 
-    private showDatePicker = (e: React.SyntheticEvent<HTMLElement>): void => {
+    private showDatePicker = (e: Event): void => {
         if (this.state.datePickerVisible) {
             this.setState({
                 datePickerVisible: false,
@@ -119,7 +121,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
 
     // #region private handlers
 
-    private onChange = (e: React.SyntheticEvent<HTMLInputElement>): void => {
+    private changeHandler(e: Event, upstreamChangeHandler?: (e: Event) => void) {
         let displayValue = e.currentTarget.value;
         if (moment(e.currentTarget.value, this.state.displayDateFormat, true).isValid()) {
             displayValue = moment(e.currentTarget.value, this.state.displayDateFormat, true).format(this.state.displayDateFormat);
@@ -130,14 +132,14 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
                 value,
             });
 
-            if (this.props.onChange) {
+            if (upstreamChangeHandler) {
                 if (DatePickerInput.onChangeTimerId) {
                     clearTimeout(DatePickerInput.onChangeTimerId);
                 }
 
                 DatePickerInput.onChangeTimerId = setTimeout(() => {
                     if (moment(value, this.state.dateFormat, true).isValid()) {
-                        this.props.onChange(value as any);
+                        upstreamChangeHandler(value as any);
                     }
                 }, DatePickerInput.onChangeDeferredTimeout) as any;
             }
@@ -146,6 +148,20 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
                 displayValue,
             });
         }
+    }
+
+    private onChange = (e: Event): void => {
+        this.changeHandler(e, this.props.onChange);
+    }
+
+    private onFocus = (e: Event): void => {
+        this.dispatchDatepickerOpenEvent(true);
+        this.changeHandler(e, this.props.onFocus);
+    }
+
+    private onBlur = (e: Event): void => {
+        this.dispatchDatepickerOpenEvent();
+        this.changeHandler(e, this.props.onFocus);
     }
 
     private onSelect = (date: Date): void => {
@@ -159,22 +175,6 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
 
         if (this.props.onChange) {
             this.props.onChange(value as any);
-        }
-    }
-
-    private onFocus = (e: React.SyntheticEvent<HTMLInputElement>): void => {
-        this.dispatchDatepickerOpenEvent(true);
-
-        if (this.props.onFocus) {
-            this.props.onFocus(e);
-        }
-    }
-
-    private onBlur = (e: React.SyntheticEvent<HTMLInputElement>): void => {
-        this.dispatchDatepickerOpenEvent();
-
-        if (this.props.onBlur) {
-            this.props.onBlur(e);
         }
     }
 
