@@ -63,6 +63,8 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
         // Prepare the props
         const props = { ...this.props };
         delete props.onChange;
+        delete props.onFocus;
+        delete props.onBlur;
         delete props.value;
         delete props.minDate;
 
@@ -161,7 +163,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
 
     private onBlur = (e: Event): void => {
         this.dispatchDatepickerOpenEvent();
-        this.changeHandler(e, this.props.onFocus);
+        this.changeHandler(e, this.props.onBlur);
     }
 
     private onSelect = (date: Date): void => {

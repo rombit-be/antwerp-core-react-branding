@@ -5,6 +5,7 @@ import * as React from "react";
 import Description from "../atoms/form/description";
 import { FormLabel } from "../atoms/form/formlabel";
 import { BaseInputProperties, Tag } from "../index";
+import { TagProperties } from "../molecules/tag";
 
 export type TagListProperties = {
     noinput?: boolean;
@@ -46,13 +47,24 @@ export class TagList extends React.Component<TagListProperties, TagListState> {
 
     private renderTags(): JSX.Element[] {
         if (this.state.value && this.state.value.length > 0) {
-            return this.state.value.map((x, i) => (
-                <Tag
-                    key={x}
-                    label={x}
-                    onDelete={() => this.onDeleteTag(i)}
-                />
-            ));
+            return this.state.value.map((x, i) => {
+                const props: TagProperties = {
+                    label: x,
+                    onDelete: () => this.onDeleteTag(i),
+                };
+
+                if (this.props.disabled) {
+                    delete props.onDelete;
+                }
+
+                return (
+                    <Tag
+                        key={x}
+                        label={x}
+                        onDelete={() => this.onDeleteTag(i)}
+                    />
+                );
+            });
         }
         return null;
     }
