@@ -25,6 +25,14 @@ export default class TagComponents extends React.Component<{}, { value: string[]
                     onChange={(v) => this.onChange(v as any)}
                     value={this.state.value}
                 />
+                <A.TagList
+                    description="Fill in your ingrediënts"
+                    name="taglist"
+                    disabled
+                    normalize={(v) => v.toUpperCase()}
+                    onChange={(v) => this.onChange(v as any)}
+                    value={this.state.value}
+                />
                 <div>
                     <A.Tag label="A simple tag" />
                 </div>
