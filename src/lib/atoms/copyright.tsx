@@ -13,7 +13,7 @@ export class Copyright extends React.Component<CopyrightProperties, {}> {
         return (
             <div className="a-copyright">
                 <div className="a-copyright__sign">
-                    <span className="fa fa-copyright"></span>{(new Date()).getFullYear()}
+                    <span className="fa fa-copyright"></span>{(new Date()).getFullYear() + " "}
                 </div>
                 <span className="a-copyright__label">{this.props.name}</span>
             </div>

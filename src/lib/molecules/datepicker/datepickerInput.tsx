@@ -7,7 +7,7 @@ import * as moment from "moment";
 import { InputProperties } from "../../atoms/form/inputProperties";
 import { TextInput } from "../../atoms/form/typedInputs";
 import { Locations } from "../../common/locations";
-import { DatePicker } from "./datepicker";
+import { DatePicker, DatePickerProperties } from "./datepicker";
 
 export type DatePickerInputProperties = {
     dateFormat?: string,
@@ -96,6 +96,17 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
 
     public componentWillMount() {
         this.registerDatepickerOpenEventHandler();
+    }
+
+    public componentWillReceiveProps(next: DatePickerInputProperties) {
+        if (next.value !== this.state.value) {
+            this.setState({
+                datePickerVisible: false,
+                displayValue: this.convertValueToDisplayValue(next.value, this.state.dateFormat, this.state.displayDateFormat) || "",
+                value: next.value,
+
+            });
+        }
     }
 
     private showDatePicker = (e: Event): void => {
