@@ -7,7 +7,7 @@ import * as moment from "moment";
 import { InputProperties } from "../../atoms/form/inputProperties";
 import { TextInput } from "../../atoms/form/typedInputs";
 import { Locations } from "../../common/locations";
-import { DatePicker, DatePickerProperties } from "./datepicker";
+import { DatePicker } from "./datepicker";
 
 export type DatePickerInputProperties = {
     dateFormat?: string,
