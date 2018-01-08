@@ -57,7 +57,7 @@ export class TagList extends React.Component<TagListProperties, TagListState> {
                     delete props.onDelete;
                 }
 
-                return <Tag {...props} />;
+                return <Tag key={`tag-${i}`} {...props} />;
             });
         }
         return null;
