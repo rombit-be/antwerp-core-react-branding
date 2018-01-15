@@ -21,6 +21,7 @@ export default class UploadComponent extends React.Component<{}, { files: File[]
                 {/* tslint:disable-next-line:no-console */}
                 <A.Upload
                     description="A small description"
+                    meta={{ touched: true, error: "verplicht" } as any}
                     name="fileupload"
                     onChange={this.onChange}
                     uploadedFiles={this.state.files}
