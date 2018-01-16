@@ -9,6 +9,10 @@ $alert-min-width: 250px;
             max-width: 90vw;
         }
 
+        @include to($screen-sm) {
+            margin-top: 10vh;
+        }
+
         margin-left: auto;
         margin-right: auto;
         margin-top: 30vh;

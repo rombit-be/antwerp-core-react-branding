@@ -33,6 +33,8 @@ ReactDOM.render((
         <article>
             <div>
                 <FlyoutComponents />
+                <SpacingComponents />
+                <LayoutComponents />
                 <DatepickerComponent />
                 <TableComponents />
                 <TagComponents />
@@ -43,8 +45,6 @@ ReactDOM.render((
                 <FormComponents />
                 <TextComponents />
                 <BackgroundComponents />
-                <LayoutComponents />
-                <SpacingComponents />
                 <AlertComponent />
                 <BadgeComponents />
                 <ButtonComponents />

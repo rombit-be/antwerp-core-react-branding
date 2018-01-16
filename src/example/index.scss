@@ -1,10 +1,4 @@
-@import '../../node_modules/susy/sass/susy';
 @import '../base/src/styles/quarks';
-
-$susy: (
-    columns: susy-repeat(12),
-    container: 100%,
-);
 
 body {
     background-color: $background-color;
@@ -16,16 +10,20 @@ body {
         background-color: $white;
         margin-left: auto;
         margin-right: auto;
-        min-height: 100vh;
-        width: span(10 of 12 wide);
-        
+        max-width: 1240px;
+
         article {
-            padding: $spacer;
             margin-top: $spacer * 2;
+            padding: $spacer;
 
             .a-input {
                 margin-top: $spacer;
             }
         }
+    }
+
+    @include to($screen-md) {
+        margin: 0;
+        width: 100%;
     }
 }

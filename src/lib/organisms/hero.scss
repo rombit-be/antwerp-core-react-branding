@@ -10,35 +10,39 @@
 }
 
 .aui-hero .inner {
-    margin: 0;
-    padding: 0;
-    max-width: 100%;
-    flex: 1;
     align-self: flex-end;
+    flex: 1;
+    margin: 0;
+    max-width: 100%;
+    padding: 0;
 }
 
 .aui-hero-cta {
     background-color: $white;
-    width: 100%;
-    text-align: center;
-    min-height: $spacer * 4;
     display: flex;
+    min-height: $spacer * 4;
     padding: 0;
+    text-align: center;
+    width: 100%;
 }
 
 .aui-hero-card {
     @extend .aui-hero-wrapper;
-    background-color: #ffffff;
+    background-color: $white;
+    padding: $spacer $spacer $spacer / 2;
     position: relative;
     text-align: center;
-    padding: $spacer $spacer $spacer / 2;
+
+    h3{
+        margin-bottom: $spacer;
+    }
 
     &::before,
     &::after {
+        border-top: 13px solid rgba(0, 0, 0, .2);
+        bottom: -12px;
         content: "";
         position: absolute;
-        bottom: -12px;
-        border-top: 13px solid rgba(0, 0, 0, .2);
     }
 
     &::before {
@@ -55,8 +59,8 @@
 .aui-hero-wrapper {
     display: block;
     margin: 0 auto;
-    width: 100%;
     max-width: $spacer * 24;
+    width: 100%;
 }
 
 .aui-hero-navigation {
@@ -80,8 +84,9 @@
 
 @include to($screen-sm) {
     .aui-hero {
+        border-bottom: none;
         .aui-hero-card {
-            margin-bottom: $spacer;
+            margin-bottom: $spacer / 2;
             margin-top: $spacer * -2 !important;
         }
     }
@@ -90,11 +95,19 @@
 @include to($screen-md) {
     .aui-hero {
         background-color: $white !important;
-        border-bottom: none;
-        padding-top: $spacer * 2;
+        margin-bottom: $spacer / 2;
+        padding-top: $spacer;
+    }
+
+    .aui-hero-cta {
+        min-height: auto;
+        padding-left: $spacer;
+        padding-right: $spacer;
     }
 
     .aui-hero-card {
+        margin-top: $spacer;
+
         &::before,
         &::after {
             content: none;
@@ -102,7 +115,7 @@
     }
 
     .aui-hero-navigation .m-nav-tabs {
-        margin-top: $spacer;
+        margin-top: 0;
         width: 100%;
     }
 }
