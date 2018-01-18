@@ -10,8 +10,6 @@
         "noUnusedLocals": true,
         "removeComments": false,
         "sourceMap": true,
-        "declaration": true,
-        "declarationDir": "./typings",
         "target": "es5",
         "lib": [
             "es5",

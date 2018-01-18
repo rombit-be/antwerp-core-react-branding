@@ -22,6 +22,7 @@ export default class UploadComponent extends React.Component<{}, { files: File[]
                 <A.Upload
                     description="A small description"
                     meta={{ touched: true, error: "verplicht" } as any}
+                    accept=".jpg, .jpeg"
                     name="fileupload"
                     onChange={this.onChange}
                     uploadedFiles={this.state.files}
@@ -31,10 +32,14 @@ export default class UploadComponent extends React.Component<{}, { files: File[]
     }
 
     private onChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
+        // tslint:disable-next-line:no-console
+        console.log(e);
         const files = this.state.files;
-        files.push(e.currentTarget.files.item(0));
-        this.setState({
-            files,
-        });
+        if (e && e.currentTarget) {
+            files.push(e.currentTarget.files.item(0));
+            this.setState({
+                files,
+            });
+        }
     }
 }

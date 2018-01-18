@@ -189,7 +189,7 @@ export class Upload extends React.Component<UploadProperties, UploadState> {
     }
 
     private onChange: (e: Event) => void = (e: Event) => {
-        if (e.currentTarget.files) {
+        if (e && e.currentTarget.files) {
             this.setState({
                 files: e.currentTarget.files,
             });
