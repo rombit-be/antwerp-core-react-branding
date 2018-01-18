@@ -16,9 +16,6 @@
   "scripts": {
     "start": "webpack-dev-server --content-base src/overview",
     "prepublishOnly": "NODE_ENV=production webpack --config webpack.prod.js",
-    "demo-buildlib": "webpack --config webpack.demo.js",
-    "demo-hugo": "cd src/demo && hugo server",
-    "demo-webpack": "cd src/demo/js && webpack -w",
     "test": "jest --config jest.config.json",
     "test-watch": "jest --config jest.config.json --watch",
     "clean-publish": "rm -rf ./dist",
