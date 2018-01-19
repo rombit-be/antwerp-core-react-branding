@@ -58,6 +58,7 @@ export const DatePickerField = (props: ReduxDatePickerFormAdapterProperties) => 
 
 export const SelectField = (props: ReduxSelectFormAdapterProperties) =>
     (<ReduxSelectFormAdapter {...props}><Select {...props as any} /></ReduxSelectFormAdapter>);
+
 export const RadiobuttonsField = (props: ReduxRadiobuttonsFormAdapterProperties) =>
     (<ReduxRadiobuttonsFormAdapter {...props}><Select {...props as any} /></ReduxRadiobuttonsFormAdapter>);
 

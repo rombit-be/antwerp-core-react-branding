@@ -8,7 +8,7 @@ export type DefinitionListProperties = {
 };
 
 /**
- * React Component DefinitionList
+ * Atoms: DefinitionList
  */
 export class DefinitionList extends React.Component<DefinitionListProperties, {}> {
 

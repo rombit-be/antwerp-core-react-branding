@@ -25,14 +25,20 @@ export type UploadState = {
     files?: FileList;
 };
 
+type Event = React.SyntheticEvent<HTMLInputElement>;
+
 /**
  * React Component Upload
  */
 export class Upload extends React.Component<UploadProperties, UploadState> {
 
+    private inputRef: HTMLInputElement;
+
     public constructor(props: UploadProperties) {
         super(props);
-        this.state = {};
+        this.state = {
+            files: "" as any,
+        };
     }
 
     public render(): any {
@@ -55,10 +61,12 @@ export class Upload extends React.Component<UploadProperties, UploadState> {
                         <input
                             {...props}
                             className="m-upload__input"
-                            onChange={(e) => this.onChange(e)}
+                            onChange={this.onChange}
                             type="file"
+                            ref={(i) => this.inputRef = i}
                         />
-                        <div className="m-upload__content">
+                        < div className="m-upload__content">
+                            {this.renderClear()}
                             {this.renderProgress()}
                             {this.renderInfoMessage()}
                             {this.renderSelectedValue()}
@@ -72,6 +80,21 @@ export class Upload extends React.Component<UploadProperties, UploadState> {
     }
 
     // #region private render methods
+
+    private renderClear(): JSX.Element {
+        if (!this.props.busy && this.state.files) {
+            return (
+                <IconButton
+                    className="m-upload__clear"
+                    icon="close"
+                    onClick={this.onClear}
+                    size={Sizes.Small}
+                    type={ButtonType.Transparent}
+                />
+            );
+        }
+        return null;
+    }
 
     private renderInfoMessage(): JSX.Element {
         return (
@@ -154,17 +177,29 @@ export class Upload extends React.Component<UploadProperties, UploadState> {
 
     // #region handlers
 
-    private onChange(e: React.SyntheticEvent<HTMLInputElement>): void {
-        // tslint:disable-next-line:no-console
-        this.setState({
-            files: e.currentTarget.files,
-        });
-        if (this.props.onChange) {
-            this.props.onChange(e);
+    private onClear: () => void = () => {
+        if (this.state.files) {
+            this.setState({
+                files: null,
+            });
+            if (this.props.onChange) {
+                this.props.onChange(null);
+            }
         }
     }
 
-    private onDelete(file: File): void {
+    private onChange: (e: Event) => void = (e: Event) => {
+        if (e.currentTarget.files) {
+            this.setState({
+                files: e.currentTarget.files,
+            });
+            if (this.props.onChange) {
+                this.props.onChange(e);
+            }
+        }
+    }
+
+    private onDelete: (file: File) => void = (file: File) => {
         if (this.props.deleteFile) {
             this.props.deleteFile(file);
         }

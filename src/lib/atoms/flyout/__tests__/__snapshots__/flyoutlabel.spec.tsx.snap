@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FlyoutLabel Renders default 1`] = `
+<div
+  className="m-flyout__label"
+  onClick={[Function]}
+/>
+`;
+
+exports[`FlyoutLabel Renders with child 1`] = `
+<div
+  className="m-flyout__label"
+  onClick={[Function]}
+>
+  <p>
+    Child
+  </p>
+</div>
+`;
+
+exports[`FlyoutLabel Renders with children 1`] = `
+<div
+  className="m-flyout__label"
+  onClick={[Function]}
+>
+  <p>
+    Child 1
+  </p>
+  <p>
+    Child 2
+  </p>
+</div>
+`;

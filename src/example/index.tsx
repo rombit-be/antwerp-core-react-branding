@@ -10,6 +10,7 @@ import BackgroundComponents from "./components/background";
 import BadgeComponents from "./components/badge";
 import ButtonComponents from "./components/button";
 import DatepickerComponent from "./components/datePicker";
+import FlyoutComponents from "./components/flyout";
 import FormComponents from "./components/form";
 import LabelComponents from "./components/label";
 import LayoutComponents from "./components/layout";
@@ -31,6 +32,9 @@ ReactDOM.render((
         </Hero>
         <article>
             <div>
+                <FlyoutComponents />
+                <SpacingComponents />
+                <LayoutComponents />
                 <DatepickerComponent />
                 <TableComponents />
                 <TagComponents />
@@ -41,8 +45,6 @@ ReactDOM.render((
                 <FormComponents />
                 <TextComponents />
                 <BackgroundComponents />
-                <LayoutComponents />
-                <SpacingComponents />
                 <AlertComponent />
                 <BadgeComponents />
                 <ButtonComponents />

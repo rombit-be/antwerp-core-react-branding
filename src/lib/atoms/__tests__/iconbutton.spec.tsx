@@ -38,7 +38,7 @@ describe("Button", () => {
             <A.IconButton
                 icon="check"
                 text="testbutton"
-                location={A.Location.Right}
+                location={A.Locations.Right}
             />);
 
         // Act and assert
@@ -52,7 +52,7 @@ describe("Button", () => {
         const element = (
             <A.IconButton
                 icon="check"
-                location={A.Location.Right}
+                location={A.Locations.Right}
             />);
 
         // Act and assert
@@ -60,5 +60,20 @@ describe("Button", () => {
 
         expect(tree.props.className).toContain("has-icon");
         expect(tree.props.className).not.toContain("has-icon-left");
+    });
+
+    it("Renders default icon button, no location specified", () => {
+        // Act
+        const element = (
+            <A.IconButton
+                icon="check"
+            />);
+
+        // Act and assert
+        const tree = renderAndMatchSnapshot(element);
+
+        expect(tree.props.className).toContain("has-icon");
+        expect(tree.props.className).not.toContain("has-icon-left");
+        expect(tree.props.className).not.toContain("has-icon-right");
     });
 });

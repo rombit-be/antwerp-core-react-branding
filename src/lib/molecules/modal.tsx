@@ -11,6 +11,7 @@ import { Spacing, SpacingStyle } from "../utilities/spacing";
 export type ModalProperties = {
     cancelText?: string;
     className?: string;
+    disabled?: boolean;
     footer?: JSX.Element;
     okText?: string | JSX.Element;
     onCancel?: () => void;
@@ -76,14 +77,16 @@ export class Modal extends React.Component<ModalProperties, ModalState> {
                         this.props.onCancel ?
                             (<Button
                                 className="m-alert__cancel"
+                                disabled={this.props.disabled}
                                 onClick={() => this.onCancel()}
                             >
                                 {this.props.cancelText || "Cancel"}
                             </Button>) : null
                     }
                     <Button
-                        text={this.props.okText}
+                        disabled={this.props.disabled}
                         onClick={this.onOk}
+                        text={this.props.okText}
                     />
                 </div>);
         }

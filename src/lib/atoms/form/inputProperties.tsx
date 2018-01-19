@@ -1,4 +1,4 @@
-import { Location } from "../../common/locations";
+import { Locations } from "../../common/locations";
 
 export enum InputTypes {
     Color = "color",
@@ -35,13 +35,13 @@ export type FieldMetaProperties = {
 
 export type BaseInputProperties<T> = {
     addon?: string;
-    addonLocation?: Location;
+    addonLocation?: Locations;
     checked?: boolean;
     description?: string | JSX.Element;
     disabled?: boolean;
     errorComponent?: JSX.Element | ((props: any) => JSX.Element),
     icon?: string;
-    iconLocation?: Location;
+    iconLocation?: Locations;
     inline?: boolean;
     label?: string | JSX.Element;
     max?: number | string;

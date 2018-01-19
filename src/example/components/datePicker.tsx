@@ -17,7 +17,9 @@ export default class DatepickerComponent extends React.Component<{}, {}> {
                 <A.DatePickerInput
                     description="A description"
                     name="datewithdatepicker"
+                    onBlur={(e: any) => this.debug("Selected data: " + e)}
                     onChange={(e: any) => this.debug("Selected data: " + e)}
+                    onFocus={(e: any) => this.debug("Selected data: " + e)}
                 />
                 <A.DatePickerField name="datepicker"
                     label="This is a datepicker"
@@ -26,6 +28,9 @@ export default class DatepickerComponent extends React.Component<{}, {}> {
                         onChange: (e: any) => this.debug(e),
                         value: "2017-10-25",
                     }}
+                    onBlur={(e: any) => this.debug("Selected data: " + e)}
+                    onChange={(e: any) => this.debug("Selected data: " + e)}
+                    onFocus={(e: any) => this.debug("Selected data: " + e)}
                 />
             </StyleSection >
         );

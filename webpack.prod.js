@@ -22,8 +22,9 @@ config.output = {
     libraryTarget: "umd",
 };
 
-config.module.rules[2].exclude.push(/(test)/);
+config.externals = { "react": "react" };
 
+config.module.rules[2].exclude.push(/(test)/);
 
 // Slice the hot module replacement
 config.plugins = config.plugins.slice(2);
@@ -38,4 +39,3 @@ config.plugins.push(new CopyWebpackPlugin([{
 }]));
 
 module.exports = config;
-

@@ -1,0 +1,7 @@
+@import '../../_variables.scss';
+
+.m-flyout__content {
+    position: absolute;
+    text-align: left;
+    z-index: $overlay-zindex - 1;
+}
