@@ -18,6 +18,7 @@ export type ModalProperties = {
     onOk: () => void;
     title: string | JSX.Element;
     visible?: boolean;
+    noBodyClass?: boolean;
 };
 
 export type ModalState = { visible?: boolean };
@@ -34,7 +35,12 @@ export class Modal extends React.Component<ModalProperties, ModalState> {
 
     public render(): any {
         return (
-            <Overlay dark visible={this.state.visible} className={classNames("m-modal__overlay", this.props.className)}>
+            <Overlay
+                className={classNames("m-modal__overlay", this.props.className)}
+                dark
+                noBodyClass={this.props.noBodyClass}
+                visible={this.state.visible}
+            >
                 <div className="m-overlay__inner">
                     <div className="m-modal">
                         <div className="m-modal__header u-margin-bottom-xs">
@@ -46,7 +52,6 @@ export class Modal extends React.Component<ModalProperties, ModalState> {
                                 >
                                     <i className="fa fa-close"></i>
                                 </Button>)
-
                             }
                             <h6>{this.props.title}</h6>
                         </div>
@@ -61,9 +66,11 @@ export class Modal extends React.Component<ModalProperties, ModalState> {
     }
 
     public componentWillReceiveProps(nextProps: ModalState): void {
-        this.setState({ visible: nextProps.visible });
-        if (!nextProps.visible) {
-            this.hideOverlay();
+        if (this.state.visible !== nextProps.visible) {
+            this.setState({ visible: nextProps.visible });
+            if (!nextProps.visible) {
+                this.hideOverlay();
+            }
         }
     }
 
@@ -77,7 +84,6 @@ export class Modal extends React.Component<ModalProperties, ModalState> {
                         this.props.onCancel ?
                             (<Button
                                 className="m-alert__cancel"
-                                disabled={this.props.disabled}
                                 onClick={() => this.onCancel()}
                             >
                                 {this.props.cancelText || "Cancel"}

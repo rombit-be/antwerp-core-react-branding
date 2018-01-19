@@ -10,6 +10,7 @@ export type OverlayProperties = {
     light?: boolean,
     visible?: boolean,
     zIndex?: number,
+    noBodyClass?: boolean;
 };
 
 /**
@@ -30,6 +31,8 @@ export class Overlay extends React.Component<OverlayProperties, {}> {
     }
 
     private handleBodyClass() {
+        if (this.props.noBodyClass) { return; }
+
         if (window && window.document && window.document.body) {
             const hasOverflow = window.innerHeight < window.document.body.clientHeight;
             const className = classNames(hasOverflow ? "a-overlay--overflow" : "a-overlay--open");
