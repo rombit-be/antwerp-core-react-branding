@@ -10,7 +10,7 @@ exports[`Copyright Renders default 1`] = `
     <span
       className="fa fa-copyright"
     />
-    2017
+    2018 
   </div>
   <span
     className="a-copyright__label"

@@ -3,18 +3,21 @@
 exports[`FlyoutContent Renders default 1`] = `
 <div
   className="m-flyout__content"
+  style={Object {}}
 />
 `;
 
 exports[`FlyoutContent Renders with child 1`] = `
 <div
   className="m-flyout__content"
+  style={Object {}}
 />
 `;
 
 exports[`FlyoutContent Renders with children 1`] = `
 <div
   className="m-flyout__content"
+  style={Object {}}
 >
   <p>
     Child 1
@@ -28,6 +31,7 @@ exports[`FlyoutContent Renders with children 1`] = `
 exports[`FlyoutContent Visible and non visible should be different 1`] = `
 <div
   className="m-flyout__content"
+  style={Object {}}
 >
   <p>
     child
