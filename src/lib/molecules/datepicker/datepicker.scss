@@ -4,6 +4,9 @@
     position: absolute;
     z-index: $overlay-zindex - 1;
     td {
+        button.is-faded {
+            color: $text-color;
+        }
         button.is-disabled {
             background-color: $datepicker-faded-bg;
             color: $datepicker-faded-color;
