@@ -5,6 +5,7 @@ import * as classNames from "classnames";
 export type DatePickerElementProperties = {
     current: boolean,
     disabled?: boolean,
+    faded?: boolean,
     onClick?: (date: Date | number) => void;
     selected: boolean,
     value: Date | number,
@@ -39,7 +40,8 @@ export class DatePickerElement extends React.Component<DatePickerElementProperti
     private className(): string {
         return classNames(
             { "is-current": this.props.current },
-            { "is-faded": this.props.disabled },
+            { "is-faded": this.props.faded },
+            { "is-disabled": this.props.disabled },
             { "is-selected": this.props.selected },
         );
     }

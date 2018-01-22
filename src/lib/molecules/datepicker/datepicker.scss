@@ -3,4 +3,16 @@
 .m-datepicker {
     position: absolute;
     z-index: $overlay-zindex - 1;
+    td {
+        button.is-disabled {
+            background-color: $datepicker-faded-bg;
+            color: $datepicker-faded-color;
+
+            &:hover,
+            &:active {
+                background-color: $datepicker-faded-bg-hover;
+                cursor: not-allowed;
+            }
+        }
+    }
 }

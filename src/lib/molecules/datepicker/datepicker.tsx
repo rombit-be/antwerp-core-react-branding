@@ -276,12 +276,13 @@ export class DatePicker extends React.Component<DatePickerProperties, DatePicker
                 // Calculate the index and the current index data
                 const index = (i * DatePicker.gridDateCols) + j;
                 const value = this.gridDateFromIndex(gridStartDate, index);
-                const disabled = !(viewDate.getMonth() === value.getMonth())
-                    || (this.props.minDate ? this.dateLowerThan(value, this.props.minDate) : false);
+                const disabled = (this.props.minDate ? this.dateLowerThan(value, this.props.minDate) : false);
+                const faded = !(viewDate.getMonth() === value.getMonth());
 
                 grid[i][j] = {
                     current: this.dateEqualsNow(value),
                     disabled,
+                    faded,
                     onClick: this.onSelectDate,
                     selected: this.dateEquals(value, this.state.value),
                     value,
