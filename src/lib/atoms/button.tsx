@@ -20,6 +20,7 @@ export type ButtonProperties = {
     focus?: boolean;
     level?: Levels;
     onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
+    onDoubleClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
     reset?: boolean;
     size?: Sizes;
     submit?: boolean;
@@ -41,7 +42,8 @@ export class Button extends React.Component<ButtonProperties, {}> {
                 autoFocus={this.props.autoFocus}
                 className={this.className()}
                 disabled={this.props.disabled}
-                onClick={(e) => this.onClick(e)}
+                onClick={this.props.onClick}
+                onDoubleClick={this.props.onDoubleClick}
                 ref={(b: any) => this.buttonRef = b}
                 style={this.props.style}
                 tabIndex={this.props.tabIndex}
@@ -77,11 +79,5 @@ export class Button extends React.Component<ButtonProperties, {}> {
             return "reset";
         }
         return "button";
-    }
-
-    private onClick(e: React.MouseEvent<HTMLButtonElement>): void {
-        if (this.props.onClick) {
-            this.props.onClick(e);
-        }
     }
 }
