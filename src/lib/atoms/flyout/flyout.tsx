@@ -1,6 +1,5 @@
-import * as React from "react";
-
 import * as classNames from "classnames";
+import * as React from "react";
 
 import { Locations } from "../../common/locations";
 import { Sizes } from "../../common/sizes";
@@ -42,13 +41,16 @@ export class Flyout extends React.Component<FlyoutProperties, FlyoutState> {
                 <FlyoutLabel onClick={this.toggleFlyout}>
                     {this.props.label}
                 </FlyoutLabel>
-                <FlyoutContent
-                    padding={this.props.padding}
-                    visible={this.state.visible}
-                    position={this.state.position}
-                >
-                    {this.props.content}
-                </FlyoutContent>
+                {
+                    this.props.content &&
+                    <FlyoutContent
+                        padding={this.props.padding}
+                        visible={this.state.visible}
+                        position={this.state.position}
+                    >
+                        {this.props.content}
+                    </FlyoutContent>
+                }
             </div>
         );
     }

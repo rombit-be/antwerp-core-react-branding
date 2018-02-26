@@ -2,8 +2,8 @@ import "./autocomplete.scss";
 
 import * as React from "react";
 
+import { Flyout, TextInput } from "../..";
 import { Sizes } from "../../common/sizes";
-import { Flyout, TextInput } from "../../index";
 import { InputProperties } from "./inputProperties";
 
 type Event = React.SyntheticEvent<HTMLInputElement>;
@@ -35,10 +35,10 @@ export class AutoComplete extends React.Component<AutoCompleteProperties, AutoCo
     public render(): any {
         return (
             <Flyout
-                content={this.renderOptions()}
+                content={this.hasOptions() ? this.renderOptions() : null}
                 label={
                     <TextInput
-                        {...this.getInputProps() }
+                        {...this.getInputProps()}
                         value={this.state.value}
                         onChange={this.onChange}
                         onKeyDown={this.onKeyPress}
@@ -94,6 +94,10 @@ export class AutoComplete extends React.Component<AutoCompleteProperties, AutoCo
             value,
             visible: false,
         });
+    }
+
+    private hasOptions(): boolean {
+        return this.getOptions().length > 0;
     }
 
     private getOptions(): string[] {
