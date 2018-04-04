@@ -11,6 +11,7 @@ type KeyEvent = React.KeyboardEvent<HTMLInputElement>;
 
 export type AutoCompleteProperties = {
     filterOnType?: boolean;
+    onSelectOption?: (value: string) => void,
     options: string[],
 } & InputProperties<string>;
 
@@ -40,9 +41,10 @@ export class AutoComplete extends React.Component<AutoCompleteProperties, AutoCo
                     <TextInput
                         {...this.getInputProps()}
                         value={this.state.value}
+                        onBlur={this.onBlur}
                         onChange={this.onChange}
                         onKeyDown={this.onKeyPress}
-                        autocomplete="off"
+                        autoComplete="off"
                     />
                 }
                 size={Sizes.Default}
@@ -67,14 +69,12 @@ export class AutoComplete extends React.Component<AutoCompleteProperties, AutoCo
 
     private onKeyPress: (e: KeyEvent) => void = (e: KeyEvent) => {
         if (e.key === "Tab" || e.key === "Enter" && this.props.filterOnType) {
-            const options = this.getOptions();
-            if (options.length > 0) {
-                this.setState({
-                    value: options[0],
-                    visible: false,
-                });
-            }
+            this.selectFirstOption();
         }
+    }
+
+    private onBlur: () => void = () => {
+        this.selectFirstOption();
     }
 
     private onChange: (e: Event) => void = (e: Event) => {
@@ -91,14 +91,31 @@ export class AutoComplete extends React.Component<AutoCompleteProperties, AutoCo
     }
 
     private onSelectOption: (value: string) => void = (value: string) => {
-        this.setState({
-            value,
-            visible: false,
-        });
+        if (this.state.value !== value) {
+            this.setState({
+                value,
+                visible: false,
+            });
+            if (this.props.onSelectOption) {
+                this.props.onSelectOption(value);
+            }
+        } else {
+            this.setState({ visible: false });
+        }
     }
 
     private hasOptions(): boolean {
         return this.getOptions().length > 0;
+    }
+
+    private selectFirstOption: () => void = () => {
+        const options = this.getOptions();
+        if (options.length > 0) {
+            this.setState({
+                value: options[0],
+                visible: false,
+            });
+        }
     }
 
     private getOptions(): string[] {
@@ -114,6 +131,7 @@ export class AutoComplete extends React.Component<AutoCompleteProperties, AutoCo
     private getInputProps(): InputProperties<string> {
         const props = { ...this.props };
         delete props.filterOnType;
+        delete props.onBlur;
         delete props.onChange;
         delete props.onKeyPress;
         delete props.options;

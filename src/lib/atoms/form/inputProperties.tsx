@@ -36,7 +36,7 @@ export type FieldMetaProperties = {
 export type BaseInputProperties<T> = {
     addon?: string;
     addonLocation?: Locations;
-    autocomplete?: "on" | "off";
+    autoComplete?: "on" | "off";
     checked?: boolean;
     description?: string | JSX.Element;
     disabled?: boolean;
