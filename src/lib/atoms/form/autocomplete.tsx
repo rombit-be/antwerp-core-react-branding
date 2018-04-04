@@ -91,16 +91,12 @@ export class AutoComplete extends React.Component<AutoCompleteProperties, AutoCo
     }
 
     private onSelectOption: (value: string) => void = (value: string) => {
-        if (this.state.value !== value) {
-            this.setState({
-                value,
-                visible: false,
-            });
-            if (this.props.onSelectOption) {
-                this.props.onSelectOption(value);
-            }
-        } else {
-            this.setState({ visible: false });
+        this.setState({
+            value,
+            visible: false,
+        });
+        if (this.props.onSelectOption) {
+            this.props.onSelectOption(value);
         }
     }
 
@@ -111,10 +107,7 @@ export class AutoComplete extends React.Component<AutoCompleteProperties, AutoCo
     private selectFirstOption: () => void = () => {
         const options = this.getOptions();
         if (options.length > 0) {
-            this.setState({
-                value: options[0],
-                visible: false,
-            });
+            this.onSelectOption(options[0]);
         }
     }
 
@@ -135,6 +128,7 @@ export class AutoComplete extends React.Component<AutoCompleteProperties, AutoCo
         delete props.onChange;
         delete props.onKeyPress;
         delete props.options;
+        delete props.onSelectOption;
         return props;
     }
 }
