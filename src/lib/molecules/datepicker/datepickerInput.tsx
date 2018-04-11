@@ -134,7 +134,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
 
     // #region private handlers
 
-    private changeHandler(e: Event, upstreamChangeHandler?: (e: Event) => void) {
+    private changeHandler(e: Event, upstreamChangeHandler?: (e: Event) => void, force?: boolean) {
         let displayValue = e.currentTarget.value;
         if (moment(e.currentTarget.value, this.state.displayDateFormat, true).isValid()) {
             displayValue = moment(e.currentTarget.value, this.state.displayDateFormat, true).format(this.state.displayDateFormat);
@@ -159,6 +159,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
         } else {
             this.setState({
                 displayValue,
+                value: (e.currentTarget.value && force) ? e.currentTarget.value : undefined,
             });
         }
     }
@@ -174,7 +175,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
 
     private onBlur = (e: Event): void => {
         this.dispatchDatepickerOpenEvent();
-        this.changeHandler(e, this.props.onBlur);
+        this.changeHandler(e, this.props.onBlur, true);
     }
 
     private onSelect = (date: Date): void => {
