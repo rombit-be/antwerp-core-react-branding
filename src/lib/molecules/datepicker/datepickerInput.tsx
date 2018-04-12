@@ -135,8 +135,11 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
     // #region private handlers
 
     private changeHandler(e: Event, upstreamChangeHandler?: (e: Event) => void, force?: boolean) {
+        let displayValue = e.currentTarget.value;
         if (force) {
-            const displayValue = moment(e.currentTarget.value, this.state.displayDateFormat, true).format(this.state.displayDateFormat);
+            if (moment(e.currentTarget.value, this.state.displayDateFormat, true).isValid()) {
+                displayValue = moment(e.currentTarget.value, this.state.displayDateFormat, true).format(this.state.displayDateFormat);
+            }
             const modelValue = this.convertDisplayValueToValue(displayValue);
             const value = displayValue && modelValue ? modelValue : displayValue;
 
@@ -155,7 +158,6 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
                 }, DatePickerInput.onChangeDeferredTimeout) as any;
             }
         } else {
-            let displayValue = e.currentTarget.value;
             if (moment(e.currentTarget.value, this.state.displayDateFormat, true).isValid()) {
                 displayValue = moment(e.currentTarget.value, this.state.displayDateFormat, true).format(this.state.displayDateFormat);
                 const value = this.convertDisplayValueToValue(displayValue);
