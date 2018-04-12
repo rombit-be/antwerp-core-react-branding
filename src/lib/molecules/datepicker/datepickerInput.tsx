@@ -134,7 +134,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
 
     // #region private handlers
 
-    private changeHandler(e: Event, upstreamChangeHandler?: (e: Event) => void, force?: boolean) {
+    private changeHandler(e: Event, upstreamChangeHandler?: (e: Event) => void, forceInvalidUpstream?: boolean) {
         let displayValue = e.currentTarget.value;
         if (moment(e.currentTarget.value, this.state.displayDateFormat, true).isValid()) {
             displayValue = moment(e.currentTarget.value, this.state.displayDateFormat, true).format(this.state.displayDateFormat);
@@ -157,10 +157,28 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
                 }, DatePickerInput.onChangeDeferredTimeout) as any;
             }
         } else {
-            this.setState({
-                displayValue,
-                value: (e.currentTarget.value && force) ? e.currentTarget.value : undefined,
-            });
+            if (forceInvalidUpstream) {
+                this.setState({
+                    displayValue,
+                });
+            } else {
+                const value = this.convertDisplayValueToValue(displayValue);
+                this.setState({
+                    displayValue,
+                    value,
+                });
+            }
+            //
+            // if (forceInvalidUpstream && upstreamChangeHandler) {
+            //     if (DatePickerInput.onChangeTimerId) {
+            //         clearTimeout(DatePickerInput.onChangeTimerId);
+            //     }
+            //     const value = this.convertDisplayValueToValue(displayValue);
+            //
+            //     DatePickerInput.onChangeTimerId = setTimeout(() => {
+            //         upstreamChangeHandler(value as any);
+            //     }, DatePickerInput.onChangeDeferredTimeout) as any;
+            // }
         }
     }
 

@@ -34,7 +34,7 @@ export declare class DatePickerInput extends React.Component<DatePickerInputProp
     componentWillMount(): void;
     componentWillReceiveProps(next: DatePickerInputProperties): void;
     private showDatePicker;
-    private changeHandler(e, upstreamChangeHandler?, force?);
+    private changeHandler(e, upstreamChangeHandler?, forceInvalidUpstream?);
     private onChange;
     private onFocus;
     private onBlur;
