@@ -157,7 +157,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
                 }, DatePickerInput.onChangeDeferredTimeout) as any;
             }
         } else {
-            if (forceInvalidUpstream) {
+            if (!forceInvalidUpstream) {
                 this.setState({
                     displayValue,
                 });
