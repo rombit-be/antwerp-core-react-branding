@@ -134,14 +134,12 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
 
     // #region private handlers
 
-    private changeHandler(e: Event, upstreamChangeHandler?: (e: Event) => void, resetValueIfInvalid?: boolean) {
-        let displayValue = e.currentTarget.value;
-        if (resetValueIfInvalid && !moment(e.currentTarget.value, this.state.displayDateFormat, true).isValid()) {
-            displayValue = this.convertValueToDisplayValue(this.state.value);
-        }
-        if (moment(e.currentTarget.value, this.state.displayDateFormat, true).isValid()) {
-            displayValue = moment(e.currentTarget.value, this.state.displayDateFormat, true).format(this.state.displayDateFormat);
-            const value = this.convertDisplayValueToValue(displayValue);
+    private changeHandler(e: Event, upstreamChangeHandler?: (e: Event) => void) {
+        // let displayValue = e.currentTarget.value;
+        // if (moment(e.currentTarget.value, this.state.displayDateFormat, true).isValid()) {
+            const displayValue = moment(e.currentTarget.value, this.state.displayDateFormat, true).format(this.state.displayDateFormat);
+            const modelValue = this.convertDisplayValueToValue(displayValue);
+            const value = displayValue && modelValue ? modelValue : displayValue;
 
             this.setState({
                 displayValue,
@@ -159,11 +157,11 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
                     }
                 }, DatePickerInput.onChangeDeferredTimeout) as any;
             }
-        } else {
-            this.setState({
-                displayValue,
-            });
-        }
+        // } else {
+        //     this.setState({
+        //         displayValue,
+        //     });
+        // }
     }
 
     private onChange = (e: Event): void => {
@@ -177,7 +175,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
 
     private onBlur = (e: Event): void => {
         this.dispatchDatepickerOpenEvent();
-        this.changeHandler(e, this.props.onBlur, true);
+        this.changeHandler(e, this.props.onBlur);
     }
 
     private onSelect = (date: Date): void => {
