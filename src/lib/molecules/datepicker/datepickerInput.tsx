@@ -187,7 +187,6 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
     private onChange = (e: Event): void => {
         this.changeHandler(e, this.props.onChange);
     }
-    }
 
     private onFocus = (e: Event): void => {
         this.dispatchDatepickerOpenEvent(true);

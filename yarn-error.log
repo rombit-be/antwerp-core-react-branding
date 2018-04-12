@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/xjx/.nvm/versions/node/v6.11.5/bin/node /usr/local/Cellar/yarn/1.5.1/libexec/bin/yarn.js start
+  /Users/xjx/.nvm/versions/node/v6.11.5/bin/node /usr/local/Cellar/yarn/1.5.1/libexec/bin/yarn.js prepublishOnly
 
 PATH: 
   /Users/xjx/.nvm/versions/node/v6.11.5/bin:/usr/local/bin/node:/usr/local/lib/node_modules/bin:/Users/xjx/Library/Android/sdk/platform-tools:/usr/local/Cellar/ruby/2.0.0-p247/bin:/usr/local/mongodb/2.6.4/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/xjx/bin;
@@ -7542,9 +7542,9 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 127
+  Exit code: 2
   Command: sh
-  Arguments: -c webpack-dev-server --content-base src/example
+  Arguments: -c NODE_ENV=production webpack --config webpack.prod.js
   Directory: /Users/xjx/Projects/antwerp-core-react-branding
   Output:
   
