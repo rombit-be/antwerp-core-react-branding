@@ -134,8 +134,11 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
 
     // #region private handlers
 
-    private changeHandler(e: Event, upstreamChangeHandler?: (e: Event) => void, forceInvalidUpstream?: boolean) {
+    private changeHandler(e: Event, upstreamChangeHandler?: (e: Event) => void, resetValueIfInvalid?: boolean) {
         let displayValue = e.currentTarget.value;
+        if (resetValueIfInvalid && !moment(e.currentTarget.value, this.state.displayDateFormat, true).isValid()) {
+            displayValue = this.convertValueToDisplayValue(this.state.value);
+        }
         if (moment(e.currentTarget.value, this.state.displayDateFormat, true).isValid()) {
             displayValue = moment(e.currentTarget.value, this.state.displayDateFormat, true).format(this.state.displayDateFormat);
             const value = this.convertDisplayValueToValue(displayValue);
@@ -157,28 +160,9 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
                 }, DatePickerInput.onChangeDeferredTimeout) as any;
             }
         } else {
-            if (!forceInvalidUpstream) {
-                this.setState({
-                    displayValue,
-                });
-            } else {
-                const value = this.convertDisplayValueToValue(displayValue);
-                this.setState({
-                    displayValue,
-                    value,
-                });
-            }
-            //
-            // if (forceInvalidUpstream && upstreamChangeHandler) {
-            //     if (DatePickerInput.onChangeTimerId) {
-            //         clearTimeout(DatePickerInput.onChangeTimerId);
-            //     }
-            //     const value = this.convertDisplayValueToValue(displayValue);
-            //
-            //     DatePickerInput.onChangeTimerId = setTimeout(() => {
-            //         upstreamChangeHandler(value as any);
-            //     }, DatePickerInput.onChangeDeferredTimeout) as any;
-            // }
+            this.setState({
+                displayValue,
+            });
         }
     }
 
