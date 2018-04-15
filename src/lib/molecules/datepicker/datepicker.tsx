@@ -4,6 +4,8 @@ import * as React from "react";
 
 import * as classNames from "classnames";
 
+import * as moment from "moment";
+
 import { Button } from "../../atoms/button";
 import { IconButton } from "../../atoms/iconbutton";
 import { Locations } from "../../common/locations";
@@ -89,7 +91,7 @@ export class DatePicker extends React.Component<DatePickerProperties, DatePicker
     }
 
     public componentWillReceiveProps(nextProps: DatePickerProperties): void {
-        if (nextProps.value) {
+        if (nextProps.value && moment(nextProps.value).isValid()) {
             this.setState({
                 value: nextProps.value,
                 viewDate: this.calculateViewDate(nextProps.value),
