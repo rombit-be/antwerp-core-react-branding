@@ -134,11 +134,14 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
 
     // #region private handlers
 
-    private changeHandler(e: Event, upstreamChangeHandler?: (e: Event) => void) {
+    private changeHandler(e: Event, upstreamChangeHandler?: (e: Event) => void, force?: boolean) {
         let displayValue = e.currentTarget.value;
-        if (moment(e.currentTarget.value, this.state.displayDateFormat, true).isValid()) {
-            displayValue = moment(e.currentTarget.value, this.state.displayDateFormat, true).format(this.state.displayDateFormat);
-            const value = this.convertDisplayValueToValue(displayValue);
+        if (force) {
+            if (moment(e.currentTarget.value, this.state.displayDateFormat, true).isValid()) {
+                displayValue = moment(e.currentTarget.value, this.state.displayDateFormat, true).format(this.state.displayDateFormat);
+            }
+            const modelValue = this.convertDisplayValueToValue(displayValue);
+            const value = displayValue && modelValue ? modelValue : displayValue;
 
             this.setState({
                 displayValue,
@@ -151,15 +154,35 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
                 }
 
                 DatePickerInput.onChangeTimerId = setTimeout(() => {
-                    if (moment(value, this.state.dateFormat, true).isValid()) {
-                        upstreamChangeHandler(value as any);
-                    }
+                    upstreamChangeHandler(value as any);
                 }, DatePickerInput.onChangeDeferredTimeout) as any;
             }
         } else {
-            this.setState({
-                displayValue,
-            });
+            if (moment(e.currentTarget.value, this.state.displayDateFormat, true).isValid()) {
+                displayValue = moment(e.currentTarget.value, this.state.displayDateFormat, true).format(this.state.displayDateFormat);
+                const value = this.convertDisplayValueToValue(displayValue);
+
+                this.setState({
+                    displayValue,
+                    value,
+                });
+
+                if (upstreamChangeHandler) {
+                    if (DatePickerInput.onChangeTimerId) {
+                        clearTimeout(DatePickerInput.onChangeTimerId);
+                    }
+
+                    DatePickerInput.onChangeTimerId = setTimeout(() => {
+                        if (moment(value, this.state.dateFormat, true).isValid()) {
+                            upstreamChangeHandler(value as any);
+                        }
+                    }, DatePickerInput.onChangeDeferredTimeout) as any;
+                }
+            } else {
+                this.setState({
+                    displayValue,
+                });
+            }
         }
     }
 
@@ -174,7 +197,7 @@ export class DatePickerInput extends React.Component<DatePickerInputProperties, 
 
     private onBlur = (e: Event): void => {
         this.dispatchDatepickerOpenEvent();
-        this.changeHandler(e, this.props.onBlur);
+        this.changeHandler(e, this.props.onBlur, true);
     }
 
     private onSelect = (date: Date): void => {

@@ -11,6 +11,56 @@ export default class FormComponents extends React.Component<{}, {}> {
 
     private sectionProps: any = { title: "Form" };
 
+    private autocompleteOptions: string[] = [
+        "apple",
+        "apricot",
+        "avocado",
+        "banana",
+        "bilberry",
+        "blackberry",
+        "blackcurrant",
+        "blueberry",
+        "currant",
+        "cherry",
+        "cranberry",
+        "date",
+        "fig",
+        "grape",
+        "grapefruit",
+        "guava",
+        "juniper berry",
+        "kiwifruit",
+        "kumquat",
+        "lemon",
+        "lime",
+        "lychee",
+        "mango",
+        "melon",
+        "watermelon",
+        "mulberry",
+        "nectarine",
+        "olive",
+        "orange",
+        "blood orange",
+        "clementine",
+        "mandarine",
+        "tangerine",
+        "papaya",
+        "passionfruit",
+        "peach",
+        "pear",
+        "persimmon",
+        "plum",
+        "prune",
+        "pineapple",
+        "pomegranate",
+        "pomelo",
+        "raspberry",
+        "star fruit",
+        "strawberry",
+        "yuzu",
+    ];
+
     public render(): any {
         return (
             <StyleSection {...this.sectionProps}>
@@ -31,6 +81,12 @@ export default class FormComponents extends React.Component<{}, {}> {
                     <A.NumberInput name="number" label="Number input" />
                     <A.EmailInput name="email" label="Email input" />
                     <A.DateTimeInput name="datetime" label="Date/Time input" />
+                    <A.AutoComplete
+                        filterOnType
+                        name="autocomplete"
+                        label="Autocomplete"
+                        options={this.autocompleteOptions}
+                    />
                 </A.Fieldset>
                 <A.Fieldset legend="Complex types">
                     <A.Select options={this.options()} onChange={this.dumpChange} value="2" name="select" label="A dropdown" />

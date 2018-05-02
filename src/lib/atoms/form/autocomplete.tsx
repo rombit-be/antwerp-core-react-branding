@@ -74,7 +74,14 @@ export class AutoComplete extends React.Component<AutoCompleteProperties, AutoCo
     }
 
     private onBlur: () => void = () => {
-        this.selectFirstOption();
+        // wait for onClick to do its thing
+        setTimeout(() => {
+            const options = this.getOptions();
+            // only select something if onClick hasn't already done so
+            if (!this.state.value || options.indexOf(this.state.value) === -1) {
+                this.selectFirstOption();
+            }
+        }, 100);
     }
 
     private onChange: (e: Event) => void = (e: Event) => {
@@ -116,7 +123,7 @@ export class AutoComplete extends React.Component<AutoCompleteProperties, AutoCo
         if (this.props.filterOnType) {
             // Filter the options
             options = options
-                .filter((x) => x.toLowerCase().indexOf(this.state.value.toLowerCase()) === 0);
+                .filter((x) => x.toLowerCase().indexOf(this.state.value.trim().toLowerCase()) === 0);
         }
         return options;
     }
