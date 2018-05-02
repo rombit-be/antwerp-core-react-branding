@@ -123,7 +123,7 @@ export class AutoComplete extends React.Component<AutoCompleteProperties, AutoCo
         if (this.props.filterOnType) {
             // Filter the options
             options = options
-                .filter((x) => x.toLowerCase().indexOf(this.state.value.toLowerCase()) === 0);
+                .filter((x) => x.toLowerCase().indexOf(this.state.value.trim().toLowerCase()) === 0);
         }
         return options;
     }
