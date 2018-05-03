@@ -6,3 +6,4 @@ lib/**/*.jsx
 npm-debug.log
 .idea/**
 coverage/**
+dist/**
