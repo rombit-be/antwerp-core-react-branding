@@ -81,7 +81,7 @@ export class AutoComplete extends React.Component<AutoCompleteProperties, AutoCo
             if (!this.state.value || options.indexOf(this.state.value) === -1) {
                 this.selectFirstOption();
             }
-        }, 100);
+        }, 200);
     }
 
     private onChange: (e: Event) => void = (e: Event) => {
